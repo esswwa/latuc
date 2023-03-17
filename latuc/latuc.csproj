@@ -29,7 +29,6 @@
 
   <ItemGroup>
     <Folder Include="Assets\" />
-    <Folder Include="Data\" />
     <Folder Include="Models\" />
     <Folder Include="Resources\" />
     <Folder Include="Services\" />
