@@ -28,12 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\" />
-    <Folder Include="Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Resources\" />
-    <Folder Include="Services\" />
-    <Folder Include="ViewModels\" />
+    <Folder Include="Assets\Converters\" />
+    <Folder Include="Resources\Image\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>
