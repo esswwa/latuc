@@ -9,7 +9,7 @@
     <Grid>
         <TextBlock HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Text="Марат соси бибу"
-               FontSize="64"/>
+                   Text="ТЕСТ"
+               FontSize="18"/>
     </Grid> 
 </Window>
