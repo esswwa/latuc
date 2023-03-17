@@ -6,8 +6,10 @@
         xmlns:local="clr-namespace:latuc"
         mc:Ignorable="d"
         Title="Latuc Code" Height="450" Width="800" Background="#2D283E">
-    <TextBlock HorizontalAlignment="Center"
+    <Grid>
+        <TextBlock HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Text="Марат соси бибу"
                FontSize="64"/>
+    </Grid> 
 </Window>
