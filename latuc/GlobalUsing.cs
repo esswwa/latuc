@@ -24,5 +24,5 @@ global using System.Globalization;
 global using System.Windows.Data;
 global using System.Windows.Media;
 global using latuc.Assets;
-global using latuc.Data.Models;
+global using latuc.Data.Model;
 global using System.Collections.ObjectModel;

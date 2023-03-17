@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:latuc"
         mc:Ignorable="d"
-        Title="Latuc Code" Height="450" Width="800" Background="#2D283E">
-    <Grid>
-       
-    </Grid> 
+        Title="Latuc Code" Height="450" Width="800" Background="#2D283E"
+        
+        DataContext="{Binding MainWindowViewModel, 
+                        Source={StaticResource ViewModelLocator}}">
+    <Frame NavigationUIVisibility="Hidden"
+           Content="{Binding PageSource}"/>
 </Window>
