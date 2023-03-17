@@ -27,7 +27,7 @@
                      Foreground="Black"
                      FontFamily="{StaticResource font}"
             
-                     materialDesign:HintAssist.Hint="Имя"
+                     materialDesign:HintAssist.Hint="Логин"
                      Margin="0 20 0 0"/>
 
         </StackPanel>
