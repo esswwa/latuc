@@ -15,7 +15,7 @@ namespace latuc
             var builder = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json");
-            _configuration = builder.Build();
+             _configuration = builder.Build();
 
             var services = new ServiceCollection();
 
