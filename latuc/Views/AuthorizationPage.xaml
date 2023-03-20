@@ -7,8 +7,7 @@
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"   
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Page1"
-      Background="#2D283E">
+      Title="Page1">
 
     <Grid>
          <StackPanel HorizontalAlignment="Center"

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:latuc"
         mc:Ignorable="d"
-        Title="Latuc Code" Height="450" Width="800" Background="#2D283E"
+        Title="Latuc Code" Height="450" Width="800" Background="#4B4B4B"
         
         DataContext="{Binding MainWindowViewModel, 
                         Source={StaticResource ViewModelLocator}}">
