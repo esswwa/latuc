@@ -7,36 +7,52 @@
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"   
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Page1">
+      Background="#4B4B4B">
 
     <Grid>
-         <StackPanel HorizontalAlignment="Center"
+        <Grid.RowDefinitions>
+            
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Center"
                     VerticalAlignment="Center">
 
             <TextBlock Text="Авторизация"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
-                       FontFamily="{StaticResource font}"
                        Foreground="White"
+                       FontFamily="{StaticResource font}"
                        FontSize="20"
                        Margin="20">
             </TextBlock>
 
-            <TextBox Grid.Row="1"
-                     Foreground="Black"
-                     FontFamily="{StaticResource font}"
-                     materialDesign:HintAssist.Hint="Логин"
-                     Margin="0 20 0 0"/>
-            <PasswordBox materialDesign:HintAssist.Hint="Пароль"
-                         Width="200"
-                         Margin="0 20 0 0"/>
-            <Button Grid.Row="5"
-                    
-                    Command="{Binding SignInCommand, IsAsync=True}"
-                    Content="Войти"
-                    Margin="0 20 0 0"/>
+            <TextBox Margin="0 20 0 0"
+                     Height="35"
+                     Width="170"
+                         
+                         
+                     Background="#D9D9D9"
+                     Foreground="#494949"
+                     materialDesign:HintAssist.Hint="Логин"/>
+
+            <PasswordBox Margin="0 20 0 0"
+                         Height="35"
+                         Width="170"
+                         
+                         
+                         Background="#D9D9D9"
+                         Foreground="#494949"
+                         materialDesign:HintAssist.Hint="Пароль"/>
+            
+            <Button Margin="0 20 0 0"
+                    Height="35"
+                    Width="200"
+                    BorderBrush="Black"
+                    Background="#D9D9D9"
+                    Content="Войти"/>
 
         </StackPanel>
     </Grid>
-    
+
 </Page>
+
+
