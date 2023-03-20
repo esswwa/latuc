@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace latuc
+﻿namespace latuc
 {
     public class ViewModelLocator
     {
@@ -21,11 +15,7 @@ namespace latuc
 
             #region ViewModel
 
-            services.AddTransient<MainWindow>();
-            //services.AddTransient<SignInViewModel>();
-            //services.AddTransient<SignUpViewModel>();
-            //services.AddTransient<BrowseProductViewModel>();
-            //services.AddTransient<BasketInfoViewModel>();
+            services.AddTransient<MainWindowViewModel>();
             #endregion
 
             #region Connection
@@ -46,22 +36,13 @@ namespace latuc
 
             services.AddSingleton<PageService>();
             services.AddSingleton<UserService>();
-            //services.AddSingleton<ProductService>();
-            //services.AddSingleton<DocumentService>();
 
             #endregion
 
             _provider = services.BuildServiceProvider();
-            //foreach (var service in services)
-            //{
-            //    _provider.GetRequiredService(service.ServiceType);
-            //}
-        }
 
-        public MainWindow? MainWindowViewModel => _provider?.GetRequiredService<MainWindow>();
-        //public SignInViewModel? SignInViewModel => _provider?.GetRequiredService<SignInViewModel>();
-        //public SignUpViewModel? SignUpViewModel => _provider?.GetRequiredService<SignUpViewModel>();
-        //public BrowseProductViewModel? BrowseProductViewModel => _provider?.GetRequiredService<BrowseProductViewModel>();
-        //public BasketInfoViewModel? BasketInfoViewModel => _provider?.GetRequiredService<BasketInfoViewModel>();
+        }
+        public MainWindowViewModel? MainWindowViewModel => _provider?.GetRequiredService<MainWindowViewModel>();
+
     }
 }
