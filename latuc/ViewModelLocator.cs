@@ -57,6 +57,9 @@ namespace latuc
             //    _provider.GetRequiredService(service.ServiceType);
             //}
         }
+
+
+
         public MainWindow? MainWindowViewModel => _provider?.GetRequiredService<MainWindow>();
         //public SignInViewModel? SignInViewModel => _provider?.GetRequiredService<SignInViewModel>();
         //public SignUpViewModel? SignUpViewModel => _provider?.GetRequiredService<SignUpViewModel>();
