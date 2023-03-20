@@ -13,5 +13,10 @@ namespace latuc
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            latuc.ViewModelLocator.Init();
+            base.OnStartup(e);
+        }
     }
 }
