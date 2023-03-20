@@ -7,8 +7,7 @@
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DesignHeight="1080" d:DesignWidth="1920"
-      Title="Achivements"
-      Background="Gray">
+      Title="Achivements">
 
     <Grid>
         <Grid.ColumnDefinitions>
