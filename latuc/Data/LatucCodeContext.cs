@@ -29,6 +29,9 @@ public partial class LatucCodeContext : DbContext
 
     public virtual DbSet<UserAchievement> UserAchievements { get; set; }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    => optionsBuilder.UseMySql("server=192.168.134.26;user=MarLHF1191);password=MarLHF1191);database=latuc_code", ServerVersion.Parse("8.0.25-mysql"));
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder
