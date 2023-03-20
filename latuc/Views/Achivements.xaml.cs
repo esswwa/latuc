@@ -18,9 +18,9 @@ namespace latuc.Views
     /// <summary>
     /// Логика взаимодействия для Page1.xaml
     /// </summary>
-    public partial class AuthorizationPage : Page
+    public partial class AchivementsPage : Page
     {
-        public AuthorizationPage()
+        public AchivementsPage()
         {
             InitializeComponent();
         }
