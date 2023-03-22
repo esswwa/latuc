@@ -17,7 +17,7 @@ namespace latuc.ViewModels
             _userService = userService;
             _pageService = pageService;
         }
-
+        
 
         public AsyncCommand Authorization => new(async () => {
 
