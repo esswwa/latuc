@@ -11,7 +11,7 @@
         {
             var user = await _latucContext.Users.SingleOrDefaultAsync(u => u.Login == username);
             if (user == null)
-                return false;
+                return false; MessageBox.Show("fsdfsd");
             if (user.Password.Equals(password))
             {
                 Settings.Default.idUser = user.Iduser;

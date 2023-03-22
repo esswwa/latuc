@@ -36,12 +36,14 @@
                      Width="170"
                      Background="#D9D9D9"
                      Foreground="#494949"
+                     Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      materialDesign:HintAssist.Hint="Логин"/>
 
             <PasswordBox Margin="0 20 0 0"
                          Height="35"
                          Width="170"
                          Background="#D9D9D9"
+                         materialDesign:PasswordBoxAssist.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                          Foreground="#494949"
                          materialDesign:HintAssist.Hint="Пароль"/>
             
