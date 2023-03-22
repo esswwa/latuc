@@ -37,5 +37,10 @@ namespace latuc.ViewModels
                 }
             });
         });
+
+        public DelegateCommand Registration => new(async () => {
+
+            await Application.Current.Dispatcher.InvokeAsync(async () => _pageService.ChangePage(new RegistrationPage()));
+        }); 
     }
 }

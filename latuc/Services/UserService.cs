@@ -24,6 +24,25 @@
             }
             return false;
         }
+
+        public async Task RegistrationAsync(string email, string login, string password, int idStatistic, int idAchievemnts) {
+
+            await _latucContext.Users.AddAsync(new User
+            {
+                Email = email, 
+                Login = login,
+                Password = password,
+                IdStatistics = idStatistic,
+                IdAchievemnts = idAchievemnts
+            });
+            await _latucContext.SaveChangesAsync();
+        }
+
+        public async Task GetMaxIdUser (){
+
+           // return await _latucContext.Users.Select(u => _latucContext.Users.Max(u.IdAchievemntsNavigation)).AsNoTracking();
+        }
+
     }
 }
 
