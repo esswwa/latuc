@@ -16,6 +16,17 @@
             #region ViewModel
 
             services.AddTransient<MainWindowViewModel>();
+            services.AddTransient<AuthorizationViewModel>();
+            services.AddTransient<AchivementsViewModel>();
+            services.AddTransient<LearnPracticViewModel>();
+            services.AddTransient<LearnTestViewModel>();
+            services.AddTransient<LearnTheoryViewModel>();
+            services.AddTransient<MenuViewModel>();
+            services.AddTransient<ProfileViewModel>();
+            services.AddTransient<TestPageViewModel>();
+            services.AddTransient<LearnViewModel>();
+            services.AddTransient<RegistrationViewModel>();
+
             #endregion
 
             #region Connection
@@ -43,6 +54,16 @@
 
         }
         public MainWindowViewModel? MainWindowViewModel => _provider?.GetRequiredService<MainWindowViewModel>();
+        public AuthorizationViewModel? AuthorizationViewModel => _provider?.GetRequiredService<AuthorizationViewModel>();
+        public AchivementsViewModel? AchivementsViewModel => _provider?.GetRequiredService<AchivementsViewModel>();
+        public LearnPracticViewModel? LearnPracticViewModel => _provider?.GetRequiredService<LearnPracticViewModel>();
+        public LearnTestViewModel? LearnTestViewModel => _provider?.GetRequiredService<LearnTestViewModel>();
+        public LearnTheoryViewModel? LearnTheoryViewModel => _provider?.GetRequiredService<LearnTheoryViewModel>();
+        public MenuViewModel? MenuViewModel => _provider?.GetRequiredService<MenuViewModel>();
+        public ProfileViewModel? ProfileViewModel => _provider?.GetRequiredService<ProfileViewModel>();
+        public TestPageViewModel? TestPageViewModel => _provider?.GetRequiredService<TestPageViewModel>();
+        public LearnViewModel? LearnViewModel => _provider?.GetRequiredService<LearnViewModel>();
 
+        public RegistrationViewModel? RegistrationViewModel => _provider?.GetRequiredService<RegistrationViewModel>();
     }
 }
