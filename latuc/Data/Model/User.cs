@@ -23,5 +23,5 @@ public partial class User
 
     public virtual ICollection<LevelsStatistic> LevelsStatistics { get; } = new List<LevelsStatistic>();
 
-    public virtual ICollection<Top> Tops { get; } = new List<Top>();
+    public virtual ICollection<UserAchievement> UserAchievements { get; } = new List<UserAchievement>();
 }

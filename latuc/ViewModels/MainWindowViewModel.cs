@@ -10,7 +10,7 @@
 
             _pageService.onPageChanged += (page) => PageSource = page;
 
-            //_pageService.ChangePage(new AuthorizationPage());
+            _pageService.ChangePage(new AuthorizationPage());
         }
     }
 }

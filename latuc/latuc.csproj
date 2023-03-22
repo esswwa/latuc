@@ -38,11 +38,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\Converters\" />
     <Folder Include="Models\" />
     <Folder Include="Resources\" />
     <Folder Include="Services\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 
   <ItemGroup>
