@@ -10,13 +10,24 @@
       Title="Achivements">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <TextBlock Text="Достижения"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    FontFamily="{StaticResource font}"
                    Foreground="White"
-                   FontSize="20"
-                   Margin="20">
+                   FontSize="37"
+                   Grid.Column="1"
+                   Grid.Row="0">
         </TextBlock>
 
         <Button HorizontalAlignment="Left"
@@ -24,6 +35,23 @@
                 Command="{Binding BackCommand, IsAsync=True}"
                 Content="Назад"
                 FontSize="24"
-                Height="40"/>
+                Height="40">
+        </Button>
+
+        <ScrollViewer Grid.Column="1" Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>
