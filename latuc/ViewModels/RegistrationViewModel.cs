@@ -23,9 +23,10 @@ namespace latuc.ViewModels
         public AsyncCommand Registration => new(async () =>
         {
 
+           // Task<List<int>> search_max_value = _userService.GetMaxIdUser();
+           // int max = search_max_value;
 
-
-          //  await _userService.RegistrationAsync(Email, Login, Password);
+           //await _userService.RegistrationAsync(Email, Login, Password);
 
 
         });
