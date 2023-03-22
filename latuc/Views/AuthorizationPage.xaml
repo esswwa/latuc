@@ -7,12 +7,18 @@
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"   
       d:DesignHeight="450" d:DesignWidth="800"
+      DataContext="{Binding AuthorizationViewModel, 
+                        Source={StaticResource ViewModelLocator}}"
       Background="#4B4B4B">
 
     <Grid>
         <Grid.RowDefinitions>
             
         </Grid.RowDefinitions>
+        
+        
+        
+        
         <StackPanel HorizontalAlignment="Center"
                     VerticalAlignment="Center">
 
@@ -28,8 +34,6 @@
             <TextBox Margin="0 20 0 0"
                      Height="35"
                      Width="170"
-                         
-                         
                      Background="#D9D9D9"
                      Foreground="#494949"
                      materialDesign:HintAssist.Hint="Логин"/>
@@ -37,8 +41,6 @@
             <PasswordBox Margin="0 20 0 0"
                          Height="35"
                          Width="170"
-                         
-                         
                          Background="#D9D9D9"
                          Foreground="#494949"
                          materialDesign:HintAssist.Hint="Пароль"/>
@@ -48,7 +50,17 @@
                     Width="200"
                     BorderBrush="Black"
                     Background="#D9D9D9"
+                    Command="{Binding Authorization, IsAsync=True}"
                     Content="Войти"/>
+
+            <Button Margin="0,20"
+                    Foreground="#D9D9D9" 
+                    Style="{StaticResource ButtonToText}" 
+                    Command="{Binding SignInCommand}"
+                    FontFamily="{StaticResource font}"
+                    Cursor="Hand">
+                <Underline>Нет аккаунта?</Underline>
+            </Button>
 
         </StackPanel>
     </Grid>

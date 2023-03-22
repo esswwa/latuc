@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace latuc.Data.Model;
 
-
 public partial class Level
 {
     public int Idlevels { get; set; }
@@ -13,4 +12,14 @@ public partial class Level
     public string AnswerPractic { get; set; } = null!;
 
     public string Question { get; set; } = null!;
+
+    public int ScoreTest { get; set; }
+
+    public int ScorePractic { get; set; }
+
+    public int Options { get; set; }
+
+    public virtual LevelsStatistic? LevelsStatistic { get; set; }
+
+    public virtual Option OptionsNavigation { get; set; } = null!;
 }

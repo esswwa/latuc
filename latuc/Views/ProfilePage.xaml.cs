@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace latuc.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Achivements.xaml
+    /// Логика взаимодействия для ProfilePage.xaml
     /// </summary>
-    public partial class Achivements : Page
+    public partial class ProfilePage : Page
     {
-        public Achivements()
+        public ProfilePage()
         {
             InitializeComponent();
         }

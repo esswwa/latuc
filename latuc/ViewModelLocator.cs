@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace latuc
+﻿namespace latuc
 {
     public class ViewModelLocator
     {
@@ -15,30 +9,37 @@ namespace latuc
             var builder = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json");
-             _configuration = builder.Build();
+            _configuration = builder.Build();
 
             var services = new ServiceCollection();
 
             #region ViewModel
 
-            services.AddTransient<MainWindow>();
-            //services.AddTransient<SignInViewModel>();
-            //services.AddTransient<SignUpViewModel>();
-            //services.AddTransient<BrowseProductViewModel>();
-            //services.AddTransient<BasketInfoViewModel>();
+            services.AddTransient<MainWindowViewModel>();
+            services.AddTransient<AuthorizationViewModel>();
+            services.AddTransient<AchivementsViewModel>();
+            services.AddTransient<LearnPracticViewModel>();
+            services.AddTransient<LearnTestViewModel>();
+            services.AddTransient<LearnTheoryViewModel>();
+            services.AddTransient<MenuViewModel>();
+            services.AddTransient<ProfileViewModel>();
+            services.AddTransient<TestPageViewModel>();
+            services.AddTransient<LearnViewModel>();
+            services.AddTransient<RegistrationViewModel>();
+
             #endregion
 
             #region Connection
 
-            services.AddDbContext<LatucCodeContext>(options =>
-            {
-                try
-                {
-                    var conn = _configuration.GetConnectionString("LocalConnection");
-                    options.UseMySql(conn, ServerVersion.AutoDetect(conn));
-                }
-                catch (MySqlConnector.MySqlException) { }
-            }, ServiceLifetime.Singleton);
+            //services.AddDbContext<LatucCodeContext>(options =>
+            //{
+            //    try
+            //    {
+            //        var conn = _configuration.GetConnectionString("LocalConnection");
+            //        options.UseMySql(conn, ServerVersion.AutoDetect(conn));
+            //    }
+            //    catch (MySqlConnector.MySqlException) { }
+            //}, ServiceLifetime.Singleton);
 
             #endregion
 
@@ -46,22 +47,23 @@ namespace latuc
 
             services.AddSingleton<PageService>();
             services.AddSingleton<UserService>();
-            //services.AddSingleton<ProductService>();
-            //services.AddSingleton<DocumentService>();
 
             #endregion
 
             _provider = services.BuildServiceProvider();
-            //foreach (var service in services)
-            //{
-            //    _provider.GetRequiredService(service.ServiceType);
-            //}
-        }
 
-        public MainWindow? MainWindowViewModel => _provider?.GetRequiredService<MainWindow>();
-        //public SignInViewModel? SignInViewModel => _provider?.GetRequiredService<SignInViewModel>();
-        //public SignUpViewModel? SignUpViewModel => _provider?.GetRequiredService<SignUpViewModel>();
-        //public BrowseProductViewModel? BrowseProductViewModel => _provider?.GetRequiredService<BrowseProductViewModel>();
-        //public BasketInfoViewModel? BasketInfoViewModel => _provider?.GetRequiredService<BasketInfoViewModel>();
+        }
+        public MainWindowViewModel? MainWindowViewModel => _provider?.GetRequiredService<MainWindowViewModel>();
+        public AuthorizationViewModel? AuthorizationViewModel => _provider?.GetRequiredService<AuthorizationViewModel>();
+        public AchivementsViewModel? AchivementsViewModel => _provider?.GetRequiredService<AchivementsViewModel>();
+        public LearnPracticViewModel? LearnPracticViewModel => _provider?.GetRequiredService<LearnPracticViewModel>();
+        public LearnTestViewModel? LearnTestViewModel => _provider?.GetRequiredService<LearnTestViewModel>();
+        public LearnTheoryViewModel? LearnTheoryViewModel => _provider?.GetRequiredService<LearnTheoryViewModel>();
+        public MenuViewModel? MenuViewModel => _provider?.GetRequiredService<MenuViewModel>();
+        public ProfileViewModel? ProfileViewModel => _provider?.GetRequiredService<ProfileViewModel>();
+        public TestPageViewModel? TestPageViewModel => _provider?.GetRequiredService<TestPageViewModel>();
+        public LearnViewModel? LearnViewModel => _provider?.GetRequiredService<LearnViewModel>();
+
+        public RegistrationViewModel? RegistrationViewModel => _provider?.GetRequiredService<RegistrationViewModel>();
     }
 }
