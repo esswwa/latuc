@@ -15,6 +15,10 @@
         <Grid.RowDefinitions>
             
         </Grid.RowDefinitions>
+        
+        
+        
+        
         <StackPanel HorizontalAlignment="Center"
                     VerticalAlignment="Center">
 
@@ -48,6 +52,15 @@
                     Background="#D9D9D9"
                     Command="{Binding Authorization, IsAsync=True}"
                     Content="Войти"/>
+
+            <Button Margin="0,20"
+                    Foreground="#D9D9D9" 
+                    Style="{StaticResource ButtonToText}" 
+                    Command="{Binding SignInCommand}"
+                    FontFamily="{StaticResource font}"
+                    Cursor="Hand">
+                <Underline>Нет аккаунта?</Underline>
+            </Button>
 
         </StackPanel>
     </Grid>
