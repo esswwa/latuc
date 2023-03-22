@@ -1,4 +1,4 @@
-﻿namespace latuc.Data.Model
+﻿namespace latuc
 {
     public class ViewModelLocator
     {
