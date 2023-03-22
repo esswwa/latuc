@@ -15,7 +15,7 @@ namespace latuc
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            latuc.ViewModelLocator.Init();
+            Data.Model.ViewModelLocator.Init();
             base.OnStartup(e);
         }
     }

@@ -19,19 +19,19 @@ namespace latuc.ViewModels
         }
         
 
-        public AsyncCommand Authorization => new(async () => {
+        //public AsyncCommand Authorization => new(async () => {
 
-            await Task.Run(async () => {
+        //    await Task.Run(async () => {
 
-                if (await _userService.AuthorizationAsync(Username, Password))
-                {
-                    await Application.Current.Dispatcher.InvokeAsync(async () => _pageService.ChangePage(new MenuPage()));
-                }
-                else {
+        //        if (await _userService.AuthorizationAsync(Username, Password))
+        //        {
+        //            await Application.Current.Dispatcher.InvokeAsync(async () => _pageService.ChangePage(new MenuPage()));
+        //        }
+        //        else {
 
-                    MessageBox.Show("Let`s try");                
-                }
-            });
-        });
+        //            MessageBox.Show("Let`s try");                
+        //        }
+        //    });
+        //});
     }
 }
