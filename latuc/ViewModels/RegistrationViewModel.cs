@@ -22,13 +22,11 @@ namespace latuc.ViewModels
 
         public AsyncCommand Registration => new(async () =>
         {
+            MessageBox.Show("DDDD");
 
-           // Task<List<int>> search_max_value = _userService.GetMaxIdUser();
-           // int max = search_max_value;
-
-           //await _userService.RegistrationAsync(Email, Login, Password);
-
-
+            int maxUser = _userService.GetMaxIdUser() + 1;
+            await _userService.RegistrationAsync(Email, Login, Password, maxUser, maxUser);
+            _pageService.ChangePage(new AuthorizationPage());
         });
     }
 }
