@@ -27,6 +27,7 @@ namespace latuc.ViewModels
 
                 if (await _userService.AuthorizationAsync(Username, Password))
                 {
+                    MessageBox.Show("fdsfsdfds");
                     await Application.Current.Dispatcher.InvokeAsync(async () => _pageService.ChangePage(new MenuPage()));
                 }
                 else
@@ -36,5 +37,10 @@ namespace latuc.ViewModels
                 }
             });
         });
+
+        public DelegateCommand Registration => new(async () => {
+
+            await Application.Current.Dispatcher.InvokeAsync(async () => _pageService.ChangePage(new RegistrationPage()));
+        }); 
     }
 }
