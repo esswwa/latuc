@@ -38,9 +38,9 @@
             await _latucContext.SaveChangesAsync();
         }
 
-        public async Task<List<int>> GetMaxIdUser (){
+        public int GetMaxIdUser (){
 
-            return await _latucContext.Users.Select(u => u.Iduser).ToListAsync();
+            return _latucContext.Users.Max(u => u.Iduser);
         }
 
     }
