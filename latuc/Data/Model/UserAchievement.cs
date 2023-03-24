@@ -15,7 +15,5 @@ public partial class UserAchievement
 
     public virtual Achievement IdAchievementsNavigation { get; set; } = null!;
 
-    public virtual User IdUserNavigation { get; set; } = null!;
-
     public virtual ICollection<User> Users { get; } = new List<User>();
 }
