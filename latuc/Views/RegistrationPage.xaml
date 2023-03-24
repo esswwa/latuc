@@ -36,6 +36,13 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
+            <Grid.Effect>
+                <DropShadowEffect Color="Gray"
+                                  RenderingBias="Performance"
+                                  Opacity="0.7"
+                                  materialDesign:ShadowAssist.ShadowAnimationDuration="1"
+                                  />
+            </Grid.Effect>
             <TextBlock Text="Регистрация"
                            FontFamily="Arial"
                            Grid.Row="0"
