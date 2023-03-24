@@ -23,6 +23,7 @@ namespace latuc.Views
         public AuthorizationPage()
         {
             InitializeComponent();
+
         }
-    }
+    }   
 }

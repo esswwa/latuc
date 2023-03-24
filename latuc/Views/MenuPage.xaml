@@ -43,7 +43,7 @@
                                   materialDesign:ShadowAssist.ShadowAnimationDuration="1"
                                   />
             </Grid.Effect>
-            <TextBlock Text="Регистрация"
+            <TextBlock Text="Профиль"
                            FontFamily="Arial"
                            Grid.Row="0"
                            FontSize="25"
