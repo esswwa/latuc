@@ -24,9 +24,8 @@ namespace latuc.ViewModels
         public AsyncCommand Registration => new(async () =>
         {
             int maxUser = _userService.GetMaxIdUser() + 1;
-            MessageBox.Show(maxUser.ToString());
-            maxUser = 0;
-            
+            await _userService.AchievementsAsync(maxUser, 0, maxUser, 0);
+            await _userService.StatisticsAsync(maxUser, 0, 0, 0, 0, 0);
             await _userService.RegistrationAsync(Email, Login, Password, maxUser, maxUser);
             _pageService.ChangePage(new AuthorizationPage());
         });
