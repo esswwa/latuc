@@ -9,7 +9,7 @@
         Title="Latuc Code" Height="450" Width="800" Background="#D6E4F0"
         DataContext="{Binding MainWindowViewModel, 
         Source={StaticResource ViewModelLocator}}"
-        MinWidth="300"
+        MinWidth="360"
         MinHeight="450">
     
     <Grid>
