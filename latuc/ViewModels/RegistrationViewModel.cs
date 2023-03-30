@@ -22,11 +22,13 @@ namespace latuc.ViewModels
 
         public AsyncCommand Registration => new(async () =>
         {
-            MessageBox.Show("DDDD");
-
             int maxUser = _userService.GetMaxIdUser() + 1;
             await _userService.RegistrationAsync(Email, Login, Password, maxUser, maxUser);
             _pageService.ChangePage(new AuthorizationPage());
+        });
+        public DelegateCommand Authorization => new(async () => {
+
+            await Application.Current.Dispatcher.InvokeAsync(async () => _pageService.ChangePage(new AuthorizationPage()));
         });
     }
 }

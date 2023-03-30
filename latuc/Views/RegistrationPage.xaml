@@ -43,19 +43,21 @@
                              Height="40"
                              Width="200"
                              materialDesign:HintAssist.Hint="Почта"
-                             Style="{StaticResource MaterialDesignTextBox}"
+                             Style="{StaticResource TextBoxStyle1}"
                              Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBox Grid.Row="2"
                              Height="40"
                              Width="200"
                              materialDesign:HintAssist.Hint="Логин"
-                             Style="{StaticResource MaterialDesignTextBox}"                        
+                             Style="{StaticResource TextBoxStyle1}"                        
                              Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <PasswordBox Grid.Row="3"
                                  Height="40"
                                  Width="200"
                                  materialDesign:HintAssist.Hint="Пароль"
-                                 materialDesign:PasswordBoxAssist.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                 materialDesign:PasswordBoxAssist.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"                           
+                                 Style="{StaticResource PasswordBoxStyle1}"/>
+
                     <Button Grid.Row="4"
                             Style="{StaticResource ButtonStyle1}"
                             Content="Зарегистрироваться"
@@ -68,7 +70,7 @@
                             Style="{StaticResource ButtonToText}"
                             Command="{Binding Authorization}"
                             FontFamily="{StaticResource font}"
-                            Content="Нет аккаунта?"
+                            Content="Есть аккаунта?"
                             Cursor="Hand">
                     </Button>
                 </Grid>

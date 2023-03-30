@@ -45,14 +45,16 @@
                              Height="40"
                              Width="200"
                              materialDesign:HintAssist.Hint="Логин"
-                             Style="{StaticResource MaterialDesignTextBox}"
+                             Style="{StaticResource TextBoxStyle1}"
                              Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <PasswordBox Grid.Row="2"
                                  Height="40"
                                  Width="200"
                                  materialDesign:HintAssist.Hint="Пароль"
-                                 materialDesign:PasswordBoxAssist.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                 materialDesign:PasswordBoxAssist.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource PasswordBoxStyle1}"
+                                 materialDesign:TextFieldAssist.HasClearButton="True"/>
 
                     <Button Grid.Row="3"
                             Style="{StaticResource ButtonStyle1}"
