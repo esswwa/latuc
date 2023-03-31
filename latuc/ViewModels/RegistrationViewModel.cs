@@ -32,7 +32,7 @@ namespace latuc.ViewModels
             int maxUser = _userService.GetMaxIdUser() + 1;
             await _userService.AchievementsAsync(maxUser, 0, maxUser, 0);
             await _userService.StatisticsAsync(maxUser, 0, 0, 0, 0, 0);
-            await _userService.RegistrationAsync(Email, Login, Password, maxUser, maxUser);
+            await _userService.RegistrationAsync(Email, Login, Password, maxUser, maxUser, 0);
             _pageService.ChangePage(new AuthorizationPage());
         }, bool () => {
             if (string.IsNullOrWhiteSpace(Email)
