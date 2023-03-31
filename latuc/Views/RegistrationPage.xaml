@@ -41,24 +41,33 @@
                                Text="Регистрация"
                                Style="{StaticResource TextBlockStyle1}"/>
                     <TextBox Grid.Row="1"
-                             Height="40"
+                             Height="50"
                              Width="200"
                              materialDesign:HintAssist.Hint="Почта"
+                             materialDesign:HintAssist.Foreground="#424874"
+                             BorderBrush="#D6E4F0"
+                             Foreground="#424874"
                              Style="{StaticResource TextBoxStyle1}"
                              Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBox Grid.Row="2"
-                             Height="40"
+                             Height="50"
                              Width="200"
                              materialDesign:HintAssist.Hint="Логин"
+                             materialDesign:HintAssist.Foreground="#424874"
+                             BorderBrush="#D6E4F0"
+                             Foreground="#424874"
                              Style="{StaticResource TextBoxStyle1}"                        
                              Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <PasswordBox Grid.Row="3"
-                                 Height="40"
+                                 Height="50"
                                  Width="200"
                                  materialDesign:HintAssist.Hint="Пароль"
+                                 materialDesign:HintAssist.Foreground="#424874"
+                                 BorderBrush="#D6E4F0"
+                                 Foreground="#424874"
                                  materialDesign:PasswordBoxAssist.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"                           
                                  Style="{StaticResource PasswordBoxStyle1}"/>
-                    
+
                     <TextBlock Grid.Row="4"
                        Style="{StaticResource pwsTextBlockError}"
                        Text="{Binding ErrorMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
