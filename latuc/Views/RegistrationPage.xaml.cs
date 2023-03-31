@@ -24,6 +24,5 @@ namespace latuc.Views
         {
             InitializeComponent();
         }
-
     }
 }
