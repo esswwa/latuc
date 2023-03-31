@@ -30,7 +30,8 @@ public partial class LatucCodeContext : DbContext
     public virtual DbSet<UserAchievement> UserAchievements { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseMySql("server=localhost;user=root;password=MarLHF1191);database=latuc_code", ServerVersion.Parse("8.0.31-mysql"));
+
+        => optionsBuilder.UseMySql("server=localhost;user=root;password=Qwerty123;database=latuc_code", ServerVersion.Parse("8.0.25-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -193,8 +194,6 @@ public partial class LatucCodeContext : DbContext
 
             entity.HasIndex(e => e.IdAchievements, "FK_userAchievement_user_idx");
 
-            entity.HasIndex(e => e.IdUser, "FK_user_id_user_idx");
-
             entity.Property(e => e.IduserAchievements)
                 .ValueGeneratedNever()
                 .HasColumnName("iduser_achievements");
@@ -206,11 +205,6 @@ public partial class LatucCodeContext : DbContext
                 .HasForeignKey(d => d.IdAchievements)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_userAchievement_user");
-
-            entity.HasOne(d => d.IdUserNavigation).WithMany(p => p.UserAchievements)
-                .HasForeignKey(d => d.IdUser)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_user_id_user");
         });
 
         OnModelCreatingPartial(modelBuilder);

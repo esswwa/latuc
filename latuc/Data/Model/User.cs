@@ -22,6 +22,4 @@ public partial class User
     public virtual Statistic IdStatisticsNavigation { get; set; } = null!;
 
     public virtual ICollection<LevelsStatistic> LevelsStatistics { get; } = new List<LevelsStatistic>();
-
-    public virtual ICollection<UserAchievement> UserAchievements { get; } = new List<UserAchievement>();
 }
