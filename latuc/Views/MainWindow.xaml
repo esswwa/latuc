@@ -6,9 +6,21 @@
         xmlns:local="clr-namespace:latuc.Views"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
         mc:Ignorable="d"
-        Title="Latuc Code" Height="450" Width="800" Background="#4B4B4B"
+        Title="Latuc Code" Height="450" Width="800" Background="#D6E4F0"
         DataContext="{Binding MainWindowViewModel, 
-                        Source={StaticResource ViewModelLocator}}">
-    <Frame NavigationUIVisibility="Hidden"
+        Source={StaticResource ViewModelLocator}}"
+        MinWidth="360"
+        MinHeight="450">
+    
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#424874" Offset="0"/>
+                <GradientStop Color="#D6E4F0" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Frame NavigationUIVisibility="Hidden"
            Content="{Binding PageSource}"/>
+    </Grid>
+   
 </Window>
