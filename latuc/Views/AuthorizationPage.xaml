@@ -53,8 +53,7 @@
                                  Width="200"
                                  materialDesign:HintAssist.Hint="Пароль"
                                  materialDesign:PasswordBoxAssist.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                 Style="{StaticResource PasswordBoxStyle1}"
-                                 materialDesign:TextFieldAssist.HasClearButton="True"/>
+                                 Style="{StaticResource PasswordBoxStyle1}"/>
 
                     <Button Grid.Row="3"
                             Style="{StaticResource ButtonStyle1}"
