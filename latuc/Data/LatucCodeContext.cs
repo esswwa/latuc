@@ -25,13 +25,17 @@ public partial class LatucCodeContext : DbContext
 
     public virtual DbSet<Statistic> Statistics { get; set; }
 
+    public virtual DbSet<Theory> Theories { get; set; }
+
     public virtual DbSet<User> Users { get; set; }
 
     public virtual DbSet<UserAchievement> UserAchievements { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public virtual DbSet<UserRole> UserRoles { get; set; }
 
-        => optionsBuilder.UseMySql("server=localhost;user=root;password=Qwerty123;database=latuc_code", ServerVersion.Parse("8.0.25-mysql"));
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseMySql("server=localhost;user=root;password=Qwerty123;database=latuc_code",
+            ServerVersion.Parse("8.0.31-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -66,6 +70,8 @@ public partial class LatucCodeContext : DbContext
 
             entity.HasIndex(e => e.Options, "FK_option_idx");
 
+            entity.HasIndex(e => e.IdTheory, "fk_theory_idTheory_idx");
+
             entity.Property(e => e.Idlevels)
                 .ValueGeneratedNever()
                 .HasColumnName("idlevels");
@@ -73,12 +79,19 @@ public partial class LatucCodeContext : DbContext
             entity.Property(e => e.AnswerPractic)
                 .HasMaxLength(45)
                 .HasColumnName("answer_practic");
+            entity.Property(e => e.IdTheory).HasColumnName("id_theory");
+            entity.Property(e => e.LanguageLvl).HasColumnName("language_lvl");
             entity.Property(e => e.Options).HasColumnName("options");
             entity.Property(e => e.Question)
                 .HasMaxLength(120)
                 .HasColumnName("question");
             entity.Property(e => e.ScorePractic).HasColumnName("score_practic");
             entity.Property(e => e.ScoreTest).HasColumnName("score_test");
+
+            entity.HasOne(d => d.IdTheoryNavigation).WithMany(p => p.Levels)
+                .HasForeignKey(d => d.IdTheory)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_theory_idTheory");
 
             entity.HasOne(d => d.OptionsNavigation).WithMany(p => p.Levels)
                 .HasForeignKey(d => d.Options)
@@ -152,6 +165,20 @@ public partial class LatucCodeContext : DbContext
             entity.Property(e => e.Score).HasColumnName("score");
         });
 
+        modelBuilder.Entity<Theory>(entity =>
+        {
+            entity.HasKey(e => e.IdTheory).HasName("PRIMARY");
+
+            entity.ToTable("theory");
+
+            entity.Property(e => e.IdTheory)
+                .ValueGeneratedNever()
+                .HasColumnName("id_theory");
+            entity.Property(e => e.Text)
+                .HasColumnType("mediumtext")
+                .HasColumnName("text");
+        });
+
         modelBuilder.Entity<User>(entity =>
         {
             entity.HasKey(e => e.Iduser).HasName("PRIMARY");
@@ -161,6 +188,8 @@ public partial class LatucCodeContext : DbContext
             entity.HasIndex(e => e.IdAchievemnts, "FK_idAchiev_From_User_idx");
 
             entity.HasIndex(e => e.IdStatistics, "FK_statistic_Fqrom_User_idx");
+
+            entity.HasIndex(e => e.Role, "fk_userRole_idx");
 
             entity.Property(e => e.Iduser).HasColumnName("iduser");
             entity.Property(e => e.Email)
@@ -174,6 +203,7 @@ public partial class LatucCodeContext : DbContext
             entity.Property(e => e.Password)
                 .HasMaxLength(45)
                 .HasColumnName("password");
+            entity.Property(e => e.Role).HasColumnName("role");
 
             entity.HasOne(d => d.IdAchievemntsNavigation).WithMany(p => p.Users)
                 .HasForeignKey(d => d.IdAchievemnts)
@@ -184,6 +214,11 @@ public partial class LatucCodeContext : DbContext
                 .HasForeignKey(d => d.IdStatistics)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_statistic_Fqrom_User");
+
+            entity.HasOne(d => d.RoleNavigation).WithMany(p => p.Users)
+                .HasForeignKey(d => d.Role)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_userRole");
         });
 
         modelBuilder.Entity<UserAchievement>(entity =>
@@ -205,6 +240,20 @@ public partial class LatucCodeContext : DbContext
                 .HasForeignKey(d => d.IdAchievements)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_userAchievement_user");
+        });
+
+        modelBuilder.Entity<UserRole>(entity =>
+        {
+            entity.HasKey(e => e.IduserRole).HasName("PRIMARY");
+
+            entity.ToTable("user_role");
+
+            entity.Property(e => e.IduserRole)
+                .ValueGeneratedNever()
+                .HasColumnName("iduser_role");
+            entity.Property(e => e.Role)
+                .HasMaxLength(45)
+                .HasColumnName("role");
         });
 
         OnModelCreatingPartial(modelBuilder);

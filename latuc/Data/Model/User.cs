@@ -17,9 +17,13 @@ public partial class User
 
     public int IdAchievemnts { get; set; }
 
+    public int Role { get; set; }
+
     public virtual UserAchievement IdAchievemntsNavigation { get; set; } = null!;
 
     public virtual Statistic IdStatisticsNavigation { get; set; } = null!;
 
     public virtual ICollection<LevelsStatistic> LevelsStatistics { get; } = new List<LevelsStatistic>();
+
+    public virtual UserRole RoleNavigation { get; set; } = null!;
 }

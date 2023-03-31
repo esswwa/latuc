@@ -22,21 +22,23 @@ namespace latuc.Services
                 Settings.Default.userPassword = user.Password;
                 Settings.Default.idStatistic = user.IdStatistics;
                 Settings.Default.idAchievments = user.IdAchievemnts;
+                Settings.Default.Role = user.Role;
                 return true;
             }
             return false;
         }
 
-        public async Task RegistrationAsync(string email, string login, string password, int idStatistic, int idAchievemnts) {
+        public async Task RegistrationAsync(string email, string login, string password, int idStatistic, int idAchievemnts, int Role) {
 
             await _latucContext.Users.AddAsync(new User
             {
-                Email = email, 
+                Email = email,
                 Login = login,
                 Password = password,
                 IdStatistics = idStatistic,
-                IdAchievemnts = idAchievemnts
-            });
+                IdAchievemnts = idAchievemnts,
+                Role = Role
+            }); ;
             await _latucContext.SaveChangesAsync();
         }
 
