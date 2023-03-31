@@ -30,8 +30,9 @@
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0"
@@ -57,15 +58,22 @@
                                  materialDesign:HintAssist.Hint="Пароль"
                                  materialDesign:PasswordBoxAssist.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"                           
                                  Style="{StaticResource PasswordBoxStyle1}"/>
+                    
+                    <TextBlock Grid.Row="4"
+                       Style="{StaticResource pwsTextBlockError}"
+                       Text="{Binding ErrorMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock Grid.Row="4"
+                       Style="{StaticResource pwsTextBlockError}"
+                       Text="{Binding ErrorMessageButton, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <Button Grid.Row="4"
+                    <Button Grid.Row="5"
                             Style="{StaticResource ButtonStyle1}"
                             Content="Зарегистрироваться"
                             Command="{Binding Registration}"
                             Margin="0,12"
                             Width="200"
                             FontFamily="font"/>
-                    <Button Grid.Row="5"
+                    <Button Grid.Row="6"
                             Foreground="#424874"
                             Style="{StaticResource ButtonToText}"
                             Command="{Binding Authorization}"

@@ -12,6 +12,8 @@ namespace latuc.ViewModels
         private readonly PageService _pageService;
         public string Username { get; set; }
         public string Password { get; set; }
+        public string ErrorMessage { get; set; }
+        public string ErrorMessageButton { get; set; }
         public AuthorizationViewModel(UserService userService, PageService pageService)
         {
             _userService = userService;
@@ -27,15 +29,25 @@ namespace latuc.ViewModels
 
                 if (await _userService.AuthorizationAsync(Username, Password))
                 {
-                    MessageBox.Show("fdsfsdfds");
                     await Application.Current.Dispatcher.InvokeAsync(async () => _pageService.ChangePage(new MenuPage()));
                 }
                 else
                 {
-
-                    MessageBox.Show("Let`s try");
+                   ErrorMessageButton = "Неверный логин или пароль";
                 }
             });
+        }, bool () => {
+
+            if (string.IsNullOrWhiteSpace(Username)
+                  || string.IsNullOrWhiteSpace(Password))
+            {
+                ErrorMessage = "Пустые поля";
+                ErrorMessageButton = ErrorMessageButton != string.Empty ? string.Empty : ErrorMessageButton;
+            }
+            else
+                ErrorMessage = string.Empty;
+
+            return ErrorMessage == string.Empty;
         });
 
         public DelegateCommand Registration => new(async () => {

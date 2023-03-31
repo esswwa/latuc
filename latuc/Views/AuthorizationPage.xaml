@@ -28,11 +28,12 @@
             <Border Grid.Row="1" Background ="White" CornerRadius="20">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0"
@@ -54,8 +55,14 @@
                                  materialDesign:HintAssist.Hint="Пароль"
                                  materialDesign:PasswordBoxAssist.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                  Style="{StaticResource PasswordBoxStyle1}"/>
+                    <TextBlock Grid.Row="3"
+                       Style="{StaticResource pwsTextBlockError}"
+                       Text="{Binding ErrorMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock Grid.Row="3"
+                       Style="{StaticResource pwsTextBlockError}"
+                       Text="{Binding ErrorMessageButton, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <Button Grid.Row="3"
+                    <Button Grid.Row="4"
                             Style="{StaticResource ButtonStyle1}"
                             Content="Войти"
                             Command="{Binding Authorization, IsAsync=True}"
@@ -63,7 +70,7 @@
                             Width="200"
                             FontFamily="font"/>
 
-                    <Button Grid.Row="4"
+                    <Button Grid.Row="5"
                             Foreground="#424874"
                             Style="{StaticResource ButtonToText}" 
                             Command="{Binding Registration}"
