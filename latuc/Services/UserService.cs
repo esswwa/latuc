@@ -73,8 +73,12 @@ namespace latuc.Services
 
             return _latucContext.Users.Max(u => u.Iduser);
         }
- 
 
+        public async Task<List<string>> GetAllUser()
+        {
+
+            return await _latucContext.Users.Select(u => u.Login).AsNoTracking().ToListAsync();
+        }
     }
 }
 

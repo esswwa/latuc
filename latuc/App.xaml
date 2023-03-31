@@ -100,7 +100,19 @@
                 <Setter Property="Padding" Value="5"/>
             </Style>
 
+            <FontFamily x:Key="mainFont">Arial</FontFamily>
 
+            <Style x:Key="pwsTextBlockError"
+                   TargetType="{x:Type TextBlock}">
+                <Setter Property="Foreground"
+                        Value="#75151e"/>
+                <Setter Property="HorizontalAlignment"
+                        Value="Left"/>
+                <Setter Property="Margin"
+                        Value="0 2 0 0"/>
+                <Setter Property="FontFamily"
+                        Value="{StaticResource mainFont}"/>
+            </Style>
 
 
 
