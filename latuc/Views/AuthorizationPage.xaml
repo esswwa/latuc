@@ -73,9 +73,9 @@
                             Style="{StaticResource ButtonStyle1}"
                             Content="Войти"
                             Command="{Binding Authorization, IsAsync=True}"
-                            Margin="0,20"
+                            Margin="50,0,50,20"
                             Width="200"
-                            FontFamily="font"/>
+                            FontFamily="font" Height="32" VerticalAlignment="Bottom"/>
 
                     <Button Grid.Row="5"
                             Foreground="#424874"
