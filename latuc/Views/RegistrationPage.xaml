@@ -69,7 +69,9 @@
                                  Style="{StaticResource MaterialDesignOutlinedPasswordBox}"/>
 
                     <TextBlock Grid.Row="4"
-                       Style="{StaticResource pwsTextBlockError}"                   
+
+                       Style="{StaticResource pwsTextBlockError}"
+
                        HorizontalAlignment="Center"
                        Text="{Binding ErrorMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBlock Grid.Row="4"
