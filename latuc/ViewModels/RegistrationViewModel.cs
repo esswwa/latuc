@@ -39,7 +39,7 @@ namespace latuc.ViewModels
                 || string.IsNullOrWhiteSpace(Login)
                 || string.IsNullOrWhiteSpace(Password))
                 ErrorMessage = "Обязательно";
-            else if (Login.Length != 4)
+            else if (Login.Length <= 4)
                 ErrorMessage = "Слишком короткий логин";
             else if (_userLogin.Contains(Login))
                 ErrorMessage = "Логин занят";
