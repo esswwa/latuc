@@ -1,4 +1,6 @@
-﻿namespace latuc.Services
+﻿using static System.Formats.Asn1.AsnWriter;
+
+namespace latuc.Services
 {
     public class UserService
     {
@@ -11,7 +13,7 @@
         {
             var user = await _latucContext.Users.SingleOrDefaultAsync(u => u.Login == username);
             if (user == null)
-                return false;
+                return false; MessageBox.Show("fsdfsd");
             if (user.Password.Equals(password))
             {
                 Settings.Default.idUser = user.Iduser;
@@ -24,6 +26,55 @@
             }
             return false;
         }
+
+        public async Task RegistrationAsync(string email, string login, string password, int idStatistic, int idAchievemnts) {
+
+            await _latucContext.Users.AddAsync(new User
+            {
+                Email = email, 
+                Login = login,
+                Password = password,
+                IdStatistics = idStatistic,
+                IdAchievemnts = idAchievemnts
+            });
+            await _latucContext.SaveChangesAsync();
+        }
+
+        public async Task AchievementsAsync(int IduserAchievements, int Taken, int IdUser, int IdAchievements)
+        {
+
+            await _latucContext.UserAchievements.AddAsync(new UserAchievement
+            {
+                IduserAchievements = IduserAchievements,
+                Taken = Taken,
+                IdUser = IdUser,
+                IdAchievements = IdAchievements
+            });
+            await _latucContext.SaveChangesAsync();
+        }
+
+        public async Task StatisticsAsync(int Idstatistic, int CountOfPassedLevel, int CountTry, int ResultTest, int LanguageLvl, int Score)
+        {
+
+            await _latucContext.Statistics.AddAsync(new Statistic
+            {
+                Idstatistic = Idstatistic,
+                CountOfPassedLevel = CountOfPassedLevel,
+                CountTry = CountTry,
+                ResultTest = ResultTest,
+                LanguageLvl = LanguageLvl,
+                Score = Score
+            });
+            await _latucContext.SaveChangesAsync();
+        }
+
+
+        public int GetMaxIdUser (){
+
+            return _latucContext.Users.Max(u => u.Iduser);
+        }
+ 
+
     }
 }
 
