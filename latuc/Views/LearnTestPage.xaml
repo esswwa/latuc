@@ -76,7 +76,7 @@
                                     Command="{Binding Authorization}"
                                     Height="50"
                                     HorizontalAlignment="Center"
-                                    Content="Выход" />
+                                    Content="Выход из аккаунта"/>
 
 
                         </StackPanel>

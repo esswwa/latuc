@@ -73,7 +73,7 @@
                                     Width="300"
                                     Height="50"
                                     HorizontalAlignment="Center"
-                                    Content="Выход" />
+                                    Content="Выход из аккаунта" />
 
 
                         </StackPanel>
