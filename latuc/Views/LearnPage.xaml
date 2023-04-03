@@ -14,7 +14,7 @@
       Title="LearnPage">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition  Width="100"/>
+            <ColumnDefinition  Width="350"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <smtx:XamlDisplay UniqueKey="drawers_1">
@@ -63,6 +63,7 @@
                                     FontSize="25"
                                     Width="300"
                                     Height="50"
+                                    Command="{Binding Profile}"
                                     HorizontalAlignment="Center"
                                     Content="Профиль"
                                     Style="{StaticResource ButtonStyle1}"/>

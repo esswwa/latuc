@@ -58,11 +58,13 @@
                                     FontSize="25"
                                     Width="300"
                                     Height="50"
+                                    Command="{Binding Levels}"
                                     Content="Уровни"
                                     Style="{StaticResource ButtonStyle1}" />
                             <Button Margin="4"
                                     FontSize="25"
                                     Width="300"
+                                    Command="{Binding Profile}"
                                     Height="50"
                                     HorizontalAlignment="Center"
                                     Content="Профиль"
@@ -70,11 +72,12 @@
                             <Button Margin="4"
                                     Style="{StaticResource ButtonStyle1}"
                                     FontSize="25"
+                                    Command="{Binding Authorization}"
                                     Width="300"
                                     Height="50"
                                     HorizontalAlignment="Center"
                                     Content="Выход" />
-                           
+
 
                         </StackPanel>
                         <Button Grid.Row="2"
@@ -89,7 +92,7 @@
                     </Grid>
                 </materialDesign:DrawerHost.LeftDrawerContent>
 
-              
+
                 <Grid Width="100" HorizontalAlignment="Left">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
@@ -101,22 +104,10 @@
                             Content="{materialDesign:PackIcon Kind=ArrowLeft}"
                             Style="{StaticResource ButtonStyle1}"/>
                 </Grid>
-                
+
 
             </materialDesign:DrawerHost>
         </smtx:XamlDisplay>
-        <TabControl materialDesign:ColorZoneAssist.Mode="SecondaryLight"
-                    Grid.Column="1">
-            <TabItem Header="junior ">
-
-            </TabItem>
-            <TabItem Header="middle">
-
-            </TabItem>
-            <TabItem Header="senior">
-
-            </TabItem>
-        </TabControl>
     </Grid>
 
 </Page>
