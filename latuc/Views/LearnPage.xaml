@@ -14,7 +14,7 @@
       Title="LearnPage">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition  Width="110"/>
+            <ColumnDefinition  Width="100"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <smtx:XamlDisplay UniqueKey="drawers_1">
