@@ -101,9 +101,22 @@
                             Content="{materialDesign:PackIcon Kind=ArrowLeft}"
                             Style="{StaticResource ButtonStyle1}"/>
                 </Grid>
+                
 
             </materialDesign:DrawerHost>
         </smtx:XamlDisplay>
+        <TabControl materialDesign:ColorZoneAssist.Mode="SecondaryLight"
+                    Grid.Column="1">
+            <TabItem Header="junior ">
+
+            </TabItem>
+            <TabItem Header="middle">
+
+            </TabItem>
+            <TabItem Header="senior">
+
+            </TabItem>
+        </TabControl>
     </Grid>
 
 </Page>
