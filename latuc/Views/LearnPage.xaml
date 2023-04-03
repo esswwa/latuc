@@ -14,7 +14,7 @@
       Title="LearnPage">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition  Width="350"/>
+            <ColumnDefinition  Width="110"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <smtx:XamlDisplay UniqueKey="drawers_1">
@@ -103,5 +103,18 @@
 
             </materialDesign:DrawerHost>
         </smtx:XamlDisplay>
+
+        <TabControl materialDesign:ColorZoneAssist.Mode="SecondaryLight"
+                    Grid.Column="1">
+            <TabItem Header="junior ">
+               
+            </TabItem>
+            <TabItem Header="middle">
+                
+            </TabItem>
+            <TabItem Header="senior">
+
+            </TabItem>
+        </TabControl>
     </Grid>
 </Page>
