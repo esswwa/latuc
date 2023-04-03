@@ -29,7 +29,7 @@ namespace latuc.ViewModels
 
                 if (await _userService.AuthorizationAsync(Username, Password))
                 {
-                    await Application.Current.Dispatcher.InvokeAsync(async () => _pageService.ChangePage(new MenuPage()));
+                    await Application.Current.Dispatcher.InvokeAsync(async () => _pageService.ChangePage(new LearnPage()));
                 }
                 else
                 {
