@@ -63,6 +63,7 @@
                                     FontSize="25"
                                     Width="300"
                                     Height="50"
+                                    Command="{Binding Profile}"
                                     HorizontalAlignment="Center"
                                     Content="Профиль"
                                     Style="{StaticResource ButtonStyle1}"/>
@@ -71,8 +72,9 @@
                                     FontSize="25"
                                     Width="300"
                                     Height="50"
+                                    Command="{Binding Authorization}"
                                     HorizontalAlignment="Center"
-                                    Content="Выход" />
+                                    Content="Выход из аккаунта" />
 
 
                         </StackPanel>
@@ -103,5 +105,18 @@
 
             </materialDesign:DrawerHost>
         </smtx:XamlDisplay>
+
+        <TabControl materialDesign:ColorZoneAssist.Mode="SecondaryLight"
+                    Grid.Column="1">
+            <TabItem Header="junior ">
+               
+            </TabItem>
+            <TabItem Header="middle">
+                
+            </TabItem>
+            <TabItem Header="senior">
+
+            </TabItem>
+        </TabControl>
     </Grid>
 </Page>
