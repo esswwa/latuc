@@ -8,5 +8,24 @@ namespace latuc.ViewModels
 {
     public class LearnViewModel : BindableBase
     {
+        private readonly UserService _userService;
+        private readonly PageService _pageService;
+        public LearnViewModel(UserService userService, PageService pageService)
+        {
+            _userService = userService;
+            _pageService = pageService;
+        }
+
+        public DelegateCommand Authorization => new(() =>
+        {
+             _pageService.ChangePage(new AuthorizationPage());
+        });
+
+        public DelegateCommand Profile => new(() => 
+        {
+            _pageService.ChangePage(new ProfilePage());
+        });
+
+
     }
 }
