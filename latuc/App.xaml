@@ -78,6 +78,19 @@
                 </Style.Triggers>
                
             </Style>
+            <Style x:Key="ButtonStyle2" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="Background" Value="Black"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderBrush" Value="Black"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Padding" Value="10,5"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#D6E4F0"/>
+                    </Trigger>
+                </Style.Triggers>
+
+            </Style>
 
             <Style x:Key="TextBoxStyle1" TargetType="TextBox" BasedOn="{StaticResource MaterialDesignOutlinedTextBox}">
                 <Setter Property="BorderThickness" Value="2" />

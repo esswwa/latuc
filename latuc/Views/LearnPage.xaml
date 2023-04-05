@@ -90,32 +90,33 @@
                 </materialDesign:DrawerHost.LeftDrawerContent>
 
 
-                <Grid Width="100" HorizontalAlignment="Left">
+                <Grid Width="340" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Button Grid.Row="0"
+                            Height="50"
                             Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                             CommandParameter="{x:Static Dock.Left}"
                             Content="{materialDesign:PackIcon Kind=ArrowLeft}"
-                            Style="{StaticResource ButtonStyle1}"/>
+                            Style="{StaticResource ButtonStyle2}"/>
                 </Grid>
 
             </materialDesign:DrawerHost>
         </smtx:XamlDisplay>
 
-        <TabControl  materialDesign:ColorZoneAssist.Background="Black"
-                     materialDesign:ColorZoneAssist.Foreground="#D6E4F0"
+        <TabControl  materialDesign:ColorZoneAssist.Background="#fff"
+                     materialDesign:ColorZoneAssist.Foreground="#424874"
                      materialDesign:ColorZoneAssist.Mode="Custom"
                      Style="{StaticResource MaterialDesignFilledTabControl}"
                     Grid.Column="1">
             <TabItem Header="junior" >
                 <StackPanel HorizontalAlignment="Stretch"
                             VerticalAlignment="Top">
-                    <Expander HorizontalAlignment="Stretch" Header="Основы программирования на C#" Background="#000" Foreground="White" FontFamily="{StaticResource font}">
+                    <Expander HorizontalAlignment="Stretch" Header="Основы программирования на C#" Background="#D6E4F0" Foreground="#424874" FontFamily="{StaticResource font}">
                         <StackPanel Orientation="Vertical"
-                                    HorizontalAlignment="Left">
+                                    HorizontalAlignment="Stretch">
 
                             <TreeView Background="#D6E4F0" MinWidth="117">
                                 <TreeViewItem Header="Тема 1"
@@ -149,9 +150,9 @@
                             </TreeView>
                         </StackPanel>
                     </Expander>
-                    <Expander HorizontalAlignment="Stretch" Header="Не основы программирования на C#" Background="#000" Foreground="White" FontFamily="{StaticResource font}">
+                    <Expander HorizontalAlignment="Stretch" Header="Основы программирования на C#" Background="#D6E4F0" Foreground="#424874" FontFamily="{StaticResource font}">
                         <StackPanel Orientation="Vertical"
-                                    HorizontalAlignment="Left">
+                                    HorizontalAlignment="Stretch">
 
                             <TreeView Background="#D6E4F0" MinWidth="117">
                                 <TreeViewItem Header="Тема 1"
@@ -186,28 +187,7 @@
                         </StackPanel>
                     </Expander>
 
-                    <!--<TreeView Background="Black">
-                        <TreeViewItem Header="Основы программирования на C#"
-                                      Foreground="White"
-                                      FontFamily="{StaticResource font}">
-                            <TreeViewItem Header="Теория"
-                                          Foreground="White"
-                                          FontFamily="{StaticResource font}"></TreeViewItem>
-                            <TreeViewItem Header="Тест"
-                                          Foreground="White"
-                                          FontFamily="{StaticResource font}"></TreeViewItem>
-                            <TreeViewItem Header="Практика"
-                                          Foreground="White"
-                                          FontFamily="{StaticResource font}"></TreeViewItem>
-                        </TreeViewItem>
-                       
-                       
-                    
-                    
-                    </TreeView>-->
-                    <!--<Button Style="{StaticResource ButtonStyle1}"
-                            Height="50"
-                            Width="400"></Button>-->
+                   
                 </StackPanel>
             </TabItem>
             <TabItem Header="middle">
