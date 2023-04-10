@@ -138,7 +138,8 @@
                                 Name="border"
                                 BorderThickness="2,0,0,0"
                                 Padding="4,2">
-                            <TextBlock Text="{Binding Text}"/>
+                            <TextBlock Text="{Binding Text}"
+                                       FontFamily="{StaticResource font}"/>
                         </Border>
                         <DataTemplate.Triggers>
                             <DataTrigger Binding="{Binding IsSuccessful}"
@@ -153,6 +154,7 @@
             </ListView>
             <Label Target="{Binding ElementName=CCBox}"
                    Content="Command:"
+                   FontFamily="{StaticResource font}"
                    Grid.Row="1"
                    Grid.Column="0"/>
             <DockPanel Grid.Row="1"
@@ -165,6 +167,7 @@
                         Width="75"/>
                 <TextBox Name="CCBox"
                          VerticalContentAlignment="Center"
+                         FontFamily="{StaticResource font}"
                          AcceptsReturn="True">
                     <TextBox.InputBindings>
                         <KeyBinding Command="{Binding GoUp}" Key="Up"/>
