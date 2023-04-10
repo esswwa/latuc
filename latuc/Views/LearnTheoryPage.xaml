@@ -93,16 +93,17 @@
                 </materialDesign:DrawerHost.LeftDrawerContent>
 
 
-                <Grid Width="100" HorizontalAlignment="Left">
+                <Grid Width="340" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Button Grid.Row="0"
+                            Height="50"
                             Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                             CommandParameter="{x:Static Dock.Left}"
                             Content="{materialDesign:PackIcon Kind=ArrowLeft}"
-                            Style="{StaticResource ButtonStyle1}"/>
+                            Style="{StaticResource ButtonStyle2}"/>
                 </Grid>
 
             </materialDesign:DrawerHost>
