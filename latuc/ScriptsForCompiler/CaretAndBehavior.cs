@@ -37,7 +37,7 @@ namespace latuc.ScriptsForCompiler
             var text = Text;
             if (isInControlInitiatedChange)
                 return;
-            if (AssociatedObject != null) // blendability
+            if (AssociatedObject != null)
             {
                 AssociatedObject.Text = text;
                 AssociatedObject.Select(text?.Length ?? 0, 0);
