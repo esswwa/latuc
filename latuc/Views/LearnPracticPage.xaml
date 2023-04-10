@@ -170,8 +170,6 @@
                          FontFamily="{StaticResource font}"
                          AcceptsReturn="True">
                     <TextBox.InputBindings>
-                        <KeyBinding Command="{Binding GoUp}" Key="Up"/>
-                        <KeyBinding Command="{Binding GoDown}" Key="Down"/>
                         <KeyBinding Command="{Binding Enter}" Key="ENTER" Modifiers="Shift" />
                     </TextBox.InputBindings>
                     <i:Interaction.Behaviors>
