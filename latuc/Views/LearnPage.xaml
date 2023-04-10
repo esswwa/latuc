@@ -6,7 +6,6 @@
       xmlns:local="clr-namespace:latuc.Views"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
       xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
-      xmlns:system="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       DataContext="{Binding LearnViewModel, 
@@ -14,7 +13,7 @@
       Title="LearnPage">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition  Width="350"/>
+            <ColumnDefinition  Width="340"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <smtx:XamlDisplay UniqueKey="drawers_1">
@@ -91,25 +90,105 @@
                 </materialDesign:DrawerHost.LeftDrawerContent>
 
 
-                <Grid Width="100" HorizontalAlignment="Left">
+                <Grid Width="340" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Button Grid.Row="0"
+                            Height="50"
                             Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                             CommandParameter="{x:Static Dock.Left}"
                             Content="{materialDesign:PackIcon Kind=ArrowLeft}"
-                            Style="{StaticResource ButtonStyle1}"/>
+                            Style="{StaticResource ButtonStyle2}"/>
                 </Grid>
 
             </materialDesign:DrawerHost>
         </smtx:XamlDisplay>
 
-        <TabControl materialDesign:ColorZoneAssist.Mode="SecondaryLight"
+        <TabControl  materialDesign:ColorZoneAssist.Background="#fff"
+                     materialDesign:ColorZoneAssist.Foreground="#424874"
+                     materialDesign:ColorZoneAssist.Mode="Custom"
+                     Style="{StaticResource MaterialDesignFilledTabControl}"
                     Grid.Column="1">
-            <TabItem Header="junior ">
-               
+            <TabItem Header="junior" >
+                <StackPanel HorizontalAlignment="Stretch"
+                            VerticalAlignment="Top">
+                    <Expander HorizontalAlignment="Stretch" Header="Основы программирования на C#" Background="#D6E4F0" Foreground="#424874" FontFamily="{StaticResource font}">
+                        <StackPanel Orientation="Vertical"
+                                    HorizontalAlignment="Stretch">
+
+                            <TreeView Background="#D6E4F0" MinWidth="117">
+                                <TreeViewItem Header="Тема 1"
+                                      Foreground="#424874"
+                                      FontFamily="{StaticResource font}">
+                                    <TreeViewItem Header="Теория"
+                                          Foreground="#424874"
+                                          FontFamily="{StaticResource font}"></TreeViewItem>
+                                    <TreeViewItem Header="Тест"
+                                          Foreground="#424874"
+                                          FontFamily="{StaticResource font}"></TreeViewItem>
+                                    <TreeViewItem Header="Практика"
+                                          Foreground="#424874"
+                                          FontFamily="{StaticResource font}"></TreeViewItem>
+                                </TreeViewItem>
+                            </TreeView>
+                            <TreeView Background="#D6E4F0">
+                                <TreeViewItem Header="Тема 2"
+                                      Foreground="#424874"
+                                      FontFamily="{StaticResource font}">
+                                    <TreeViewItem Header="Теория"
+                                          Foreground="#424874"
+                                          FontFamily="{StaticResource font}"></TreeViewItem>
+                                    <TreeViewItem Header="Тест"
+                                          Foreground="#424874"
+                                          FontFamily="{StaticResource font}"></TreeViewItem>
+                                    <TreeViewItem Header="Практика"
+                                          Foreground="#424874"
+                                          FontFamily="{StaticResource font}"></TreeViewItem>
+                                </TreeViewItem>
+                            </TreeView>
+                        </StackPanel>
+                    </Expander>
+                    <Expander HorizontalAlignment="Stretch" Header="Основы программирования на C#" Background="#D6E4F0" Foreground="#424874" FontFamily="{StaticResource font}">
+                        <StackPanel Orientation="Vertical"
+                                    HorizontalAlignment="Stretch">
+
+                            <TreeView Background="#D6E4F0" MinWidth="117">
+                                <TreeViewItem Header="Тема 1"
+                                      Foreground="#424874"
+                                      FontFamily="{StaticResource font}">
+                                    <TreeViewItem Header="Теория"
+                                          Foreground="#424874"
+                                          FontFamily="{StaticResource font}"></TreeViewItem>
+                                    <TreeViewItem Header="Тест"
+                                          Foreground="#424874"
+                                          FontFamily="{StaticResource font}"></TreeViewItem>
+                                    <TreeViewItem Header="Практика"
+                                          Foreground="#424874"
+                                          FontFamily="{StaticResource font}"></TreeViewItem>
+                                </TreeViewItem>
+                            </TreeView>
+                            <TreeView Background="#D6E4F0">
+                                <TreeViewItem Header="Тема 2"
+                                      Foreground="#424874"
+                                      FontFamily="{StaticResource font}">
+                                    <TreeViewItem Header="Теория"
+                                          Foreground="#424874"
+                                          FontFamily="{StaticResource font}"></TreeViewItem>
+                                    <TreeViewItem Header="Тест"
+                                          Foreground="#424874"
+                                          FontFamily="{StaticResource font}"></TreeViewItem>
+                                    <TreeViewItem Header="Практика"
+                                          Foreground="#424874"
+                                          FontFamily="{StaticResource font}"></TreeViewItem>
+                                </TreeViewItem>
+                            </TreeView>
+                        </StackPanel>
+                    </Expander>
+
+                   
+                </StackPanel>
             </TabItem>
             <TabItem Header="middle">
                 

@@ -30,9 +30,9 @@
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
+                        <RowDefinition Height="25"/>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="35"/>
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0"
@@ -69,33 +69,30 @@
                                  Style="{StaticResource MaterialDesignOutlinedPasswordBox}"/>
 
                     <TextBlock Grid.Row="4"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource pwsTextBlockError}" 
+                               Text="{Binding ErrorMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     
-                               Margin="0 10 0 0"
-
-                       Style="{StaticResource pwsTextBlockError}"
-
-                       HorizontalAlignment="Center"
-                       Text="{Binding ErrorMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBlock Grid.Row="4"
-                               Margin="0 0 0 10"
-                       Style="{StaticResource pwsTextBlockError}"
-                       HorizontalAlignment="Center"
-                       Text="{Binding ErrorMessageButton, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource pwsTextBlockError}"
+                               Text="{Binding ErrorMessageButton, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <Button Grid.Row="5"
                             Style="{StaticResource ButtonStyle1}"
                             Content="Зарегистрироваться"
                             Command="{Binding Registration}"
-                            Margin="0,12"
+                            Margin="10"
                             Width="200"
                             FontFamily="font"/>
                     <Button Grid.Row="6"
-                            Margin="0 0 0 10"
                             Foreground="#424874"
                             Style="{StaticResource ButtonToText}"
                             Command="{Binding Authorization}"
                             FontFamily="{StaticResource font}"
-                            Content="Есть аккаунта?"
+                            Content="Есть аккаунт?"
                             Cursor="Hand">
                     </Button>
                 </Grid>
