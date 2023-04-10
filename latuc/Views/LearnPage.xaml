@@ -127,17 +127,19 @@
                                                 Foreground="#424874"
                                                 Background="#D6E4F0"
                                                 BorderBrush="#424874"
+                                                Command="{Binding Theory}"
                                                 FontFamily="{StaticResource font}"/>
                                         <Button Content="Тест"
                                                 Foreground="#424874"
                                                 Background="#D6E4F0"
                                                 BorderBrush="#424874"
+                                                Command="{Binding Test}"
                                                 FontFamily="{StaticResource font}"/>
                                         <Button Content="Практика"
                                                 Foreground="#424874"
                                                 Background="#D6E4F0"
                                                 BorderBrush="#424874" 
-                                                Command="{Binding Authorization}"
+                                                Command="{Binding Practic}"
                                                 FontFamily="{StaticResource font}"/>
                                     
                                     </TreeViewItem>
