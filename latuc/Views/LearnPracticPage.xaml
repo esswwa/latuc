@@ -4,9 +4,12 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:latuc.Views"
+      xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
       xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
-      xmlns:system="clr-namespace:System;assembly=mscorlib"
+      xmlns:local1="clr-namespace:latuc.ScriptsForCompiler"
+      xmlns:local2="clr-namespace:latuc.Assets.Converters"
+      xmlns:local3="clr-namespace:latuc.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"     
       DataContext="{Binding LearnPracticViewModel, 
@@ -93,19 +96,106 @@
                 </materialDesign:DrawerHost.LeftDrawerContent>
 
 
-                <Grid Width="100" HorizontalAlignment="Left">
+                <Grid Width="340" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Button Grid.Row="0"
+                            Height="50"
                             Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                             CommandParameter="{x:Static Dock.Left}"
                             Content="{materialDesign:PackIcon Kind=ArrowLeft}"
-                            Style="{StaticResource ButtonStyle1}"/>
+                            Style="{StaticResource ButtonStyle2}"/>
                 </Grid>
 
             </materialDesign:DrawerHost>
         </smtx:XamlDisplay>
+        <Grid Grid.Column="2"
+              Background="#D6E4F0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <local2:BooleanToStringConverter x:Key="ResultHeaderConverter"
+                                                 OnTrue="Result:"
+                                                 OnFalse="Error:"/>
+            </Grid.Resources>
+            <ListView ItemsSource="{Binding AllCommands}"
+                      SelectedItem="{Binding CurrentCommand}"
+                      Grid.Row="0"
+                      Grid.ColumnSpan="3">
+                <ListView.ItemTemplate>
+                    <DataTemplate DataType="{x:Type local3:CommandVM}">
+                        <Border BorderBrush="LightGreen"
+                                Name="border"
+                                BorderThickness="2,0,0,0"
+                                Padding="4,2">
+                            <TextBlock Text="{Binding Text}"
+                                       FontFamily="{StaticResource font}"/>
+                        </Border>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding IsSuccessful}"
+                                         Value="False">
+                                <Setter TargetName="border"
+                                        Property="BorderBrush"
+                                        Value="Red"/>
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Target="{Binding ElementName=CCBox}"
+                   Content="Command:"
+                   FontFamily="{StaticResource font}"
+                   Grid.Row="1"
+                   Grid.Column="0"/>
+            <DockPanel Grid.Row="1"
+                       Grid.Column="2"
+                       IsEnabled="{Binding IsInteractive}">
+                <Button Command="{Binding Evaluate}"
+                        Content="Run!"
+                        Style="{StaticResource ButtonStyle1}"
+                        DockPanel.Dock="Right"
+                        Width="75"/>
+                <TextBox Name="CCBox"
+                         VerticalContentAlignment="Center"
+                         FontFamily="{StaticResource font}"
+                         AcceptsReturn="True">
+                    <TextBox.InputBindings>
+                        <KeyBinding Command="{Binding Enter}" Key="ENTER" Modifiers="Shift" />
+                    </TextBox.InputBindings>
+                    <i:Interaction.Behaviors>
+                        <local1:CaretAndBehavior
+                            Text="{Binding CurrentInput,
+                            UpdateSourceTrigger=PropertyChanged,
+                            Mode=TwoWay}"/>
+                    </i:Interaction.Behaviors>
+                </TextBox>
+            </DockPanel>
+            <Label Target="{Binding ElementName=ResultBox}"
+                   Content="{Binding LastCommand.IsSuccessful,
+                   Converter={StaticResource ResultHeaderConverter}}"
+                   Grid.Row="2"
+                   Grid.Column="0"/>
+            <TextBox Text="{Binding LastCommand.Result,
+                Mode=OneWay}"
+                     IsEnabled="False"
+                     VerticalContentAlignment="Center"
+                     Grid.Row="2"
+                     Grid.Column="2"
+                     Name="ResultBox"/>
+            <Label Content="strut"
+                   Grid.Row="2"
+                   Grid.Column="1"
+                   Visibility="Hidden"/>
+        </Grid>
     </Grid>
 </Page>
