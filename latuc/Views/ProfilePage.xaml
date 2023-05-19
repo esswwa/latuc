@@ -117,36 +117,69 @@
                     VerticalAlignment="Center"
                     Style="{StaticResource TextBlockStyle1}"/>
                 <StackPanel Margin="30,0,30,0">
+                    <WrapPanel>
+                        <TextBlock
+                        Text="Логин:"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Style="{StaticResource TextBlockStyle1}"/>
 
-                    <TextBlock
-                    Text="Логин:"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Style="{StaticResource TextBlockStyle1}"/>
+                        <TextBlock
+                            Margin="10,0,0,0"
+                            Text="Termolosos"
+                            Style="{StaticResource TextBlockStyle1}"/>
+                    </WrapPanel>
+                    
+                    <WrapPanel>
+                        <TextBlock
+                            Text="Уровень владения языком:"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource TextBlockStyle1}"/>
 
-                    <TextBlock
-                    Text="Уровень владения языком:"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Style="{StaticResource TextBlockStyle1}"/>
+                        <TextBlock
+                            Margin="10,0,0,0"
+                            Text="Junior"
+                            Style="{StaticResource TextBlockStyle1}"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock
+                        Text="Количество пройденных уровней:"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Style="{StaticResource TextBlockStyle1}"/>
 
-                    <TextBlock
-                    Text="Количество пройденных уровней:"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Style="{StaticResource TextBlockStyle1}"/>
+                        <TextBlock
+                            Margin="10,0,0,0"
+                            Text="1000"
+                            Style="{StaticResource TextBlockStyle1}"/>
+                    </WrapPanel>
 
-                    <TextBlock
-                    Text="Количество попыток:"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Style="{StaticResource TextBlockStyle1}"/>
+                    <WrapPanel>
+                        <TextBlock
+                        Text="Количество попыток:"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Style="{StaticResource TextBlockStyle1}"/>
 
-                    <TextBlock
-                    Text="Результат теста:"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Style="{StaticResource TextBlockStyle1}"/>
+                        <TextBlock
+                            Margin="10,0,0,0"
+                            Text="100.000"
+                            Style="{StaticResource TextBlockStyle1}"/>
+                    </WrapPanel>
+
+                    <WrapPanel Margin="0,0,0,5">
+                        <TextBlock
+                        Text="Результат теста:"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Style="{StaticResource TextBlockStyle1}"/>
+
+                        <TextBlock
+                            Margin="10,0,0,0"
+                            Text="Junior"
+                            Style="{StaticResource TextBlockStyle1}"/>
+                    </WrapPanel>
 
                     <materialDesign:Chip
                     Content="Достижения">
