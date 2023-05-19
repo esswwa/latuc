@@ -158,8 +158,8 @@
                         FontFamily="font"/>
 
                     <materialDesign:Chip
-                    Content="James Willock">
-                        <materialDesign:Chip.Icon>
+                    Content="Пройти текст">
+                            <materialDesign:Chip.Icon>
                             <Image
                             Source="C:\Users\МОиБД\Source\Repos\latucSSS\latuc\Resources\Image\test.png" />
                         </materialDesign:Chip.Icon>
