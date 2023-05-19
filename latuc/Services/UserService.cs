@@ -81,6 +81,21 @@ namespace latuc.Services
 
             return await _latucContext.Users.Select(u => u.Login).AsNoTracking().ToListAsync();
         }
+
+        public object StatisticsAsync(int Idstatistic)
+        {
+            return _latucContext.Statistics.Select(u => u.Idstatistic);
+
+
+            //Idstatistic = 
+            //CountOfPassedLevel = 
+            //CountTry = 
+            //ResultTest = ResultTest
+            //LanguageLvl = LanguageLvl
+            //Score = Score
+        }
+
+
     }
 }
 
