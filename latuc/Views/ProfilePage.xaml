@@ -126,7 +126,8 @@
                 <ColumnDefinition Width="400"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+            <Viewbox Grid.Row="1" Grid.Column="1">
+                <StackPanel VerticalAlignment="Center">
                 <TextBlock
                     Grid.Row="0"
                     Margin="30,0,0,10"
