@@ -114,6 +114,7 @@
             </Grid.RowDefinitions>
             
         </Grid>
+        
         <Grid Grid.Column="2" >
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -143,81 +144,82 @@
                         VerticalAlignment="Center"
                         Style="{StaticResource TextBlockStyle1}"/>
 
-                        <TextBlock
-                            Margin="10,0,0,0"
-                            Text="{Binding Login}"
-                            Style="{StaticResource TextBlockStyle1}"/>
-                    </WrapPanel>
-                    
-                    <WrapPanel>
-                        <TextBlock
-                            Text="Уровень владения языком:"
+                            <TextBlock
+                                Margin="10,0,0,0"
+                                Text="{Binding Login}"
+                                Style="{StaticResource TextBlockStyle1}"/>
+                        </WrapPanel>
+                        
+                        <WrapPanel>
+                            <TextBlock
+                                Text="Уровень владения языком:"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource TextBlockStyle1}"/>
+
+                            <TextBlock
+                                Margin="10,0,0,0"
+                                Text="{Binding LanguageLevel}"
+                                Style="{StaticResource TextBlockStyle1}"/>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <TextBlock
+                            Text="Количество пройденных уровней:"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             Style="{StaticResource TextBlockStyle1}"/>
 
-                        <TextBlock
-                            Margin="10,0,0,0"
-                            Text="{Binding LanguageLevel}"
+                            <TextBlock
+                                Margin="10,0,0,0"
+                                Text="{Binding CountPassLevel}"
+                                Style="{StaticResource TextBlockStyle1}"/>
+                        </WrapPanel>
+
+                        <WrapPanel>
+                            <TextBlock
+                            Text="Количество попыток:"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
                             Style="{StaticResource TextBlockStyle1}"/>
-                    </WrapPanel>
-                    <WrapPanel>
-                        <TextBlock
-                        Text="Количество пройденных уровней:"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Style="{StaticResource TextBlockStyle1}"/>
 
-                        <TextBlock
-                            Margin="10,0,0,0"
-                            Text="{Binding CountPassLevel}"
+                            <TextBlock
+                                Margin="10,0,0,0"
+                                Text="{Binding CountTry}"
+                                Style="{StaticResource TextBlockStyle1}"/>
+                        </WrapPanel>
+
+                        <WrapPanel Margin="0,0,0,5">
+                            <TextBlock
+                            Text="Результат теста:"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
                             Style="{StaticResource TextBlockStyle1}"/>
-                    </WrapPanel>
 
-                    <WrapPanel>
-                        <TextBlock
-                        Text="Количество попыток:"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Style="{StaticResource TextBlockStyle1}"/>
+                            <TextBlock
+                                Margin="10,0,0,0"
+                                Text="{Binding ResultTest}"
+                                Style="{StaticResource TextBlockStyle1}"/>
+                        </WrapPanel>
 
-                        <TextBlock
-                            Margin="10,0,0,0"
-                            Text="{Binding CountTry}"
-                            Style="{StaticResource TextBlockStyle1}"/>
-                    </WrapPanel>
+                        <materialDesign:Chip
+                        Content="Достижения">
+                                <materialDesign:Chip.Icon>
+                                <Image
+                                />
+                            </materialDesign:Chip.Icon>
+                        </materialDesign:Chip>
 
-                    <WrapPanel Margin="0,0,0,5">
-                        <TextBlock
-                        Text="Результат теста:"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Style="{StaticResource TextBlockStyle1}"/>
-
-                        <TextBlock
-                            Margin="10,0,0,0"
-                            Text="{Binding ResultTest}"
-                            Style="{StaticResource TextBlockStyle1}"/>
-                    </WrapPanel>
-
-                    <materialDesign:Chip
-                    Content="Достижения">
+                        <materialDesign:Chip
+                        Content="Пройти текст">
                             <materialDesign:Chip.Icon>
-                            <Image
-                            />
-                        </materialDesign:Chip.Icon>
-                    </materialDesign:Chip>
+                                <Image
+                                />
+                            </materialDesign:Chip.Icon>
+                        </materialDesign:Chip>
 
-                    <materialDesign:Chip
-                    Content="Пройти текст">
-                        <materialDesign:Chip.Icon>
-                            <Image
-                            />
-                        </materialDesign:Chip.Icon>
-                    </materialDesign:Chip>
-
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
+            </Viewbox>
         </Grid>
         
     </Grid>
