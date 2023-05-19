@@ -28,6 +28,7 @@ namespace latuc.ViewModels
         public DelegateCommand Authorization => new(() =>
         {
             _pageService.ChangePage(new AuthorizationPage());
+            _userService.UpdateProductNull();
         });
 
 

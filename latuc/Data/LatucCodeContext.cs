@@ -189,6 +189,12 @@ public partial class LatucCodeContext : DbContext
 
             entity.HasIndex(e => e.IdStatistics, "FK_statistic_Fqrom_User_idx");
 
+
+
+            
+
+
+
             entity.HasIndex(e => e.Role, "fk_userRole_idx");
 
             entity.Property(e => e.Iduser).HasColumnName("iduser");
@@ -197,6 +203,7 @@ public partial class LatucCodeContext : DbContext
                 .HasColumnName("email");
             entity.Property(e => e.IdAchievemnts).HasColumnName("idAchievemnts");
             entity.Property(e => e.IdStatistics).HasColumnName("idStatistics");
+            entity.Property(e => e.exitBool).HasColumnName("exitBool");
             entity.Property(e => e.Login)
                 .HasMaxLength(45)
                 .HasColumnName("login");
