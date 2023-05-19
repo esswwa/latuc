@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace latuc.ViewModels
 {
@@ -10,14 +11,20 @@ namespace latuc.ViewModels
     {
         private readonly UserService _userService;
         private readonly PageService _pageService;
+        private readonly LatucCodeContext _latucContext;
+
         public string Username { get; set; }
         public string Password { get; set; }
         public string ErrorMessage { get; set; }
         public string ErrorMessageButton { get; set; }
-        public AuthorizationViewModel(UserService userService, PageService pageService)
+
+        public ObservableCollection<User> Users { get; set; }
+
+        public AuthorizationViewModel(UserService userService, PageService pageService, LatucCodeContext latucContext)
         {
             _userService = userService;
             _pageService = pageService;
+            _latucContext = latucContext;
         }
 
 
@@ -30,13 +37,15 @@ namespace latuc.ViewModels
                 if (await _userService.AuthorizationAsync(Username, Password))
                 {
                     await Application.Current.Dispatcher.InvokeAsync(async () => _pageService.ChangePage(new LearnPage()));
+                    _userService.UpdateProduct();
                 }
                 else
                 {
-                   ErrorMessageButton = "Неверный логин или пароль";
+                    ErrorMessageButton = "Неверный логин или пароль";
                 }
             });
-        }, bool () => {
+        }, bool () =>
+        {
 
             if (string.IsNullOrWhiteSpace(Username)
                   || string.IsNullOrWhiteSpace(Password))
@@ -50,9 +59,11 @@ namespace latuc.ViewModels
             return ErrorMessage == string.Empty;
         });
 
-        public DelegateCommand Registration => new(async () => {
-
+        public DelegateCommand Registration => new(async () =>
+        {
             await Application.Current.Dispatcher.InvokeAsync(async () => _pageService.ChangePage(new RegistrationPage()));
-        }); 
+        });
+
+      
     }
 }
