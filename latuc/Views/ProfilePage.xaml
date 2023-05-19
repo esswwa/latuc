@@ -17,80 +17,80 @@
         <Grid.ColumnDefinitions>
                 <ColumnDefinition  Width="350"/>
                 <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <smtx:XamlDisplay UniqueKey="drawers_1">
-                <materialDesign:DrawerHost x:Name="DrawerHost"
+        </Grid.ColumnDefinitions>
+        <smtx:XamlDisplay UniqueKey="drawers_1">
+            <materialDesign:DrawerHost x:Name="DrawerHost"
                                        HorizontalAlignment="Right"
                                        Grid.Column="0"
                                        VerticalAlignment="Stretch"
                                        Background="#D6E4F0"
                                        BottomDrawerBackground="{DynamicResource SecondaryHueLightBrush}">
 
-                    <materialDesign:DrawerHost.Style >
-                        <Style TargetType="materialDesign:DrawerHost" BasedOn="{StaticResource {x:Type materialDesign:DrawerHost}}">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsChecked, ElementName=BackgroundToggle}" Value="True">
-                                    <Setter Property="OverlayBackground" Value="{DynamicResource PrimaryHueMidBrush}" />
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </materialDesign:DrawerHost.Style>
+                <materialDesign:DrawerHost.Style >
+                    <Style TargetType="materialDesign:DrawerHost" BasedOn="{StaticResource {x:Type materialDesign:DrawerHost}}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsChecked, ElementName=BackgroundToggle}" Value="True">
+                                <Setter Property="OverlayBackground" Value="{DynamicResource PrimaryHueMidBrush}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </materialDesign:DrawerHost.Style>
 
-                    <materialDesign:DrawerHost.LeftDrawerContent>
-                        <Grid Margin="16">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="70"/>
-                                <RowDefinition/>
-                                <RowDefinition Height="45"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0"
-                                   HorizontalAlignment="Center"
-                                   Text="Latuc Code"
-                                   FontSize="45"
-                                   Height="50"
-                                   FontFamily="{StaticResource font}"
-                                   Foreground="#424874"/>
-                            <StackPanel HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Grid.Row="1">
-                                <Button Margin="4"
-                                    HorizontalAlignment="Center"
-                                    FontSize="25"
-                                    Width="300"
-                                    Height="50"
-                                    Command="{Binding Levels}"
-                                    Content="Уровни"
-                                    Style="{StaticResource ButtonStyle1}" />
-                                <Button Margin="4"
-                                    FontSize="25"
-                                    Width="300"
-                                    Height="50"
-                                    Command="{Binding Profile}"
-                                    HorizontalAlignment="Center"
-                                    Content="Профиль"
-                                    Style="{StaticResource ButtonStyle1}"/>
-                                <Button Margin="4"
-                                    Style="{StaticResource ButtonStyle1}"
-                                    FontSize="25"
-                                    Width="300"
-                                    Command="{Binding Authorization}"
-                                    Height="50"
-                                    HorizontalAlignment="Center"
-                                    Content="Выход из аккаунта" />
-
-
-                            </StackPanel>
-                            <Button Grid.Row="2"
-                                VerticalAlignment="Bottom"
-                                HorizontalAlignment="Left"
-                                Height="40"
-                                Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-                                CommandParameter="{x:Static Dock.Left}"
-                                FontSize="20"
-                                Content="Закрыть меню"
+                <materialDesign:DrawerHost.LeftDrawerContent>
+                    <Grid Margin="16">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="45"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0"
+                               HorizontalAlignment="Center"
+                               Text="Latuc Code"
+                               FontSize="45"
+                               Height="50"
+                               FontFamily="{StaticResource font}"
+                               Foreground="#424874"/>
+                        <StackPanel HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Grid.Row="1">
+                            <Button Margin="4"
+                                HorizontalAlignment="Center"
+                                FontSize="25"
+                                Width="300"
+                                Height="50"
+                                Command="{Binding Levels}"
+                                Content="Уровни"
                                 Style="{StaticResource ButtonStyle1}" />
-                        </Grid>
-                    </materialDesign:DrawerHost.LeftDrawerContent>
+                            <Button Margin="4"
+                                FontSize="25"
+                                Width="300"
+                                Height="50"
+                                Command="{Binding Profile}"
+                                HorizontalAlignment="Center"
+                                Content="Профиль"
+                                Style="{StaticResource ButtonStyle1}"/>
+                            <Button Margin="4"
+                                Style="{StaticResource ButtonStyle1}"
+                                FontSize="25"
+                                Width="300"
+                                Command="{Binding Authorization}"
+                                Height="50"
+                                HorizontalAlignment="Center"
+                                Content="Выход из аккаунта" />
+
+
+                        </StackPanel>
+                        <Button Grid.Row="2"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Height="40"
+                            Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                            CommandParameter="{x:Static Dock.Left}"
+                            FontSize="20"
+                            Content="Закрыть меню"
+                            Style="{StaticResource ButtonStyle1}" />
+                    </Grid>
+                </materialDesign:DrawerHost.LeftDrawerContent>
 
                 <Grid Width="340" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Grid.RowDefinitions>
@@ -106,6 +106,76 @@
                 </Grid>
 
             </materialDesign:DrawerHost>
-            </smtx:XamlDisplay>
-        </Grid>
+        </smtx:XamlDisplay>
+
+        <StackPanel Grid.Column="2" Background="White">
+            <StackPanel>
+                <TextBlock
+                    Margin="20"
+                    Text="Профиль"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource TextBlockStyle1}"/>
+                <StackPanel Margin="30,0,30,0">
+
+                    <TextBlock
+                    Text="Логин:"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource TextBlockStyle1}"/>
+
+                    <TextBlock
+                    Text="Уровень владения языком:"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource TextBlockStyle1}"/>
+
+                    <TextBlock
+                    Text="Количество пройденных уровней:"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource TextBlockStyle1}"/>
+
+                    <TextBlock
+                    Text="Количество попыток:"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource TextBlockStyle1}"/>
+
+                    <TextBlock
+                    Text="Результат теста:"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource TextBlockStyle1}"/>
+
+                    <Button
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource ButtonStyle1}"
+                        Content="Достижения"
+                        Command="{Binding Registration}"
+                        Margin="0,10"
+                        Width="200"
+                        FontFamily="font"/>
+
+                    <materialDesign:Chip
+                    Content="Пройти текст">
+                            <materialDesign:Chip.Icon>
+                            <Image
+                            Source="C:\Users\МОиБД\Source\Repos\latucSSS\latuc\Resources\Image\test.png" />
+                        </materialDesign:Chip.Icon>
+                    </materialDesign:Chip>
+
+                    <Button
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource ButtonStyle1}"
+                        Content="Пройти тест"
+                        Command="{Binding Registration}"
+                        Width="200"
+                        FontFamily="font"/>
+
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        
+    </Grid>
 </Page>
