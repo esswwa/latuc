@@ -10,7 +10,7 @@
       mc:Ignorable="d" 
       DataContext="{Binding ProfileViewModel, 
                         Source={StaticResource ViewModelLocator}}"
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="1080" d:DesignWidth="1920"
       Title="ProfilePage">
 
     <Grid>
@@ -107,12 +107,31 @@
 
             </materialDesign:DrawerHost>
         </smtx:XamlDisplay>
-
-        <StackPanel Grid.Column="2" Background="#D6E4F0">
-            <StackPanel>
+        <Grid Background="#D6E4F0" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+        </Grid>
+        <Grid Grid.Column="2" >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="500"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="500"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="1" Grid.Column="1">
                 <TextBlock
+                    Grid.Row="0"
                     Margin="20"
                     Text="Профиль"
+                    FontSize="30"
+                    FontWeight="Bold"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Style="{StaticResource TextBlockStyle1}"/>
@@ -199,7 +218,7 @@
 
                 </StackPanel>
             </StackPanel>
-        </StackPanel>
+        </Grid>
         
     </Grid>
 </Page>
