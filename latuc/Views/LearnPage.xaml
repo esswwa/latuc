@@ -124,21 +124,22 @@
                                       Foreground="#424874"
                                       FontFamily="{StaticResource font}">
                                         <Button Content="Теория"
-                                                Foreground="#424874"
-                                                Background="#D6E4F0"
-                                                BorderBrush="#424874"
+                                                Style="{StaticResource ButtonStyle3}"
+                                                Height="35"
+                                                Width="85"
+                                                
                                                 Command="{Binding Theory}"
                                                 FontFamily="{StaticResource font}"/>
                                         <Button Content="Тест"
-                                                Foreground="#424874"
-                                                Background="#D6E4F0"
-                                                BorderBrush="#424874"
+                                                Style="{StaticResource ButtonStyle3}"
+                                                Height="35"
+                                                Width="85"
                                                 Command="{Binding Test}"
                                                 FontFamily="{StaticResource font}"/>
                                         <Button Content="Практика"
-                                                Foreground="#424874"
-                                                Background="#D6E4F0"
-                                                BorderBrush="#424874" 
+                                                Style="{StaticResource ButtonStyle3}"
+                                                Height="35"
+                                                Width="85"
                                                 Command="{Binding Practic}"
                                                 FontFamily="{StaticResource font}"/>
                                     
@@ -161,44 +162,7 @@
                                 </TreeView>
                             </StackPanel>
                         </Expander>
-                        <Expander HorizontalAlignment="Stretch" Header="Основы программирования на C#" Background="#D6E4F0" Foreground="#424874" FontFamily="{StaticResource font}">
-                            <StackPanel Orientation="Vertical"
-                                    HorizontalAlignment="Stretch">
-
-                                <TreeView Background="#D6E4F0" MinWidth="117">
-                                    <TreeViewItem Header="Тема 1"
-                                      Foreground="#424874"
-                                      FontFamily="{StaticResource font}">
-                                        <TreeViewItem Header="Теория"
-                                          Foreground="#424874"
-                                          FontFamily="{StaticResource font}"></TreeViewItem>
-                                        <TreeViewItem Header="Тест"
-                                          Foreground="#424874"
-                                          FontFamily="{StaticResource font}"></TreeViewItem>
-                                        <TreeViewItem Header="Практика"
-                                          Foreground="#424874"
-                                          FontFamily="{StaticResource font}"></TreeViewItem>
-                                    </TreeViewItem>
-                                </TreeView>
-                                <TreeView Background="#D6E4F0">
-                                    <TreeViewItem Header="Тема 2"
-                                      Foreground="#424874"
-                                      FontFamily="{StaticResource font}">
-                                        <TreeViewItem Header="Теория"
-                                          Foreground="#424874"
-                                          FontFamily="{StaticResource font}"></TreeViewItem>
-                                        <TreeViewItem Header="Тест"
-                                          Foreground="#424874"
-                                          FontFamily="{StaticResource font}"></TreeViewItem>
-                                        <TreeViewItem Header="Практика"
-                                          Foreground="#424874"
-                                          FontFamily="{StaticResource font}"></TreeViewItem>
-                                    </TreeViewItem>
-                                </TreeView>
-                            </StackPanel>
-                        </Expander>
-
-
+                       
                     </StackPanel>
                 </ScrollViewer>
 
