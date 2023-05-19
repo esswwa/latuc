@@ -126,7 +126,7 @@
 
                         <TextBlock
                             Margin="10,0,0,0"
-                            Text="Termolosos"
+                            Text="{Binding Login}"
                             Style="{StaticResource TextBlockStyle1}"/>
                     </WrapPanel>
                     
@@ -139,7 +139,7 @@
 
                         <TextBlock
                             Margin="10,0,0,0"
-                            Text="Junior"
+                            Text="{Binding LanguageLevel}"
                             Style="{StaticResource TextBlockStyle1}"/>
                     </WrapPanel>
                     <WrapPanel>
@@ -151,7 +151,7 @@
 
                         <TextBlock
                             Margin="10,0,0,0"
-                            Text="1000"
+                            Text="{Binding CountPassLevel}"
                             Style="{StaticResource TextBlockStyle1}"/>
                     </WrapPanel>
 
@@ -164,7 +164,7 @@
 
                         <TextBlock
                             Margin="10,0,0,0"
-                            Text="100.000"
+                            Text="{Binding CountTry}"
                             Style="{StaticResource TextBlockStyle1}"/>
                     </WrapPanel>
 
@@ -177,7 +177,7 @@
 
                         <TextBlock
                             Margin="10,0,0,0"
-                            Text="Junior"
+                            Text="{Binding ResultTest}"
                             Style="{StaticResource TextBlockStyle1}"/>
                     </WrapPanel>
 
@@ -185,7 +185,7 @@
                     Content="Достижения">
                             <materialDesign:Chip.Icon>
                             <Image
-                            Source="C:\Users\МОиБД\source\repos\latuc\latuc\Resources\Image\kybok.png" />
+                            />
                         </materialDesign:Chip.Icon>
                     </materialDesign:Chip>
 
@@ -193,10 +193,7 @@
                     Content="Пройти текст">
                         <materialDesign:Chip.Icon>
                             <Image
-                            Source="C:\Users\МОиБД\Source\Repos\latucSSS\latuc\Resources\Image\test.png" />
-                        Content="Пройти текст">
-                        <materialDesign:Chip.Icon>
-                            <Image/>
+                            />
                         </materialDesign:Chip.Icon>
                     </materialDesign:Chip>
 
