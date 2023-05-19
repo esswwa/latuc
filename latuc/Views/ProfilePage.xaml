@@ -108,7 +108,7 @@
             </materialDesign:DrawerHost>
         </smtx:XamlDisplay>
 
-        <StackPanel Grid.Column="2" Background="White">
+        <StackPanel Grid.Column="2" Background="#D6E4F0">
             <StackPanel>
                 <TextBlock
                     Margin="20"
@@ -194,6 +194,9 @@
                         <materialDesign:Chip.Icon>
                             <Image
                             Source="C:\Users\МОиБД\Source\Repos\latucSSS\latuc\Resources\Image\test.png" />
+                        Content="Пройти текст">
+                        <materialDesign:Chip.Icon>
+                            <Image/>
                         </materialDesign:Chip.Icon>
                     </materialDesign:Chip>
 
