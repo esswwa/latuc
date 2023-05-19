@@ -127,7 +127,6 @@
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
-                                                
                                                 Command="{Binding Theory}"
                                                 FontFamily="{StaticResource font}"/>
                                         <Button Content="Тест"

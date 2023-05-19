@@ -9,13 +9,13 @@ public partial class LevelsStatistic
 
     public int Iduser { get; set; }
 
-    public int? ScoreTest { get; set; }
+    public int ScoreTest { get; set; }
 
     public DateOnly? Date { get; set; }
 
-    public int? CountTry { get; set; }
+    public int CountTry { get; set; }
 
-    public int? ScorePractic { get; set; }
+    public int ScorePractic { get; set; }
 
     public int LevelComplete { get; set; }
 

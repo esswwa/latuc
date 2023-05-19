@@ -1,4 +1,5 @@
-﻿using static System.Formats.Asn1.AsnWriter;
+﻿using System.Linq;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace latuc.Services
 {
@@ -81,6 +82,12 @@ namespace latuc.Services
 
             return await _latucContext.Users.Select(u => u.Login).AsNoTracking().ToListAsync();
         }
+
+        public Statistic userStatistic()
+        {
+            return _latucContext.Statistics.Where(u => u.Idstatistic == Settings.Default.idStatistic).First();
+        }
+
     }
 }
 
