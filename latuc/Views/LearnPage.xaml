@@ -129,18 +129,30 @@
                                                 Width="85"
                                                 Command="{Binding Theory}"
                                                 FontFamily="{StaticResource font}"/>
+                                        <materialDesign:RatingBar
+                                        x:Name="BasicRatingBarTheory"
+                                        IsReadOnly="True"
+                                        Value="{Binding RatingTheory}" />
                                         <Button Content="Тест"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Test}"
                                                 FontFamily="{StaticResource font}"/>
+                                        <materialDesign:RatingBar
+                                        x:Name="BasicRatingBarTest"
+                                        IsReadOnly="True"
+                                        Value="{Binding RatingTest}" />
                                         <Button Content="Практика"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Practic}"
                                                 FontFamily="{StaticResource font}"/>
+                                        <materialDesign:RatingBar
+                                        x:Name="BasicRatingBarPractic"
+                                        IsReadOnly="True"
+                                        Value="{Binding RatingPractic}" />
                                     
                                     </TreeViewItem>
                                 </TreeView>
