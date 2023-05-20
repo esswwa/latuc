@@ -108,5 +108,59 @@
 
             </materialDesign:DrawerHost>
         </smtx:XamlDisplay>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock 
+                    Text="{Binding TheoryHeader}"
+                    FontFamily="{StaticResource font}"
+                           />
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button 
+                    Grid.Row="0"
+                    FontFamily="{StaticResource font}"
+                    Style="{StaticResource ButtonStyle3}"
+                    Content="{Binding UpLeftQuestion}"
+                    Margin="0 0 10 0"/>
+
+                <Button 
+                    Grid.Row="1"
+                    FontFamily="{StaticResource font}"
+                    Style="{StaticResource ButtonStyle3}"
+                    Content="{Binding DownLeftQuestion}"
+                    Margin="0 0 10 0"/>
+
+                <Button 
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    FontFamily="{StaticResource font}"
+                    Style="{StaticResource ButtonStyle3}"
+                    Content="{Binding UpRightQuestion}"
+                    Margin="10 0 0 0"/>
+
+                <Button 
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    FontFamily="{StaticResource font}"
+                    Style="{StaticResource ButtonStyle3}"
+                    Content="{Binding DownRightQuestion}"
+                    Margin="10 0 0 0"/>
+            </Grid>
+        </Grid>
+
     </Grid>
 </Page>
