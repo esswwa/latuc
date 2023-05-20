@@ -96,13 +96,6 @@ namespace latuc.Services
         }
 
         public void UpdateProductNull() {
-            Settings.Default.idUser = 0;
-            Settings.Default.userLogin = null;
-            Settings.Default.userEmail = null;
-            Settings.Default.userPassword = null;
-            Settings.Default.idStatistic = 0;
-            Settings.Default.idAchievments = 0;
-            Settings.Default.Role = 0;
             Settings.Default.exitBool = 0;
             UpdateProduct();
         }
