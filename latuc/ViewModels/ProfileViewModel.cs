@@ -37,6 +37,16 @@ namespace latuc.ViewModels
             _userService.UpdateProductNull();
         });
 
+        public DelegateCommand Test => new(() =>
+        {
+            _pageService.ChangePage(new TestPage());
+        });
+
+        public DelegateCommand Achievements => new(() =>
+        {
+            _pageService.ChangePage(new Achivements());
+        });
+
         public DelegateCommand Levels => new(() =>
         {
             _pageService.ChangePage(new LearnPage());

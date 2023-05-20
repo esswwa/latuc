@@ -211,7 +211,8 @@
                         </WrapPanel>
 
                         <materialDesign:Chip
-                    Content="Достижения">
+                            Content="Достижения" 
+                            Command="{Binding Achievements}">
                             <materialDesign:Chip.Icon>
                                 <Image
                             />
@@ -219,7 +220,8 @@
                         </materialDesign:Chip>
 
                         <materialDesign:Chip
-                    Content="Пройти текст">
+                            Content="Пройти текст"
+                            Command="{Binding Test}">
                             <materialDesign:Chip.Icon>
                                 <Image
                             />
