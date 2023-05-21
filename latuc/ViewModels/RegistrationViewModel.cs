@@ -34,7 +34,8 @@ namespace latuc.ViewModels
             await _userService.StatisticsAsync(maxUser, 0, 0, 0, 0, 0);
             await _userService.RegistrationAsync(Email, Login, Password, maxUser, maxUser, 0);
             _pageService.ChangePage(new AuthorizationPage());
-        }, bool () => {
+        }, bool () =>
+        {
             if (string.IsNullOrWhiteSpace(Email)
                 || string.IsNullOrWhiteSpace(Login)
                 || string.IsNullOrWhiteSpace(Password))

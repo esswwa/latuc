@@ -18,7 +18,8 @@ namespace latuc.ViewModels
             User user = Proverka();
             if (user == null)
                 _pageService.ChangePage(new AuthorizationPage());
-            else {
+            else
+            {
                 Settings.Default.idUser = user.Iduser;
                 Settings.Default.userLogin = user.Login;
                 Settings.Default.userEmail = user.Email;
@@ -32,8 +33,9 @@ namespace latuc.ViewModels
             }
         }
 
-        public User Proverka() {
-           return _latucContext.Users.Where(u => u.exitBool == 1).FirstOrDefault();
+        public User Proverka()
+        {
+            return _latucContext.Users.Where(u => u.ExitBool == 1).FirstOrDefault();
         }
     }
 }

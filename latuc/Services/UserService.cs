@@ -40,7 +40,8 @@ namespace latuc.Services
             return _latucContext.Users.ToList();
         }
 
-        public async Task RegistrationAsync(string email, string login, string password, int idStatistic, int idAchievemnts, int Role) {
+        public async Task RegistrationAsync(string email, string login, string password, int idStatistic, int idAchievemnts, int Role)
+        {
 
             await _latucContext.Users.AddAsync(new User
             {
@@ -50,8 +51,8 @@ namespace latuc.Services
                 IdStatistics = idStatistic,
                 IdAchievemnts = idAchievemnts,
                 Role = Role,
-                exitBool = 0
-            }); 
+                ExitBool = 0
+            });
             await _latucContext.SaveChangesAsync();
         }
 
@@ -89,18 +90,20 @@ namespace latuc.Services
             Users = new ObservableCollection<User>(currentOrders);
             var item = Users.First(i => i.Iduser == Settings.Default.idUser);
             var index = Users.IndexOf(item);
-            item.exitBool = Settings.Default.exitBool;
+            item.ExitBool = Settings.Default.exitBool;
             Users.RemoveAt(index);
             Users.Insert(index, item);
             await _latucContext.SaveChangesAsync();
         }
 
-        public void UpdateProductNull() {
+        public void UpdateProductNull()
+        {
             Settings.Default.exitBool = 0;
             UpdateProduct();
         }
 
-        public int GetMaxIdUser (){
+        public int GetMaxIdUser()
+        {
 
             return _latucContext.Users.Max(u => u.Iduser);
         }
