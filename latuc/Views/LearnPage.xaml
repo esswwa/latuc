@@ -120,7 +120,7 @@
                                     HorizontalAlignment="Stretch">
 
                                 <TreeView Background="#D6E4F0" MinWidth="117">
-                                    <TreeViewItem Header="Тема 1"
+                                    <TreeViewItem Header="Инструкция"
                                       Foreground="#424874"
                                       FontFamily="{StaticResource font}">
                                         <Button Content="Теория"
@@ -157,7 +157,31 @@
                                     </TreeViewItem>
                                 </TreeView>
                                 <TreeView Background="#D6E4F0">
-                                    <TreeViewItem Header="Тема 2"
+                                    <TreeViewItem Header="Переменные и константы"
+                                      Foreground="#424874"
+                                      FontFamily="{StaticResource font}">
+                                        <Button Content="Теория"
+                                                Style="{StaticResource ButtonStyle3}"
+                                                Height="35"
+                                                Width="85"
+                                                Command="{Binding Theory}"
+                                                FontFamily="{StaticResource font}"/>
+                                        <Button Content="Тест"
+                                                Style="{StaticResource ButtonStyle3}"
+                                                Height="35"
+                                                Width="85"
+                                                Command="{Binding Test}"
+                                                FontFamily="{StaticResource font}"/>
+                                        <Button Content="Практика"
+                                                Style="{StaticResource ButtonStyle3}"
+                                                Height="35"
+                                                Width="85"
+                                                Command="{Binding Practic}"
+                                                FontFamily="{StaticResource font}"/>
+                                    </TreeViewItem>
+                                </TreeView>
+                                <TreeView Background="#D6E4F0">
+                                    <TreeViewItem Header="Типы данных"
                                       Foreground="#424874"
                                       FontFamily="{StaticResource font}">
                                         <Button Content="Теория"
@@ -196,7 +220,7 @@
                                     HorizontalAlignment="Stretch">
 
                                 <TreeView Background="#D6E4F0" MinWidth="117">
-                                    <TreeViewItem Header="Тема 1"
+                                    <TreeViewItem Header="Конструкция if..else и тернарная операция"
                                       Foreground="#424874"
                                       FontFamily="{StaticResource font}">
                                         <Button Content="Теория"
@@ -221,7 +245,31 @@
                                     </TreeViewItem>
                                 </TreeView>
                                 <TreeView Background="#D6E4F0">
-                                    <TreeViewItem Header="Тема 2"
+                                    <TreeViewItem Header="Циклы"
+                                      Foreground="#424874"
+                                      FontFamily="{StaticResource font}">
+                                        <Button Content="Теория"
+                                                Style="{StaticResource ButtonStyle3}"
+                                                Height="35"
+                                                Width="85"
+                                                Command="{Binding Theory}"
+                                                FontFamily="{StaticResource font}"/>
+                                        <Button Content="Тест"
+                                                Style="{StaticResource ButtonStyle3}"
+                                                Height="35"
+                                                Width="85"
+                                                Command="{Binding Test}"
+                                                FontFamily="{StaticResource font}"/>
+                                        <Button Content="Практика"
+                                                Style="{StaticResource ButtonStyle3}"
+                                                Height="35"
+                                                Width="85"
+                                                Command="{Binding Practic}"
+                                                FontFamily="{StaticResource font}"/>
+                                    </TreeViewItem>
+                                </TreeView>
+                                <TreeView Background="#D6E4F0">
+                                    <TreeViewItem Header="Массивы"
                                       Foreground="#424874"
                                       FontFamily="{StaticResource font}">
                                         <Button Content="Теория"
@@ -259,7 +307,7 @@
                                     HorizontalAlignment="Stretch">
 
                                 <TreeView Background="#D6E4F0" MinWidth="117">
-                                    <TreeViewItem Header="Тема 1"
+                                    <TreeViewItem Header="Возвращение значения и оператор return"
                                       Foreground="#424874"
                                       FontFamily="{StaticResource font}">
                                         <Button Content="Теория"
@@ -284,7 +332,31 @@
                                     </TreeViewItem>
                                 </TreeView>
                                 <TreeView Background="#D6E4F0">
-                                    <TreeViewItem Header="Тема 2"
+                                    <TreeViewItem Header="Конструкция switch"
+                                      Foreground="#424874"
+                                      FontFamily="{StaticResource font}">
+                                        <Button Content="Теория"
+                                                Style="{StaticResource ButtonStyle3}"
+                                                Height="35"
+                                                Width="85"
+                                                Command="{Binding Theory}"
+                                                FontFamily="{StaticResource font}"/>
+                                        <Button Content="Тест"
+                                                Style="{StaticResource ButtonStyle3}"
+                                                Height="35"
+                                                Width="85"
+                                                Command="{Binding Test}"
+                                                FontFamily="{StaticResource font}"/>
+                                        <Button Content="Практика"
+                                                Style="{StaticResource ButtonStyle3}"
+                                                Height="35"
+                                                Width="85"
+                                                Command="{Binding Practic}"
+                                                FontFamily="{StaticResource font}"/>
+                                    </TreeViewItem>
+                                </TreeView>
+                                <TreeView Background="#D6E4F0">
+                                    <TreeViewItem Header="Рекурсивные функции"
                                       Foreground="#424874"
                                       FontFamily="{StaticResource font}">
                                         <Button Content="Теория"
