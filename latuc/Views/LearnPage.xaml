@@ -137,7 +137,7 @@
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
-                                                Command="{Binding ReadProButton}"
+                                                Command="{Binding Test}"
                                                 CommandParameter="{Binding ElementName=Instruksiya}"
                                                 FontFamily="{StaticResource font}"/>
                                         <materialDesign:RatingBar
