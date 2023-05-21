@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using DevExpress.Mvvm.Native;
+using System.Linq;
+using System.Windows.Controls;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace latuc.Services
@@ -6,6 +8,9 @@ namespace latuc.Services
     public class UserService
     {
         private readonly LatucCodeContext _latucContext;
+
+        public ObservableCollection<User> Users { get; set; }
+
         public UserService(LatucCodeContext latucContext)
         {
             _latucContext = latucContext;
@@ -24,12 +29,19 @@ namespace latuc.Services
                 Settings.Default.idStatistic = user.IdStatistics;
                 Settings.Default.idAchievments = user.IdAchievemnts;
                 Settings.Default.Role = user.Role;
+                Settings.Default.exitBool = 1;
                 return true;
             }
             return false;
         }
 
-        public async Task RegistrationAsync(string email, string login, string password, int idStatistic, int idAchievemnts, int Role) {
+        public async Task<List<User>> getUsers()
+        {
+            return _latucContext.Users.ToList();
+        }
+
+        public async Task RegistrationAsync(string email, string login, string password, int idStatistic, int idAchievemnts, int Role)
+        {
 
             await _latucContext.Users.AddAsync(new User
             {
@@ -38,8 +50,9 @@ namespace latuc.Services
                 Password = password,
                 IdStatistics = idStatistic,
                 IdAchievemnts = idAchievemnts,
-                Role = Role
-            }); ;
+                Role = Role,
+                ExitBool = 0
+            });
             await _latucContext.SaveChangesAsync();
         }
 
@@ -71,8 +84,26 @@ namespace latuc.Services
             await _latucContext.SaveChangesAsync();
         }
 
+        public async void UpdateProduct()
+        {
+            var currentOrders = await getUsers();
+            Users = new ObservableCollection<User>(currentOrders);
+            var item = Users.First(i => i.Iduser == Settings.Default.idUser);
+            var index = Users.IndexOf(item);
+            item.ExitBool = Settings.Default.exitBool;
+            Users.RemoveAt(index);
+            Users.Insert(index, item);
+            await _latucContext.SaveChangesAsync();
+        }
 
-        public int GetMaxIdUser (){
+        public void UpdateProductNull()
+        {
+            Settings.Default.exitBool = 0;
+            UpdateProduct();
+        }
+
+        public int GetMaxIdUser()
+        {
 
             return _latucContext.Users.Max(u => u.Iduser);
         }

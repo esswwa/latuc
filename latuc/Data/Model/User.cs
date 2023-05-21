@@ -19,6 +19,8 @@ public partial class User
 
     public int Role { get; set; }
 
+    public int ExitBool { get; set; }
+
     public virtual UserAchievement IdAchievemntsNavigation { get; set; } = null!;
 
     public virtual Statistic IdStatisticsNavigation { get; set; } = null!;
