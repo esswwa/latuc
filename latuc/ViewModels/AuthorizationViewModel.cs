@@ -64,6 +64,6 @@ namespace latuc.ViewModels
             await Application.Current.Dispatcher.InvokeAsync(async () => _pageService.ChangePage(new RegistrationPage()));
         });
 
-      
+
     }
 }

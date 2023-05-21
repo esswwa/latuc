@@ -58,6 +58,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\Model\" />
     <Folder Include="Models\" />
     <Folder Include="Services\" />
   </ItemGroup>
