@@ -10,10 +10,18 @@ namespace latuc.ViewModels
     {
         private readonly UserService _userService;
         private readonly PageService _pageService;
-        public LearnTheoryViewModel(UserService userService, PageService pageService)
+        private readonly LevelsService _levelService;
+        public String TheoryMain { get; set;}
+
+        Theory theory;
+
+        public LearnTheoryViewModel(UserService userService, PageService pageService, LevelsService levelService)
         {
             _userService = userService;
             _pageService = pageService;
+            _levelService = levelService;
+            theory = _levelService.getTheory();
+            TheoryMain = theory.Text;
         }
 
         public DelegateCommand Authorization => new(() =>

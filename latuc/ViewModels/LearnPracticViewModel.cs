@@ -17,7 +17,8 @@
     {
         private readonly UserService _userService;
         private readonly PageService _pageService;
-        public LearnPracticViewModel(UserService userService, PageService pageService)
+        private readonly LevelsService _levelsService;
+        public LearnPracticViewModel(UserService userService, PageService pageService, LevelsService levelsService)
         {
             _userService = userService;
             _pageService = pageService;
@@ -26,7 +27,7 @@
                 GoUp = new RelayCommand(o => OnGo(-1));
                 GoDown = new RelayCommand(o => OnGo(1));
                 Initialize();
-            
+            _levelsService = levelsService;
         }
 
         public DelegateCommand Authorization => new(() =>
