@@ -128,6 +128,7 @@
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Theory}"
+                                                Click="Lol_Click"
                                                 FontFamily="{StaticResource font}"/>
                                         <materialDesign:RatingBar
                                         x:Name="BasicRatingBarTheory"

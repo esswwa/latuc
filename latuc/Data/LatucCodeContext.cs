@@ -169,10 +169,10 @@ public partial class LatucCodeContext : DbContext
                 .ValueGeneratedNever()
                 .HasColumnName("idpractic");
             entity.Property(e => e.Answer)
-                .HasMaxLength(45)
+                .HasMaxLength(300)
                 .HasColumnName("answer");
             entity.Property(e => e.Question)
-                .HasMaxLength(150)
+                .HasMaxLength(300)
                 .HasColumnName("question");
         });
 
