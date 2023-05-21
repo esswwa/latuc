@@ -100,6 +100,8 @@ public partial class LatucCodeContext : DbContext
 
             entity.ToTable("levels_statistic");
 
+            entity.Property(e => e.Idlevels).HasColumnName("idlevels");
+
             entity.HasIndex(e => e.Iduser, "FK_user_From_Levels_idx");
 
             entity.Property(e => e.Idlevels)

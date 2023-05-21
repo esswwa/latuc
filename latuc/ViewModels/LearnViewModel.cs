@@ -11,6 +11,7 @@ namespace latuc.ViewModels
         private readonly UserService _userService;
         private readonly PageService _pageService;
         public int RatingTheory { get; set; }
+
         public LearnViewModel(UserService userService, PageService pageService)
         {
             _userService = userService;
@@ -32,6 +33,8 @@ namespace latuc.ViewModels
         public DelegateCommand Theory => new(() =>
         {
             _pageService.ChangePage(new LearnTheoryPage());
+
+
         });
 
         public DelegateCommand Test => new(() =>

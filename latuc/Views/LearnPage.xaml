@@ -137,7 +137,8 @@
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
-                                                Command="{Binding Test}"
+                                                Command="{Binding ReadProButton}"
+                                                CommandParameter="{Binding ElementName=Instruksiya}"
                                                 FontFamily="{StaticResource font}"/>
                                         <materialDesign:RatingBar
                                         x:Name="BasicRatingBarTest"
@@ -171,6 +172,7 @@
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Test}"
+                                                CommandParameter="{Binding ElementName=Peremennie}"
                                                 FontFamily="{StaticResource font}"/>
                                         <Button Content="Практика"
                                                 Style="{StaticResource ButtonStyle3}"
