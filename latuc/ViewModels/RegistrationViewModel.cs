@@ -19,35 +19,36 @@ namespace latuc.ViewModels
         public string ErrorMessageButton { get; set; }
         public string Password { get; set; }
         private List<string> _userLogin { get; set; } = new();
-        //public RegistrationViewModel(UserService userService, PageService pageService)
-        //{
-        //    _userService = userService;
-        //    _pageService = pageService;
+        public RegistrationViewModel(UserService userService, PageService pageService)
+        {
+            _userService = userService;
+            _pageService = pageService;
 
-        //    Task.Run(async () => _userLogin = await _userService.GetAllUser());
-        //}
+            Task.Run(async () => _userLogin = await _userService.GetAllUser());
+        }
 
-        //public AsyncCommand Registration => new(async () =>
-        //{
-        //    int maxUser = _userService.GetMaxIdUser() + 1;
-        //    await _userService.AchievementsAsync(maxUser, 0, maxUser, 0);
-        //    await _userService.StatisticsAsync(maxUser, 0, 0, 0, 0, 0);
-        //    await _userService.RegistrationAsync(Email, Login, Password, maxUser, maxUser, 0);
-        //    _pageService.ChangePage(new AuthorizationPage());
-        //}, bool () => {
-        //    if (string.IsNullOrWhiteSpace(Email)
-        //        || string.IsNullOrWhiteSpace(Login)
-        //        || string.IsNullOrWhiteSpace(Password))
-        //        ErrorMessage = "Обязательно";
-        //    else if (Login.Length <= 4)
-        //        ErrorMessage = "Слишком короткий логин";
-        //    else if (_userLogin.Contains(Login))
-        //        ErrorMessage = "Логин занят";
-        //    else
-        //        ErrorMessage = string.Empty;
+        public AsyncCommand Registration => new(async () =>
+        {
+            int maxUser = _userService.GetMaxIdUser() + 1;
+            await _userService.AchievementsAsync(maxUser, 0, maxUser, 0);
+            await _userService.StatisticsAsync(maxUser, 0, 0, 0, 0, 0);
+            await _userService.RegistrationAsync(Email, Login, Password, maxUser, maxUser, 0);
+            _pageService.ChangePage(new AuthorizationPage());
+        }, bool () =>
+        {
+            if (string.IsNullOrWhiteSpace(Email)
+                || string.IsNullOrWhiteSpace(Login)
+                || string.IsNullOrWhiteSpace(Password))
+                ErrorMessage = "Обязательно";
+            else if (Login.Length <= 4)
+                ErrorMessage = "Слишком короткий логин";
+            else if (_userLogin.Contains(Login))
+                ErrorMessage = "Логин занят";
+            else
+                ErrorMessage = string.Empty;
 
-        //    return ErrorMessage == string.Empty;
-        //});
+            return ErrorMessage == string.Empty;
+        });
 
         public DelegateCommand Authorization => new(async () => {
 

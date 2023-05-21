@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace latuc;
+namespace latuc.Data.Model;
 
 public partial class UserRole
 {
