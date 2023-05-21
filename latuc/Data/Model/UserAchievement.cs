@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace latuc.Data.Model;
+namespace latuc;
 
 public partial class UserAchievement
 {

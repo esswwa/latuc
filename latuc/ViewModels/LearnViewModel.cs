@@ -18,11 +18,11 @@ namespace latuc.ViewModels
             RatingTheory = 1;
         }
 
-        public DelegateCommand Authorization => new(() =>
-        {
-            _pageService.ChangePage(new AuthorizationPage());
-            _userService.UpdateProductNull();
-        });
+        //public DelegateCommand Authorization => new(() =>
+        //{
+        //    _pageService.ChangePage(new AuthorizationPage());
+        //    _userService.UpdateProductNull();
+        //});
 
         public DelegateCommand Practic => new(() =>
         {

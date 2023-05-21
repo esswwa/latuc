@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace latuc.Data.Model;
+namespace latuc;
 
 public partial class User
 {
@@ -19,7 +19,7 @@ public partial class User
 
     public int Role { get; set; }
 
-    public int exitBool { get; set; }
+    public int ExitBool { get; set; }
 
     public virtual UserAchievement IdAchievemntsNavigation { get; set; } = null!;
 

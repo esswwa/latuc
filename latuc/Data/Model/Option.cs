@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace latuc.Data.Model;
+namespace latuc;
 
 public partial class Option
 {
@@ -14,6 +14,8 @@ public partial class Option
     public string Number3 { get; set; } = null!;
 
     public string Number4 { get; set; } = null!;
+
+    public string Answer { get; set; } = null!;
 
     public virtual ICollection<Level> Levels { get; } = new List<Level>();
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace latuc.Data;
+namespace latuc;
 
 public partial class LatucCodeContext : DbContext
 {
@@ -23,6 +23,8 @@ public partial class LatucCodeContext : DbContext
 
     public virtual DbSet<Option> Options { get; set; }
 
+    public virtual DbSet<Practic> Practics { get; set; }
+
     public virtual DbSet<Statistic> Statistics { get; set; }
 
     public virtual DbSet<Theory> Theories { get; set; }
@@ -34,8 +36,8 @@ public partial class LatucCodeContext : DbContext
     public virtual DbSet<UserRole> UserRoles { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseMySql("server=localhost;user=root;password=Qwerty123;database=latuc_code",
-            ServerVersion.Parse("8.0.31-mysql"));
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseMySql("server=localhost;user=root;password=Qwerty123;database=latuc_code", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.31-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -70,23 +72,17 @@ public partial class LatucCodeContext : DbContext
 
             entity.HasIndex(e => e.Options, "FK_option_idx");
 
+            entity.HasIndex(e => e.Practic, "fk_practic_idpractic_idx");
+
             entity.HasIndex(e => e.IdTheory, "fk_theory_idTheory_idx");
 
             entity.Property(e => e.Idlevels)
                 .ValueGeneratedNever()
                 .HasColumnName("idlevels");
-            entity.Property(e => e.Answer).HasColumnName("answer");
-            entity.Property(e => e.AnswerPractic)
-                .HasMaxLength(45)
-                .HasColumnName("answer_practic");
             entity.Property(e => e.IdTheory).HasColumnName("id_theory");
             entity.Property(e => e.LanguageLvl).HasColumnName("language_lvl");
             entity.Property(e => e.Options).HasColumnName("options");
-            entity.Property(e => e.Question)
-                .HasMaxLength(120)
-                .HasColumnName("question");
-            entity.Property(e => e.ScorePractic).HasColumnName("score_practic");
-            entity.Property(e => e.ScoreTest).HasColumnName("score_test");
+            entity.Property(e => e.Practic).HasColumnName("practic");
 
             entity.HasOne(d => d.IdTheoryNavigation).WithMany(p => p.Levels)
                 .HasForeignKey(d => d.IdTheory)
@@ -97,6 +93,11 @@ public partial class LatucCodeContext : DbContext
                 .HasForeignKey(d => d.Options)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_option");
+
+            entity.HasOne(d => d.PracticNavigation).WithMany(p => p.Levels)
+                .HasForeignKey(d => d.Practic)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_practic_idpractic");
         });
 
         modelBuilder.Entity<LevelsStatistic>(entity =>
@@ -110,12 +111,14 @@ public partial class LatucCodeContext : DbContext
             entity.Property(e => e.Idlevels)
                 .ValueGeneratedNever()
                 .HasColumnName("idlevels");
-            entity.Property(e => e.CountTry).HasColumnName("count_try");
+            entity.Property(e => e.CountTryPractic).HasColumnName("count_try_practic");
+            entity.Property(e => e.CountTryTest).HasColumnName("count_try_test");
             entity.Property(e => e.Date).HasColumnName("date");
             entity.Property(e => e.Iduser).HasColumnName("iduser");
             entity.Property(e => e.LevelComplete).HasColumnName("level_complete");
             entity.Property(e => e.ScorePractic).HasColumnName("score_practic");
             entity.Property(e => e.ScoreTest).HasColumnName("score_test");
+            entity.Property(e => e.ScoreTheory).HasColumnName("score_theory");
 
             entity.HasOne(d => d.IdlevelsNavigation).WithOne(p => p.LevelsStatistic)
                 .HasForeignKey<LevelsStatistic>(d => d.Idlevels)
@@ -137,6 +140,9 @@ public partial class LatucCodeContext : DbContext
             entity.Property(e => e.Idoption)
                 .ValueGeneratedNever()
                 .HasColumnName("idoption");
+            entity.Property(e => e.Answer)
+                .HasMaxLength(45)
+                .HasColumnName("answer");
             entity.Property(e => e.Number1)
                 .HasMaxLength(45)
                 .HasColumnName("number1");
@@ -149,6 +155,23 @@ public partial class LatucCodeContext : DbContext
             entity.Property(e => e.Number4)
                 .HasMaxLength(45)
                 .HasColumnName("number4");
+        });
+
+        modelBuilder.Entity<Practic>(entity =>
+        {
+            entity.HasKey(e => e.Idpractic).HasName("PRIMARY");
+
+            entity.ToTable("practic");
+
+            entity.Property(e => e.Idpractic)
+                .ValueGeneratedNever()
+                .HasColumnName("idpractic");
+            entity.Property(e => e.Answer)
+                .HasMaxLength(45)
+                .HasColumnName("answer");
+            entity.Property(e => e.Question)
+                .HasMaxLength(150)
+                .HasColumnName("question");
         });
 
         modelBuilder.Entity<Statistic>(entity =>
@@ -189,21 +212,15 @@ public partial class LatucCodeContext : DbContext
 
             entity.HasIndex(e => e.IdStatistics, "FK_statistic_Fqrom_User_idx");
 
-
-
-            
-
-
-
             entity.HasIndex(e => e.Role, "fk_userRole_idx");
 
             entity.Property(e => e.Iduser).HasColumnName("iduser");
             entity.Property(e => e.Email)
                 .HasMaxLength(45)
                 .HasColumnName("email");
+            entity.Property(e => e.ExitBool).HasColumnName("exitBool");
             entity.Property(e => e.IdAchievemnts).HasColumnName("idAchievemnts");
             entity.Property(e => e.IdStatistics).HasColumnName("idStatistics");
-            entity.Property(e => e.exitBool).HasColumnName("exitBool");
             entity.Property(e => e.Login)
                 .HasMaxLength(45)
                 .HasColumnName("login");

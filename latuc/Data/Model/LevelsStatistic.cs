@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace latuc.Data.Model;
+namespace latuc;
 
 public partial class LevelsStatistic
 {
@@ -11,13 +11,17 @@ public partial class LevelsStatistic
 
     public int ScoreTest { get; set; }
 
-    public DateOnly? Date { get; set; }
+    public DateOnly Date { get; set; }
 
-    public int CountTry { get; set; }
+    public int CountTryTest { get; set; }
 
     public int ScorePractic { get; set; }
 
     public int LevelComplete { get; set; }
+
+    public int CountTryPractic { get; set; }
+
+    public int ScoreTheory { get; set; }
 
     public virtual Level IdlevelsNavigation { get; set; } = null!;
 
