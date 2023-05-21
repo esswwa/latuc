@@ -10,10 +10,12 @@ namespace latuc.ViewModels
     {
         private readonly UserService _userService;
         private readonly PageService _pageService;
+        public int RatingTheory { get; set; }
         public LearnViewModel(UserService userService, PageService pageService)
         {
             _userService = userService;
             _pageService = pageService;
+            RatingTheory = 1;
         }
 
         public DelegateCommand Authorization => new(() =>

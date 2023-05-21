@@ -108,5 +108,31 @@
 
             </materialDesign:DrawerHost>
         </smtx:XamlDisplay>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock 
+                    Text="{Binding TheoryHeader}"
+                    FontFamily="{StaticResource font}"
+                           />
+            </Grid>
+            <Grid Grid.Row="1">
+                <ScrollViewer>
+                    <TextBlock 
+                        Text="{Binding TheoryMain}"
+                        FontFamily="{StaticResource font}"
+                               />
+                </ScrollViewer>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Button 
+                    FontFamily="{StaticResource font}"
+                    Style="{StaticResource ButtonStyle3}"/>
+            </Grid>
+        </Grid>         
     </Grid>
 </Page>
