@@ -107,6 +107,13 @@
                             CommandParameter="{x:Static Dock.Left}"
                             Content="{materialDesign:PackIcon Kind=ArrowLeft}"
                             Style="{StaticResource ButtonStyle2}"/>
+
+                    <ScrollViewer Grid.Row="1" Height="auto">
+                        <TextBlock 
+                        Text="{Binding TheoryMain}"
+                        FontFamily="{StaticResource font}"
+                        TextWrapping="Wrap"/>
+                    </ScrollViewer>
                 </Grid>
 
             </materialDesign:DrawerHost>
