@@ -99,6 +99,7 @@
                 <Grid Width="340" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
+                        <RowDefinition Height="60"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Button Grid.Row="0"
@@ -107,6 +108,18 @@
                             CommandParameter="{x:Static Dock.Left}"
                             Content="{materialDesign:PackIcon Kind=ArrowLeft}"
                             Style="{StaticResource ButtonStyle2}"/>
+                    <Button Grid.Row="1"
+                            Height="50"
+                            Content="Назад"
+                            Style="{StaticResource ButtonStyle2}" Margin="0,10,0,0"
+                            Command="{Binding goBack}"/>
+
+                    <ScrollViewer Grid.Row="3" Height="auto">
+                        <TextBlock 
+                        Text="{Binding TheoryMain}"
+                        FontFamily="{StaticResource font}"
+                        TextWrapping="Wrap"/>
+                    </ScrollViewer>
                 </Grid>
 
             </materialDesign:DrawerHost>
