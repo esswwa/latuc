@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Query.Internal;
+﻿using latuc.Services;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace latuc.ViewModels
     {
         private readonly UserService _userService;
         private readonly PageService _pageService;
+        private readonly LevelsService _levelsService;
         public int RatingTheory { get; set; }
 
         public DelegateCommand<string> Theory { get; set; }
@@ -19,42 +21,82 @@ namespace latuc.ViewModels
 
         public DelegateCommand<string> Practic { get; set; }
 
-        public LearnViewModel(UserService userService, PageService pageService)
+        public LearnViewModel(UserService userService, PageService pageService, LevelsService levelsService)
         {
             _userService = userService;
             _pageService = pageService;
-            RatingTheory = 1;
+            _levelsService = levelsService;
+
+                RatingTheory = 1;
 
             Theory = new DelegateCommand<string>(TheoryMethod);
             Test = new DelegateCommand<string>(TestMethod);
             Practic = new DelegateCommand<string>(PracticMethod);
         }
 
+        Theory theory;
+        List<Option> option = new();
+        Practic practic;
+
         private void TheoryMethod(string parametr) {
             if (parametr.Contains("Junior"))
             {
                 parametr = parametr.Replace("Junior", "");
-                MessageBox.Show(parametr + "Junior");
+                theory = _levelsService.getTheoryFirst(parametr);
+                MessageBox.Show(theory.Text);
+
             }
             else if (parametr.Contains("Middle"))
             {
                 parametr = parametr.Replace("Middle", "");
-                MessageBox.Show(parametr + "Middle");
+                theory = _levelsService.getTheoryFirst(parametr);
 
             }
             else if (parametr.Contains("Senior"))
             {
                 parametr = parametr.Replace("Senior", "");
-                MessageBox.Show(parametr + "Senior");
+                theory = _levelsService.getTheoryFirst(parametr);
             }
         }
+        
         private void TestMethod(string parametr)
         {
-            MessageBox.Show(parametr);
+            if (parametr.Contains("Junior"))
+            {
+                parametr = parametr.Replace("Junior", "");
+                option = _levelsService.getAllOptions(parametr);
+                MessageBox.Show(option[1].Question);
+            }
+            else if (parametr.Contains("Middle"))
+            {
+                parametr = parametr.Replace("Middle", "");
+                option = _levelsService.getAllOptions(parametr);
+
+            }
+            else if (parametr.Contains("Senior"))
+            {
+                parametr = parametr.Replace("Senior", "");
+                option = _levelsService.getAllOptions(parametr);
+            }
         }
         private void PracticMethod(string parametr)
         {
-            MessageBox.Show(parametr);
+            if (parametr.Contains("Junior"))
+            {
+                parametr = parametr.Replace("Junior", "");
+                practic = _levelsService.getPracticFirst(parametr);
+            }
+            else if (parametr.Contains("Middle"))
+            {
+                parametr = parametr.Replace("Middle", "");
+                practic = _levelsService.getPracticFirst(parametr);
+
+            }
+            else if (parametr.Contains("Senior"))
+            {
+                parametr = parametr.Replace("Senior", "");
+                practic = _levelsService.getPracticFirst(parametr);
+            }
         }
 
         public DelegateCommand Authorization => new(() =>

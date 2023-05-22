@@ -1,4 +1,5 @@
-﻿using System;
+﻿using latuc.Data.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,6 @@ namespace latuc.ViewModels
         private readonly PageService _pageService;
         private readonly LevelsService _levelService;
         public String TheoryMain { get; set;}
-
         Theory theory;
 
         public LearnTheoryViewModel(UserService userService, PageService pageService, LevelsService levelService)

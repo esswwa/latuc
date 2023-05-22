@@ -150,7 +150,7 @@
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Practic}"
-                                                CommandParameter = "JuniorСтрукутура"
+                                                CommandParameter = "JuniorСтруктура"
                                                 FontFamily="{StaticResource font}"/>
                                         <materialDesign:RatingBar
                                         x:Name="BasicRatingBarPractic"
