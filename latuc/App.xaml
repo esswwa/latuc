@@ -16,6 +16,7 @@
             </ResourceDictionary.MergedDictionaries>
             <local:ViewModelLocator x:Key="ViewModelLocator"/>
             <FontFamily x:Key="font">Bahnschrift SemiBold SemiConden</FontFamily>
+            <FontFamily x:Key="font1">Bahnschrift  SemiConden</FontFamily>
             
             <Style x:Key="ButtonToText" 
                    TargetType="{x:Type Button}">
