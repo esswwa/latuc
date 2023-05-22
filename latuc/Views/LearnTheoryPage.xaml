@@ -124,19 +124,21 @@
                     Text="{Binding TheoryHeader}"
                     FontFamily="{StaticResource font}"/>
             </Grid>
-            <Grid Grid.Row="1" Margin="20">
-                <ScrollViewer>
+            <Grid Grid.Row="1" Margin="10" Background="White">
+                <ScrollViewer Margin="5" >
                     <TextBlock 
+                        TextWrapping="Wrap"
                         Text="{Binding TheoryMain}"
-                        Foreground = "White"
+                        Foreground = " Black"
                         FontFamily="{StaticResource font}"
-                        FontSize="20"/>
+                        FontSize="15"/>
                 </ScrollViewer>
             </Grid>
             <Grid Grid.Row="2">
                 <Button 
                     FontFamily="{StaticResource font}"
-                    Style="{StaticResource ButtonStyle3}"/>
+                    Style="{StaticResource ButtonStyle3}"
+                    Content="Далее"/>
             </Grid>
         </Grid>
     </Grid>
