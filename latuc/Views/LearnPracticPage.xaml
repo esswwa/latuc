@@ -113,12 +113,15 @@
                             Content="Назад"
                             Style="{StaticResource ButtonStyle2}" Margin="0,10,0,0"
                             Command="{Binding goBack}" />
-
-                    <ScrollViewer Grid.Row="3" Height="auto">
+    
+                    
+                    <ScrollViewer Grid.Row="3" Height="200" >
                         <TextBlock 
                         Text="{Binding TheoryMain}"
-                        FontFamily="{StaticResource font}"
-                        TextWrapping="Wrap"/>
+                        Foreground = "White"
+                        FontFamily="{StaticResource font1}"
+                        TextWrapping="Wrap"
+                        FontSize="20"/>
                     </ScrollViewer>
                 </Grid>
 
