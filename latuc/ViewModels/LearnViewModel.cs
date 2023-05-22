@@ -37,25 +37,27 @@ namespace latuc.ViewModels
         Theory theory;
         List<Option> option = new();
         Practic practic;
-
+        
         private void TheoryMethod(string parametr) {
             if (parametr.Contains("Junior"))
             {
                 parametr = parametr.Replace("Junior", "");
                 theory = _levelsService.getTheoryFirst(parametr);
-                MessageBox.Show(theory.Text);
+                _pageService.ChangePage(new LearnTheoryPage());
 
             }
             else if (parametr.Contains("Middle"))
             {
                 parametr = parametr.Replace("Middle", "");
                 theory = _levelsService.getTheoryFirst(parametr);
+                _pageService.ChangePage(new LearnTheoryPage());
 
             }
             else if (parametr.Contains("Senior"))
             {
                 parametr = parametr.Replace("Senior", "");
                 theory = _levelsService.getTheoryFirst(parametr);
+                _pageService.ChangePage(new LearnTheoryPage());
             }
         }
         
@@ -65,18 +67,22 @@ namespace latuc.ViewModels
             {
                 parametr = parametr.Replace("Junior", "");
                 option = _levelsService.getAllOptions(parametr);
-                MessageBox.Show(option[1].Question);
+                _pageService.ChangePage(new LearnTestPage());
             }
             else if (parametr.Contains("Middle"))
             {
                 parametr = parametr.Replace("Middle", "");
                 option = _levelsService.getAllOptions(parametr);
+                _pageService.ChangePage(new LearnTestPage());
+
 
             }
             else if (parametr.Contains("Senior"))
             {
                 parametr = parametr.Replace("Senior", "");
-                option = _levelsService.getAllOptions(parametr);
+                option = _levelsService.getAllOptions(parametr); 
+                _pageService.ChangePage(new LearnTestPage());
+
             }
         }
         private void PracticMethod(string parametr)
@@ -85,17 +91,21 @@ namespace latuc.ViewModels
             {
                 parametr = parametr.Replace("Junior", "");
                 practic = _levelsService.getPracticFirst(parametr);
+                _pageService.ChangePage(new LearnPracticPage());
+
             }
             else if (parametr.Contains("Middle"))
             {
                 parametr = parametr.Replace("Middle", "");
                 practic = _levelsService.getPracticFirst(parametr);
+                _pageService.ChangePage(new LearnPracticPage());
 
             }
             else if (parametr.Contains("Senior"))
             {
                 parametr = parametr.Replace("Senior", "");
                 practic = _levelsService.getPracticFirst(parametr);
+                _pageService.ChangePage(new LearnPracticPage());
             }
         }
 

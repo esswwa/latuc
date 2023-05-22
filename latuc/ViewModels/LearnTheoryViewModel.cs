@@ -20,7 +20,7 @@ namespace latuc.ViewModels
             _userService = userService;
             _pageService = pageService;
             _levelService = levelService;
-            theory = _levelService.getTheory();
+            theory = LevelsInfo.theory;
             TheoryMain = theory.Text;
         }
 
