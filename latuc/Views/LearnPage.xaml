@@ -129,6 +129,7 @@
                                                 Width="85"
                                                 Command="{Binding Theory}"
                                                 CommandParameter = "JuniorСтруктура"
+
                                                 FontFamily="{StaticResource font}"/>
                                         <materialDesign:RatingBar
                                         x:Name="BasicRatingBarTheory"

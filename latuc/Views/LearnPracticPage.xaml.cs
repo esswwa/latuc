@@ -23,6 +23,13 @@ namespace latuc.Views
         public LearnPracticPage()
         {
             InitializeComponent();
+            this.Loaded += MenuPage_Loaded;
+        }
+
+        private async void MenuPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            await Task.Delay(100);
+            DrawerHost.IsLeftDrawerOpen = false;
         }
     }
 }

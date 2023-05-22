@@ -10,7 +10,7 @@
       mc:Ignorable="d"       
       DataContext="{Binding LearnTestViewModel, 
                         Source={StaticResource ViewModelLocator}}"
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="1080" d:DesignWidth="1920"
       Title="LearnTestPage">
 
     <Grid>
@@ -104,12 +104,17 @@
                             CommandParameter="{x:Static Dock.Left}"
                             Content="{materialDesign:PackIcon Kind=ArrowLeft}"
                             Style="{StaticResource ButtonStyle2}"/>
+                    <Button Grid.Row="1"
+                            Height="50"
+                            Content="Назад"
+                            Command="{Binding goBack}"
+                            Style="{StaticResource ButtonStyle2}" Margin="0,10,0,0" Cursor="Hand"/>
                 </Grid>
 
             </materialDesign:DrawerHost>
         </smtx:XamlDisplay>
 
-        <Grid Grid.Column="1">
+        <Grid Grid.Column="1" MinWidth="500">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
@@ -117,52 +122,64 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <ScrollViewer MinHeight="100">
-                    <TextBlock 
+                    <Border BorderBrush="white" BorderThickness="5" CornerRadius="10" Margin="0, 10, 0, 0" Background="Black">
+                        <TextBlock 
                         Text="{Binding TheoryHeader}"
                         FontFamily="{StaticResource font}"
                         TextAlignment="Justify"
                         TextWrapping="Wrap"
+                        Margin="10"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="#D6E4F0"
+                        FontSize="26"
                         />
+                    </Border>
                 </ScrollViewer>
             </Grid>
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1" Cursor="">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
-                <Button 
-                    Grid.Row="0"
+                <Button
+                    Grid.Row="1"
+                    MinHeight="50"
                     FontFamily="{StaticResource font}"
                     Style="{StaticResource ButtonStyle3}"
                     Content="{Binding UpLeftQuestion}"
-                    Margin="0 0 10 0"/>
+                    Margin="10 0 10 0"/>
 
-                <Button 
-                    Grid.Row="1"
+                <Button
+                    MinHeight="50"
+                    Grid.Row="2"
                     FontFamily="{StaticResource font}"
                     Style="{StaticResource ButtonStyle3}"
                     Content="{Binding DownLeftQuestion}"
-                    Margin="0 0 10 0"/>
+                    Margin="10 0 10 0"/>
 
-                <Button 
-                    Grid.Row="0"
+                <Button
+                    MinHeight="50"
+                    Grid.Row="1"
                     Grid.Column="1"
                     FontFamily="{StaticResource font}"
                     Style="{StaticResource ButtonStyle3}"
                     Content="{Binding UpRightQuestion}"
-                    Margin="10 0 0 0"/>
+                    Margin="10 0 10 0"/>
 
-                <Button 
-                    Grid.Row="1"
+                <Button
+                    MinHeight="50"
+                    Grid.Row="2"
                     Grid.Column="1"
                     FontFamily="{StaticResource font}"
                     Style="{StaticResource ButtonStyle3}"
                     Content="{Binding DownRightQuestion}"
-                    Margin="10 0 0 0"/>
+                    Margin="10 0 10 0"/>
             </Grid>
         </Grid>
 
