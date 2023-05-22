@@ -15,6 +15,8 @@ public partial class Level
 
     public int Practic { get; set; }
 
+    public string Theme { get; set; } = null!;
+
     public virtual Theory IdTheoryNavigation { get; set; } = null!;
 
     public virtual LevelsStatistic? LevelsStatistic { get; set; }
