@@ -1,4 +1,6 @@
-﻿namespace latuc.Data.Model;
+﻿using MaterialDesignThemes.Wpf;
+
+namespace latuc.Data.Model;
 public partial class LatucCodeContext : DbContext
 {
     public LatucCodeContext()
@@ -77,6 +79,12 @@ public partial class LatucCodeContext : DbContext
             entity.Property(e => e.LanguageLvl).HasColumnName("language_lvl");
             entity.Property(e => e.Options).HasColumnName("options");
             entity.Property(e => e.Practic).HasColumnName("practic");
+
+            entity.Property(e => e.Theme)
+                .HasMaxLength(100)
+                .HasColumnName("theme");
+
+            
 
             entity.HasOne(d => d.IdTheoryNavigation).WithMany(p => p.Levels)
                 .HasForeignKey(d => d.IdTheory)
