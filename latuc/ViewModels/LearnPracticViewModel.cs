@@ -44,6 +44,8 @@
         {
             _pageService.ChangePage(new ProfilePage());
         });
+        public DelegateCommand goBack => new(async () => _pageService.ChangePage(new LearnPage()));
+
 
         public ObservableCollection<CommandVM> AllCommands { get; } = new ObservableCollection<CommandVM>();
 

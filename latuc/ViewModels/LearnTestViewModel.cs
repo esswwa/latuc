@@ -30,6 +30,8 @@ namespace latuc.ViewModels
         {
             _pageService.ChangePage(new ProfilePage());
         });
+        public DelegateCommand goBack => new(async () => _pageService.ChangePage(new LearnPage()));
+
 
 
     }

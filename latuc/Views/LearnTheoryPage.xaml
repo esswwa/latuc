@@ -104,6 +104,11 @@
                             CommandParameter="{x:Static Dock.Left}"
                             Content="{materialDesign:PackIcon Kind=ArrowLeft}"
                             Style="{StaticResource ButtonStyle2}"/>
+                    <Button Grid.Row="1"
+                            Height="50"
+                            Content="Назад"
+                            Command="{Binding goBack}"
+                            Style="{StaticResource ButtonStyle2}" Margin="0,10,0,0"/>
                 </Grid>
 
             </materialDesign:DrawerHost>
@@ -124,8 +129,7 @@
                 <ScrollViewer>
                     <TextBlock 
                         Text="{Binding TheoryMain}"
-                        FontFamily="{StaticResource font}"
-                               />
+                        FontFamily="{StaticResource font}"/>
                 </ScrollViewer>
             </Grid>
             <Grid Grid.Row="2">
