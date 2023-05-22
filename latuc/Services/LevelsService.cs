@@ -1,8 +1,11 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Ink;
 
 namespace latuc.Services
 {
@@ -47,6 +50,35 @@ namespace latuc.Services
                 ScoreTheory = scoreTheory
             });
             await _latucContext.SaveChangesAsync();
+        }
+
+        public Theory getTheoryFirst(string peremen)
+        {
+            Level levls;
+            levls = _latucContext.Levels.Where(u => u.Theme.Contains(peremen)).First();
+            return _latucContext.Theories.Where(u => u.IdTheory == levls.IdTheory).First();
+        }
+
+        public Practic getPracticFirst(string peremen)
+        {
+            Level levls;
+            levls = _latucContext.Levels.Where(u => u.Theme.Contains(peremen)).First(); 
+            return _latucContext.Practics.Where(u => u.Idpractic == levls.Practic).First();
+        }
+
+        public List<Option> getAllOptions(string peremen)
+        {
+            Level levls;
+            List<Option> optis = new();
+            Option opt;
+            levls = _latucContext.Levels.Where(u => u.Theme.Contains(peremen)).First();
+            opt = _latucContext.Options.Where(u => u.Idoption == levls.Options).First();
+            optis.Add(opt);
+            opt = _latucContext.Options.Where(u => u.Idoption == levls.Options+1).First();
+            optis.Add(opt);
+            opt = _latucContext.Options.Where(u => u.Idoption == levls.Options+2).First();
+            optis.Add(opt);
+            return optis;
         }
 
         public async void UpdateProduct()

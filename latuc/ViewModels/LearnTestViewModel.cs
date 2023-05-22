@@ -13,7 +13,7 @@ namespace latuc.ViewModels
         private readonly PageService _pageService;
         private readonly LevelsService _levelsService;
 
-        Option test;
+        List<Option> test;
 
 
         public String TheoryHeader { get; set; }
@@ -31,15 +31,15 @@ namespace latuc.ViewModels
             _pageService = pageService;
             _levelsService = levelsService;
 
-            test = levelsService.getTest();
+            test = LevelsInfo.option;
 
 
-            TheoryHeader = test.Question;
-            UpLeftQuestion = test.Number1;
-            UpRightQuestion = test.Number2;
-            DownLeftQuestion = test.Number3;
-            DownRightQuestion = test.Number4;
-            result = test.Answer;
+            TheoryHeader = test[0].Question;
+            UpLeftQuestion = test[0].Number1;
+            UpRightQuestion = test[0].Number2;
+            DownLeftQuestion = test[0].Number3;
+            DownRightQuestion = test[0].Number4;
+            result = test[0].Answer;
         }
 
         public DelegateCommand Authorization => new(() =>
