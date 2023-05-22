@@ -43,6 +43,7 @@ namespace latuc.ViewModels
             {
                 parametr = parametr.Replace("Junior", "");
                 theory = _levelsService.getTheoryFirst(parametr);
+                LevelsInfo.theory = theory;
                 _pageService.ChangePage(new LearnTheoryPage());
 
             }
@@ -50,6 +51,7 @@ namespace latuc.ViewModels
             {
                 parametr = parametr.Replace("Middle", "");
                 theory = _levelsService.getTheoryFirst(parametr);
+                LevelsInfo.theory = theory;
                 _pageService.ChangePage(new LearnTheoryPage());
 
             }
@@ -57,6 +59,7 @@ namespace latuc.ViewModels
             {
                 parametr = parametr.Replace("Senior", "");
                 theory = _levelsService.getTheoryFirst(parametr);
+                LevelsInfo.theory = theory;
                 _pageService.ChangePage(new LearnTheoryPage());
             }
         }
@@ -67,12 +70,14 @@ namespace latuc.ViewModels
             {
                 parametr = parametr.Replace("Junior", "");
                 option = _levelsService.getAllOptions(parametr);
+                LevelsInfo.option = option;
                 _pageService.ChangePage(new LearnTestPage());
             }
             else if (parametr.Contains("Middle"))
             {
                 parametr = parametr.Replace("Middle", "");
                 option = _levelsService.getAllOptions(parametr);
+                LevelsInfo.option = option;
                 _pageService.ChangePage(new LearnTestPage());
 
 
@@ -80,7 +85,8 @@ namespace latuc.ViewModels
             else if (parametr.Contains("Senior"))
             {
                 parametr = parametr.Replace("Senior", "");
-                option = _levelsService.getAllOptions(parametr); 
+                option = _levelsService.getAllOptions(parametr);
+                LevelsInfo.option = option;
                 _pageService.ChangePage(new LearnTestPage());
 
             }
@@ -91,6 +97,7 @@ namespace latuc.ViewModels
             {
                 parametr = parametr.Replace("Junior", "");
                 practic = _levelsService.getPracticFirst(parametr);
+                LevelsInfo.pratic = practic;
                 _pageService.ChangePage(new LearnPracticPage());
 
             }
@@ -98,6 +105,7 @@ namespace latuc.ViewModels
             {
                 parametr = parametr.Replace("Middle", "");
                 practic = _levelsService.getPracticFirst(parametr);
+                LevelsInfo.pratic = practic;
                 _pageService.ChangePage(new LearnPracticPage());
 
             }
@@ -105,6 +113,7 @@ namespace latuc.ViewModels
             {
                 parametr = parametr.Replace("Senior", "");
                 practic = _levelsService.getPracticFirst(parametr);
+                LevelsInfo.pratic = practic;
                 _pageService.ChangePage(new LearnPracticPage());
             }
         }
