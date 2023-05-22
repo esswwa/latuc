@@ -122,6 +122,10 @@
                         FontFamily="{StaticResource font}"
                         TextAlignment="Justify"
                         TextWrapping="Wrap"
+                        Margin="10"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="#D6E4F0"
                         />
                 </ScrollViewer>
             </Grid>
@@ -134,35 +138,35 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Button 
+                <Button
                     Grid.Row="0"
                     FontFamily="{StaticResource font}"
                     Style="{StaticResource ButtonStyle3}"
                     Content="{Binding UpLeftQuestion}"
-                    Margin="0 0 10 0"/>
+                    Margin="10 0 10 0"/>
 
-                <Button 
+                <Button
                     Grid.Row="1"
                     FontFamily="{StaticResource font}"
                     Style="{StaticResource ButtonStyle3}"
                     Content="{Binding DownLeftQuestion}"
-                    Margin="0 0 10 0"/>
+                    Margin="10 0 10 0"/>
 
-                <Button 
+                <Button
                     Grid.Row="0"
                     Grid.Column="1"
                     FontFamily="{StaticResource font}"
                     Style="{StaticResource ButtonStyle3}"
                     Content="{Binding UpRightQuestion}"
-                    Margin="10 0 0 0"/>
+                    Margin="10 0 10 0"/>
 
-                <Button 
+                <Button
                     Grid.Row="1"
                     Grid.Column="1"
                     FontFamily="{StaticResource font}"
                     Style="{StaticResource ButtonStyle3}"
                     Content="{Binding DownRightQuestion}"
-                    Margin="10 0 0 0"/>
+                    Margin="10 0 10 0"/>
             </Grid>
         </Grid>
 
