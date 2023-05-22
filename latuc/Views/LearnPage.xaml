@@ -238,21 +238,21 @@
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Theory}"
-                                                CommandParameter = "MiddleКонструкторы"
+                                                CommandParameter = "MiddleКонструкция if"
                                                 FontFamily="{StaticResource font}"/>
                                         <Button Content="Тест"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Test}"
-                                                CommandParameter = "MiddleКонструкторы"
+                                                CommandParameter = "MiddleКонструкция if"
                                                 FontFamily="{StaticResource font}"/>
                                         <Button Content="Практика"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Practic}"
-                                                CommandParameter = "MiddleКонструкторы"
+                                                CommandParameter = "MiddleКонструкция if"
                                                 FontFamily="{StaticResource font}"/>
 
                                     </TreeViewItem>
@@ -293,21 +293,21 @@
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Theory}"
-                                                CommandParameter = "MiddleМассивы"
+                                                CommandParameter = "MiddleМассив"
                                                 FontFamily="{StaticResource font}"/>
                                         <Button Content="Тест"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Test}"
-                                                CommandParameter = "MiddleМассивы"
+                                                CommandParameter = "MiddleМассив"
                                                 FontFamily="{StaticResource font}"/>
                                         <Button Content="Практика"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Practic}"
-                                                CommandParameter = "MiddleМассивы"
+                                                CommandParameter = "MiddleМассив"
                                                 FontFamily="{StaticResource font}"/>
                                     </TreeViewItem>
                                 </TreeView>
@@ -341,14 +341,14 @@
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Test}"
-                                                CommandParameter = "MiddleМассивы"
+                                                CommandParameter = "MiddleВозвращение"
                                                 FontFamily="{StaticResource font}"/>
                                         <Button Content="Практика"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Practic}"
-                                                CommandParameter = "MiddleМассивы"
+                                                CommandParameter = "MiddleВозвращение"
                                                 FontFamily="{StaticResource font}"/>
 
                                     </TreeViewItem>
@@ -362,21 +362,21 @@
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Theory}"
-                                                CommandParameter = "MiddleКонструкция"
+                                                CommandParameter = "MiddleКонструкция switch"
                                                 FontFamily="{StaticResource font}"/>
                                         <Button Content="Тест"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Test}"
-                                                CommandParameter = "MiddleКонструкция"
+                                                CommandParameter = "MiddleКонструкция switch"
                                                 FontFamily="{StaticResource font}"/>
                                         <Button Content="Практика"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Practic}"
-                                                CommandParameter = "MiddleКонструкция"
+                                                CommandParameter = "MiddleКонструкция switch"
                                                 FontFamily="{StaticResource font}"/>
                                     </TreeViewItem>
                                 </TreeView>

@@ -15,6 +15,10 @@
     }
     public class LearnPracticViewModel : VM
     {
+        public String TheoryMain { get; set; }
+
+        Practic practic;
+
         private readonly UserService _userService;
         private readonly PageService _pageService;
         private readonly LevelsService _levelsService;
@@ -28,6 +32,9 @@
                 GoDown = new RelayCommand(o => OnGo(1));
                 Initialize();
             _levelsService = levelsService;
+
+            practic = LevelsInfo.pratic;
+            TheoryMain = practic.Question;
         }
 
         public DelegateCommand Authorization => new(() =>
