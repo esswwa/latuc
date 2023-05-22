@@ -33,3 +33,4 @@ global using Microsoft.CodeAnalysis.CSharp.Scripting;
 global using Microsoft.CodeAnalysis.Scripting;
 global using System.Windows.Input;
 global using latuc.ScriptsForCompiler;
+global using System.Windows.Controls; 

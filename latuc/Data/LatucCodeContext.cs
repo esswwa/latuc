@@ -100,6 +100,8 @@ public partial class LatucCodeContext : DbContext
 
             entity.ToTable("levels_statistic");
 
+            entity.Property(e => e.Idlevels).HasColumnName("idlevels");
+
             entity.HasIndex(e => e.Iduser, "FK_user_From_Levels_idx");
 
             entity.Property(e => e.Idlevels)
@@ -135,21 +137,27 @@ public partial class LatucCodeContext : DbContext
                 .ValueGeneratedNever()
                 .HasColumnName("idoption");
             entity.Property(e => e.Answer)
-                .HasMaxLength(45)
                 .HasColumnName("answer");
+            entity.Property(e => e.Question)
+                .HasMaxLength(250)
+                .HasColumnName("question");
             entity.Property(e => e.Number1)
-                .HasMaxLength(45)
+                .HasMaxLength(250)
                 .HasColumnName("number1");
             entity.Property(e => e.Number2)
-                .HasMaxLength(45)
+                .HasMaxLength(250)
                 .HasColumnName("number2");
             entity.Property(e => e.Number3)
-                .HasMaxLength(45)
+                .HasMaxLength(250)
                 .HasColumnName("number3");
             entity.Property(e => e.Number4)
-                .HasMaxLength(45)
+                .HasMaxLength(250)
                 .HasColumnName("number4");
-        });
+            entity.Property(e => e.Numberquestion)
+            .HasColumnName("numberquestion");
+
+            
+        }); 
 
         modelBuilder.Entity<Practic>(entity =>
         {
@@ -161,10 +169,10 @@ public partial class LatucCodeContext : DbContext
                 .ValueGeneratedNever()
                 .HasColumnName("idpractic");
             entity.Property(e => e.Answer)
-                .HasMaxLength(45)
+                .HasMaxLength(300)
                 .HasColumnName("answer");
             entity.Property(e => e.Question)
-                .HasMaxLength(150)
+                .HasMaxLength(300)
                 .HasColumnName("question");
         });
 

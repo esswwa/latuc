@@ -129,7 +129,9 @@
                 <ScrollViewer>
                     <TextBlock 
                         Text="{Binding TheoryMain}"
-                        FontFamily="{StaticResource font}"/>
+                        FontFamily="{StaticResource font}"
+                        TextWrapping="Wrap"
+                               />
                 </ScrollViewer>
             </Grid>
             <Grid Grid.Row="2">
