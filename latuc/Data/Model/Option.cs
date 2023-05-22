@@ -15,7 +15,11 @@ public partial class Option
 
     public string Number4 { get; set; } = null!;
 
-    public string Answer { get; set; } = null!;
+    public int Answer { get; set; }
+
+    public string Question { get; set; } = null!;
+
+    public int Numberquestion { get; set; }
 
     public virtual ICollection<Level> Levels { get; } = new List<Level>();
 }

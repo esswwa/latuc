@@ -46,8 +46,8 @@
             #region Services
 
             services.AddSingleton<PageService>();
-            services.AddSingleton<UserService>();
-
+            services.AddSingleton<UserService>(); 
+            services.AddSingleton<LevelsService>();
             #endregion
 
             _provider = services.BuildServiceProvider();

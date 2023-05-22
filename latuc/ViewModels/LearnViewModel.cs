@@ -17,7 +17,11 @@ namespace latuc.ViewModels
             _pageService = pageService;
             RatingTheory = 1;
         }
-
+        private void Lol_Click(object sender)
+        {
+            MessageBox.Show(sender.ToString());
+        }
+        
         public DelegateCommand Authorization => new(() =>
         {
             _pageService.ChangePage(new AuthorizationPage());

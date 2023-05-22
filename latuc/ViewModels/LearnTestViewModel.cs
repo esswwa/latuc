@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace latuc.ViewModels
 {
@@ -10,10 +11,35 @@ namespace latuc.ViewModels
     {
         private readonly UserService _userService;
         private readonly PageService _pageService;
-        public LearnTestViewModel(UserService userService, PageService pageService)
+        private readonly LevelsService _levelsService;
+
+        Option test;
+
+
+        public String TheoryHeader { get; set; }
+        public String UpLeftQuestion { get; set; }
+        public String DownLeftQuestion { get; set; }
+        public String UpRightQuestion { get; set; }
+        public String DownRightQuestion { get; set; }
+
+        int result;
+
+
+        public LearnTestViewModel(UserService userService, PageService pageService, LevelsService levelsService)
         {
             _userService = userService;
             _pageService = pageService;
+            _levelsService = levelsService;
+
+            test = levelsService.getTest();
+
+
+            TheoryHeader = test.Question;
+            UpLeftQuestion = test.Number1;
+            UpRightQuestion = test.Number2;
+            DownLeftQuestion = test.Number3;
+            DownRightQuestion = test.Number4;
+            result = test.Answer;
         }
 
         public DelegateCommand Authorization => new(() =>
