@@ -10,8 +10,6 @@ namespace latuc.Models
     {
         public static Theory theory { get; set; }
         public static Practic pratic { get; set; }
-        public static List<T> pratic { get; set; }
-
-
+        public static List<Option> option { get; set; }
     }
 }
