@@ -52,6 +52,13 @@ namespace latuc.Services
             await _latucContext.SaveChangesAsync();
         }
 
+        public bool checkBool() {
+            if (_latucContext.LevelsStatistics.Where(i => i.Iduser == Settings.Default.idUser).First() != null)
+                return true;
+            return false;
+
+        }
+
         public Theory getTheoryFirst(string peremen)
         {
             Level levls;

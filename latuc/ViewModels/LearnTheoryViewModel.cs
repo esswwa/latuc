@@ -21,7 +21,6 @@ namespace latuc.ViewModels
             _pageService = pageService;
             _levelService = levelService;
             theory = LevelsInfo.theory;
-            theory.Text = theory.Text.Replace("/n", "\n");
             TheoryMain = theory.Text;
             TheoryMain = TheoryMain.Replace("/n", "\n");
         }
