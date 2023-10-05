@@ -23,6 +23,7 @@ namespace latuc.ViewModels
             theory = LevelsInfo.theory;
             theory.Text = theory.Text.Replace("/n", "\n");
             TheoryMain = theory.Text;
+            TheoryMain = TheoryMain.Replace("/n", "\n");
         }
 
         public DelegateCommand Authorization => new(() =>
