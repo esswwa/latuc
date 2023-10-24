@@ -75,6 +75,25 @@ namespace latuc.Services
             });
             await _latucContext.SaveChangesAsync();
         }
+
+        public async Task LevelsStatisticPracticAsync(int id_level, int scoreTest, int countTryTest, int scorePractic, int levelComplete, int countTryPractic, int scoreTheory)
+        {
+            DateOnly dateOnly = DateOnly.FromDateTime(DateTime.Now);
+            await _latucContext.LevelsStatistics.AddAsync(new LevelsStatistic
+            {
+                Iduser = Settings.Default.idUser,
+                ScoreTest = scoreTest,
+                Date = dateOnly,
+                CountTryTest = countTryTest,
+                ScorePractic = scorePractic,
+                LevelComplete = levelComplete,
+                CountTryPractic = countTryPractic,
+                ScoreTheory = scoreTheory,
+                Id_level = id_level
+            });
+            await _latucContext.SaveChangesAsync();
+        }
+
         public async Task LevelsStatisticAsyncTest(int id_level, int scoreTest, int countTryTest, int scorePractic, int levelComplete, int countTryPractic, int scoreTheory)
         {
             DateOnly dateOnly = DateOnly.FromDateTime(DateTime.Now);
@@ -121,9 +140,20 @@ namespace latuc.Services
                 Levels.RemoveAt(index);
                 Levels.Insert(index, item);
                 await _latucContext.SaveChangesAsync();
-          
+        }
 
+        public async Task saveRedactPractic(int idlevel, int scorePractic)
+        {
+            var Levels = _latucContext.LevelsStatistics.ToList();
 
+            var item = Levels.First(i => i.Id_level == idlevel && i.Iduser == Settings.Default.idUser);
+            var index = Levels.IndexOf(item);
+
+            item.ScorePractic = scorePractic;
+            item.CountTryPractic = item.CountTryPractic + 1;
+            Levels.RemoveAt(index);
+            Levels.Insert(index, item);
+            await _latucContext.SaveChangesAsync();
         }
 
 
