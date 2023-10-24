@@ -1,4 +1,5 @@
 ﻿using DevExpress.Mvvm.Native;
+using latuc.Data.Model;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -160,9 +161,17 @@ namespace latuc.Services
         }
         public int getLastScore(int idStat)
         {
-
-            var a = _latucContext.LevelsStatistics.Where(u => u.Iduser == Settings.Default.idUser && u.Id_level == idStat).First();
-            return a.ScoreTest;
+            try
+            {
+                if (_latucContext.LevelsStatistics.Where(u => u.Iduser == Settings.Default.idUser && u.Id_level == idStat).First() != null)
+                    return _latucContext.LevelsStatistics.Where(u => u.Iduser == Settings.Default.idUser && u.Id_level == idStat).First().ScoreTest;
+                else
+                    return 0;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
         }
 
         public async Task<List<string>> GetAllUser()

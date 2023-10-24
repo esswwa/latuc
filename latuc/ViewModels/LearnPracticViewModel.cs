@@ -1,4 +1,8 @@
-﻿namespace latuc.ViewModels
+﻿using DevExpress.Internal.WinApi.Windows.UI.Notifications;
+using latuc.Data.Model;
+using latuc.Services;
+
+namespace latuc.ViewModels
 {
     public class CommandVM : VM
     {
@@ -22,6 +26,8 @@
         private readonly UserService _userService;
         private readonly PageService _pageService;
         private readonly LevelsService _levelsService;
+
+        public string answer;
         public LearnPracticViewModel(UserService userService, PageService pageService, LevelsService levelsService)
         {
             _userService = userService;
@@ -35,6 +41,8 @@
 
             practic = LevelsInfo.pratic;
             TheoryMain = practic.Question;
+
+            answer = practic.Answer;
         }
 
         public DelegateCommand Authorization => new(() =>
@@ -56,6 +64,7 @@
 
 
         public ObservableCollection<CommandVM> AllCommands { get; } = new ObservableCollection<CommandVM>();
+        public ObservableCollection<CommandVM> AllCommandsErrors { get; } = new ObservableCollection<CommandVM>();
 
         public ICommand Evaluate { get; }
         public ICommand GoUp { get; }
@@ -75,6 +84,13 @@
             get => lastCommand;
             private set => Set(ref lastCommand, value);
         }
+
+        public CommandVM LastCommandCheck
+        {
+            get => lastCommand;
+            private set => Set(ref lastCommand, value);
+        }
+
 
         CommandVM currentCommand;
         public CommandVM CurrentCommand
@@ -118,29 +134,86 @@
             script = await ScriptsForCompiler.Script.Create(references, usings);
             IsInteractive = true;
         }
-
+        
+        public int score = 0;
         async void OnEvaluate()
         {
+            
             try
             {
+                string output = "";
                 IsInteractive = false;
                 var cmd = CurrentInput;
                 CurrentInput = null;
+                StringWriter sw = new StringWriter();
+                Console.SetOut(sw);
                 try
                 {
                     var result = await script.ExecuteNext(cmd);
-                    LastCommand = new CommandVM(cmd, true, result?.ToString() ?? "<no output>");
+                    output = sw.ToString();
+                    if(output != "")
+                        LastCommand = new CommandVM(cmd, true, result?.ToString() ?? output);
+
+                    else
+                        LastCommand = new CommandVM(cmd, true, result?.ToString() ?? "<no output>");
                 }
                 catch (CompilationErrorException ex)
                 {
                     LastCommand = new CommandVM(cmd, false, string.Join(" // ", ex.Diagnostics));
+                    LastCommandCheck = new CommandVM(cmd, false, string.Join(" // ", ex.Diagnostics));
                 }
                 catch (Exception ex)
                 {
                     LastCommand = new CommandVM(cmd, false, ex.Message);
+                    LastCommandCheck = new CommandVM(cmd, false, ex.Message);
                 }
-                AllCommands.Add(LastCommand);
-                CurrentCommand = null;
+                if (output.ToString().Contains(answer) || output.ToString() == answer)
+                {
+                    LastCommand = new CommandVM(cmd, true, output + "Ответ верный");
+                    
+                    if (AllCommandsErrors.Count == 0 && AllCommands.Count >= 2 || (practic.Idpractic == 0 && AllCommandsErrors.Count == 0))
+                    {
+                        score = 5;
+                    }
+                    else if (AllCommandsErrors.Count == 1 && AllCommands.Count >= 3 || (practic.Idpractic == 0 && AllCommandsErrors.Count == 1))
+                    {
+                        score = 4;
+                    }
+                    else if (AllCommandsErrors.Count == 2 && AllCommands.Count >= 4 || (practic.Idpractic == 0 && AllCommandsErrors.Count == 2))
+                    {
+                        score = 3;
+                    }
+                    else if (AllCommandsErrors.Count == 3 && AllCommands.Count >= 5 || (practic.Idpractic == 0 && AllCommandsErrors.Count == 3))
+                    {
+                        score = 2;
+                    }
+                    else if (AllCommandsErrors.Count == 4 && AllCommands.Count >= 6 || (practic.Idpractic == 0 && AllCommandsErrors.Count == 4))
+                    {
+                        score = 1;
+                    }
+                    else
+                    {
+                        score = 0;
+                    }
+
+                    MessageBox.Show(score.ToString());
+
+                    bool z = _levelsService.checkBool(practic.Idpractic);
+                    if (z == true)
+                        await _levelsService.saveRedactPractic(practic.Idpractic, score);
+                    else
+                        await _levelsService.LevelsStatisticPracticAsync(practic.Idpractic, 0, 0, score, 0, 1, 0);
+
+                    await _userService.editStatisticUser();
+                    MessageBox.Show("Практика успешно завершена");
+                    _pageService.ChangePage(new LearnPage());
+                }
+                else {
+                    AllCommands.Add(LastCommand);
+                    AllCommandsErrors.Add(LastCommandCheck);
+                    CurrentCommand = null;
+                }
+
             }
             finally
             {
