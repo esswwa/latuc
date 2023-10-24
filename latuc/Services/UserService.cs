@@ -1,4 +1,6 @@
 ﻿using DevExpress.Mvvm.Native;
+using System;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Controls;
 using static System.Formats.Asn1.AsnWriter;
@@ -38,6 +40,11 @@ namespace latuc.Services
         public async Task<List<User>> getUsers()
         {
             return _latucContext.Users.ToList();
+        }
+
+        public int checkScore() {
+
+            return _latucContext.Statistics.First(i => i.Idstatistic == Settings.Default.idUser).Score;
         }
 
         public async Task RegistrationAsync(string email, string login, string password, int idStatistic, int idAchievemnts, int Role)
