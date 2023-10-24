@@ -82,7 +82,7 @@
                 </Setter>
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="Background" Value="#D6E4F0"/>
+                        <Setter Property="Background" Value="#424874"/>
                     </Trigger>
                 </Style.Triggers>
                
@@ -95,7 +95,7 @@
                 <Setter Property="Padding" Value="10,5"/>
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="Background" Value="#D6E4F0"/>
+                        <Setter Property="Background" Value="#000"/>
                     </Trigger>
                 </Style.Triggers>
 
@@ -108,7 +108,7 @@
                 <Setter Property="Padding" Value="10,5"/>
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="Background" Value="#D6E4F0"/>
+                        <Setter Property="Background" Value="#000"/>
                     </Trigger>
                 </Style.Triggers>
             </Style>
