@@ -285,7 +285,7 @@
                 <ScrollViewer>
                     <StackPanel HorizontalAlignment="Stretch"
                             VerticalAlignment="Top">
-                        <Expander HorizontalAlignment="Stretch" Header="Основы программирования на C#" Background="#D6E4F0" Foreground="#424874" FontFamily="{StaticResource font}">
+                        <Expander IsEnabled="{Binding MiddleEnabled}" HorizontalAlignment="Stretch" Header="Основы программирования на C#" Background="#D6E4F0" Foreground="#424874" FontFamily="{StaticResource font}">
                             <StackPanel Orientation="Vertical"
                                     HorizontalAlignment="Stretch">
 
@@ -450,7 +450,7 @@
                 <ScrollViewer>
                     <StackPanel HorizontalAlignment="Stretch"
                             VerticalAlignment="Top">
-                        <Expander HorizontalAlignment="Stretch" Header="Основы программирования на C#" Background="#D6E4F0" Foreground="#424874" FontFamily="{StaticResource font}">
+                        <Expander HorizontalAlignment="Stretch" IsEnabled="{Binding SeniorEnabled}" Header="Основы программирования на C#" Background="#D6E4F0" Foreground="#424874" FontFamily="{StaticResource font}">
                             <StackPanel Orientation="Vertical"
                                     HorizontalAlignment="Stretch">
 
