@@ -46,9 +46,10 @@ namespace latuc.ViewModels
         {
             bool z = _levelService.checkBool(theory.IdTheory);
             if (z == true)
-                MessageBox.Show("da");
+                _levelService.saveRedact(theory.IdTheory);
             else
                 _levelService.LevelsStatisticAsync(theory.IdTheory, 0, 0, 0, 0, 0, 1);
+            _pageService.ChangePage(new LearnPage());
         });
         
 

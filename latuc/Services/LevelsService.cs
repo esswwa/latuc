@@ -1,9 +1,11 @@
 ﻿using MaterialDesignThemes.Wpf;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Ink;
 
@@ -51,6 +53,23 @@ namespace latuc.Services
                 Id_level = id_level
             });
             await _latucContext.SaveChangesAsync();
+        }
+
+        public async Task saveRedact(int idlevel)
+        {
+            var Levels = _latucContext.LevelsStatistics.ToList();
+
+            var item = Levels.First(i => i.Id_level == idlevel && i.Iduser == Settings.Default.idUser);
+            var index = Levels.IndexOf(item);
+            if (item.ScoreTheory != 1)
+            {
+                item.ScoreTheory = 1;
+                Levels.RemoveAt(index);
+                Levels.Insert(index, item);
+                await _latucContext.SaveChangesAsync();
+            }
+            
+           
         }
 
         public bool checkBool(int idTheory) {
