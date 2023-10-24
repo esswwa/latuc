@@ -45,6 +45,14 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
+                
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#424874"/>
+                        <Setter Property="Foreground" Value="#fff"/>
+                    </Trigger>
+                </Style.Triggers>
+
             </Style>
 
             <Style x:Key="TextBlockStyle1" TargetType="TextBlock" >
