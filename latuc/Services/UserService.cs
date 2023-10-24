@@ -111,11 +111,23 @@ namespace latuc.Services
             var item = statistic.First(i => i.Idstatistic == Settings.Default.idUser);
             var index = statistic.IndexOf(item);
             int z = 0;
+            int z2 = 0;
             foreach (var item1 in scoreUser) {
                 z = z + item1.ScoreTest + item1.ScoreTheory + item1.ScorePractic;
 
             }
+
+            foreach (var item2 in scoreUser)
+            {
+                if (item2.ScorePractic > 0 && item2.ScoreTest > 0 && item2.ScoreTheory > 0)
+                {
+                    z2 += 1;
+                }
+            }
+
             item.Score = z;
+            item.CountOfPassedLevel = z2;
+
             if (item.Score >= 20)
             {
                 item.LanguageLvl = 1;

@@ -222,19 +222,10 @@
                             Text="{Binding Score}"
                             Style="{StaticResource TextBlockStyle1}"/>
                         </WrapPanel>
-                        
+
                         <materialDesign:Chip
                             Content="Достижения" 
                             Command="{Binding Achievements}">
-                            <materialDesign:Chip.Icon>
-                                <Image
-                            />
-                            </materialDesign:Chip.Icon>
-                        </materialDesign:Chip>
-
-                        <materialDesign:Chip
-                            Content="Пройти текст"
-                            Command="{Binding Test}">
                             <materialDesign:Chip.Icon>
                                 <Image
                             />
