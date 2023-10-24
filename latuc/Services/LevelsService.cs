@@ -94,14 +94,13 @@ namespace latuc.Services
 
             var item = Levels.First(i => i.Id_level == idlevel && i.Iduser == Settings.Default.idUser);
             var index = Levels.IndexOf(item);
-            if (item.ScoreTest <= 0)
-            {
+            
                 item.ScoreTest = scoreTest;
                 item.CountTryTest = item.CountTryTest + 1;
                 Levels.RemoveAt(index);
                 Levels.Insert(index, item);
                 await _latucContext.SaveChangesAsync();
-            }
+          
 
 
         }
