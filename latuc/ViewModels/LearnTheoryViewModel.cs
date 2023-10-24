@@ -42,13 +42,13 @@ namespace latuc.ViewModels
         });
         public DelegateCommand goBack => new(async () => _pageService.ChangePage(new LearnPage()));
 
-        public DelegateCommand endRead => new(() =>
+        public DelegateCommand endRead => new(async () =>
         {
             bool z = _levelService.checkBool(theory.IdTheory);
             if (z == true)
-                _levelService.saveRedact(theory.IdTheory);
+                await _levelService.saveRedact(theory.IdTheory);
             else
-                _levelService.LevelsStatisticAsync(theory.IdTheory, 0, 0, 0, 0, 0, 1);
+                await _levelService.LevelsStatisticAsync(theory.IdTheory, 0, 0, 0, 0, 0, 1);
             _pageService.ChangePage(new LearnPage());
         });
         
