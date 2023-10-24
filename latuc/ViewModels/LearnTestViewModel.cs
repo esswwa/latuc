@@ -163,21 +163,17 @@ namespace latuc.ViewModels
 
                 bool z = _levelsService.checkBool(test[0].Idoption / 3);
                 
-                int z1 = _userService.getLastScore(test[checkScore - 1].Idoption / 3);
+                int z1 = _userService.getLastScore(test[0].Idoption / 3);
 
                 if (z == true)
                      _levelsService.saveRedactTest(test[0].Idoption / 3, checkScoreTest);
                 else
                      _levelsService.LevelsStatisticAsync(test[0].Idoption / 3, checkScoreTest, 0, 0, 0, 0, 0);
 
-
-
-
                 checkScoreTest = checkScoreTest - z1;
-
-
-                if(checkScoreTest > 0)
-                    _userService.editStatisticUser(checkScoreTest);
+                
+                if (checkScoreTest > 0)
+                    _userService.editStatisticUser();
 
                 MessageBox.Show(checkScoreTest.ToString());
 

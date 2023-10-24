@@ -97,27 +97,30 @@ namespace latuc.Services
         }
 
 
-        public async Task editStatisticUser(int score)
+        public async Task editStatisticUser()
         {
             var statistic = _latucContext.Statistics.ToList();
-
+            var scoreUser = _latucContext.LevelsStatistics.Where(i => i.Iduser == Settings.Default.idUser).ToList();
             var item = statistic.First(i => i.Idstatistic == Settings.Default.idUser);
             var index = statistic.IndexOf(item);
+            int z = 0;
+            foreach (var item1 in scoreUser) {
+                z = z + item1.ScoreTest + item1.ScoreTheory + item1.ScorePractic;
 
-            if (score != 0) {
-                item.Score = item.Score + score;
-                if (item.Score >= 20)
-                {
-                    item.LanguageLvl = 1;
-                }
-                if (item.Score >= 40)
-                {
-                    item.LanguageLvl = 2;
-                }
-                statistic.RemoveAt(index);
-                statistic.Insert(index, item);
-                await _latucContext.SaveChangesAsync();
             }
+            item.Score = z;
+            if (item.Score >= 20)
+            {
+                item.LanguageLvl = 1;
+            }
+            if (item.Score >= 40)
+            {
+                item.LanguageLvl = 2;
+            }
+            statistic.RemoveAt(index);
+            statistic.Insert(index, item);
+            await _latucContext.SaveChangesAsync();
+            
            
            
 

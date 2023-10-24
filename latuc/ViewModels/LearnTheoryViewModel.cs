@@ -50,7 +50,7 @@ namespace latuc.ViewModels
             else
                 await _levelService.LevelsStatisticAsync(theory.IdTheory, 0, 0, 0, 0, 0, 1);
 
-            await _userService.editStatisticUser(1);
+            await _userService.editStatisticUser();
 
             _pageService.ChangePage(new LearnPage());
         });
