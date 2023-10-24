@@ -61,8 +61,10 @@ namespace latuc.Services
         public async Task LevelsStatisticAsync(int id_level,int scoreTest, int countTryTest, int scorePractic, int levelComplete, int countTryPractic, int scoreTheory)
         {
             DateOnly dateOnly = DateOnly.FromDateTime(DateTime.Now);
+            var z = _latucContext.LevelsStatistics.Max(i => i.Idlevels);
             await _latucContext.LevelsStatistics.AddAsync(new LevelsStatistic
             {
+                Idlevels = z + 1, 
                 Iduser = Settings.Default.idUser,
                 ScoreTest = scoreTest,
                 Date = dateOnly,
@@ -79,8 +81,10 @@ namespace latuc.Services
         public async Task LevelsStatisticPracticAsync(int id_level, int scoreTest, int countTryTest, int scorePractic, int levelComplete, int countTryPractic, int scoreTheory)
         {
             DateOnly dateOnly = DateOnly.FromDateTime(DateTime.Now);
+            var z = _latucContext.LevelsStatistics.Max(i => i.Idlevels);
             await _latucContext.LevelsStatistics.AddAsync(new LevelsStatistic
             {
+                Idlevels = z + 1,
                 Iduser = Settings.Default.idUser,
                 ScoreTest = scoreTest,
                 Date = dateOnly,
@@ -97,8 +101,10 @@ namespace latuc.Services
         public async Task LevelsStatisticAsyncTest(int id_level, int scoreTest, int countTryTest, int scorePractic, int levelComplete, int countTryPractic, int scoreTheory)
         {
             DateOnly dateOnly = DateOnly.FromDateTime(DateTime.Now);
+            var z = _latucContext.LevelsStatistics.Max(i => i.Idlevels);
             await _latucContext.LevelsStatistics.AddAsync(new LevelsStatistic
             {
+                Idlevels = z + 1,
                 Iduser = Settings.Default.idUser,
                 ScoreTest = scoreTest,
                 Date = dateOnly,
