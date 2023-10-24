@@ -33,6 +33,27 @@ namespace latuc.Services
         {
             return _latucContext.Practics.Where(u => u.Idpractic == 2).First();
         }
+
+        public bool checkMiddle()
+        {
+            var b = _latucContext.Statistics.Where(u => u.Idstatistic == Settings.Default.idUser).First();
+            if (b.LanguageLvl >= 1) {
+                return true;
+            }
+            return false;
+
+            
+        }
+        public bool checkSenior()
+        {
+            var b = _latucContext.Statistics.Where(u => u.Idstatistic == Settings.Default.idUser).First();
+            if (b.LanguageLvl >= 2)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public async Task<List<Level>> getAllTest()
         {
             return await _latucContext.Levels.Where(u => u.Idlevels == 1).AsNoTracking().ToListAsync();

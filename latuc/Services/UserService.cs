@@ -96,6 +96,35 @@ namespace latuc.Services
             await _latucContext.SaveChangesAsync();
         }
 
+
+        public async Task editStatisticUser(int score)
+        {
+            var statistic = _latucContext.Statistics.ToList();
+
+            var item = statistic.First(i => i.Idstatistic == Settings.Default.idUser);
+            var index = statistic.IndexOf(item);
+
+            if (score != 0) {
+                item.Score = item.Score + score;
+                if (item.Score >= 20)
+                {
+                    item.LanguageLvl = 1;
+                }
+                if (item.Score >= 40)
+                {
+                    item.LanguageLvl = 2;
+                }
+                statistic.RemoveAt(index);
+                statistic.Insert(index, item);
+                await _latucContext.SaveChangesAsync();
+            }
+           
+           
+
+
+        }
+
+
         public void UpdateProductNull()
         {
             Settings.Default.exitBool = 0;
@@ -106,6 +135,12 @@ namespace latuc.Services
         {
 
             return _latucContext.Users.Max(u => u.Iduser);
+        }
+        public int getLastScore(int idStat)
+        {
+
+            var a = _latucContext.LevelsStatistics.Where(u => u.Iduser == Settings.Default.idUser && u.Id_level == idStat).First();
+            return a.ScoreTest;
         }
 
         public async Task<List<string>> GetAllUser()

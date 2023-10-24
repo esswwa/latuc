@@ -49,6 +49,9 @@ namespace latuc.ViewModels
                 await _levelService.saveRedact(theory.IdTheory);
             else
                 await _levelService.LevelsStatisticAsync(theory.IdTheory, 0, 0, 0, 0, 0, 1);
+
+            await _userService.editStatisticUser(1);
+
             _pageService.ChangePage(new LearnPage());
         });
         

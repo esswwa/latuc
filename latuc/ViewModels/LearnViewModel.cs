@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.Query.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,7 +44,10 @@ namespace latuc.ViewModels
         public int RatingPracticReturn { get; set; }
         public int RatingPracticSwitch { get; set; }
         public int RatingPracticRecursive { get; set; }
+        public bool MiddleEnabled { get; set;}
+        public bool SeniorEnabled { get; set; }
 
+        
         public DelegateCommand<string> Theory { get; set; }
 
         public DelegateCommand<string> Test { get; set; }
@@ -56,6 +60,21 @@ namespace latuc.ViewModels
             _pageService = pageService;
             _levelsService = levelsService;
 
+            bool checkMiddle = _levelsService.checkMiddle();
+
+            bool checkSenior = _levelsService.checkSenior();
+
+
+            MiddleEnabled = false;
+            SeniorEnabled = false;
+            Task.Delay(1000);
+            if (checkMiddle) {
+                MiddleEnabled = true;
+            }
+            if (checkSenior)
+            {
+                SeniorEnabled = true;
+            }
             List<LevelsStatistic> levels = _levelsService.getLevelRating();
 
             if (levels != null)
