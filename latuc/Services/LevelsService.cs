@@ -83,6 +83,16 @@ namespace latuc.Services
             return _latucContext.Practics.Where(u => u.Idpractic == levls.Practic).First();
         }
 
+        public List<LevelsStatistic> getLevelRating()
+        {
+            List<LevelsStatistic> levls;
+            levls = _latucContext.LevelsStatistics.Where(u => u.Iduser == Settings.Default.idUser).ToList();
+            if (levls != null)
+                return levls;
+            else
+                return null;
+        }
+
         public List<Option> getAllOptions(string peremen)
         {
             Level levls;
