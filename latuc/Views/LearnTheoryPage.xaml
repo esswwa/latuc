@@ -138,7 +138,8 @@
                 <Button 
                     FontFamily="{StaticResource font}"
                     Style="{StaticResource ButtonStyle3}"
-                    Content="Далее"/>
+                    Content="Прочитал"
+                    Command="{Binding endRead}"/>
             </Grid>
         </Grid>
     </Grid>

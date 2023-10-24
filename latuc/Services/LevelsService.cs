@@ -35,7 +35,7 @@ namespace latuc.Services
         {
             return await _latucContext.Levels.Where(u => u.Idlevels == 1).AsNoTracking().ToListAsync();
         }
-        public async Task LevelsStatisticAsync(int scoreTest, int countTryTest, int scorePractic, int levelComplete, int countTryPractic, int scoreTheory)
+        public async Task LevelsStatisticAsync(int id_level,int scoreTest, int countTryTest, int scorePractic, int levelComplete, int countTryPractic, int scoreTheory)
         {
             DateOnly dateOnly = DateOnly.FromDateTime(DateTime.Now);
             await _latucContext.LevelsStatistics.AddAsync(new LevelsStatistic
@@ -47,9 +47,26 @@ namespace latuc.Services
                 ScorePractic = scorePractic,
                 LevelComplete = levelComplete,
                 CountTryPractic = countTryPractic,
-                ScoreTheory = scoreTheory
+                ScoreTheory = scoreTheory,
+                Id_level = id_level
             });
             await _latucContext.SaveChangesAsync();
+        }
+
+        public bool checkBool(int idTheory) {
+            try
+            {
+                if (_latucContext.LevelsStatistics.Where(i => i.Iduser == Settings.Default.idUser && i.Id_level == idTheory).First() != null)
+                    return true;
+                else
+                    return false; 
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+           
+
         }
 
         public Theory getTheoryFirst(string peremen)

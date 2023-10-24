@@ -112,6 +112,8 @@ public partial class LatucCodeContext : DbContext
 
             entity.HasIndex(e => e.Iduser, "FK_user_From_Levels_idx");
 
+            entity.HasIndex(e => e.Id_level, "fk_idlvel_from_levels_to_levels");
+
             entity.Property(e => e.Idlevels)
                 .ValueGeneratedNever()
                 .HasColumnName("idlevels");
@@ -123,11 +125,12 @@ public partial class LatucCodeContext : DbContext
             entity.Property(e => e.ScorePractic).HasColumnName("score_practic");
             entity.Property(e => e.ScoreTest).HasColumnName("score_test");
             entity.Property(e => e.ScoreTheory).HasColumnName("score_theory");
-
+            entity.Property(e => e.Id_level).HasColumnName("id_level");
+            
             entity.HasOne(d => d.IdlevelsNavigation).WithOne(p => p.LevelsStatistic)
-                .HasForeignKey<LevelsStatistic>(d => d.Idlevels)
+                .HasForeignKey<LevelsStatistic>(d => d.Id_level)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_idLevel");
+                .HasConstraintName("fk_idlvel_from_levels_to_levels");
 
             entity.HasOne(d => d.IduserNavigation).WithMany(p => p.LevelsStatistics)
                 .HasForeignKey(d => d.Iduser)

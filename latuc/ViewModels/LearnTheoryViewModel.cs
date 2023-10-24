@@ -42,7 +42,15 @@ namespace latuc.ViewModels
         });
         public DelegateCommand goBack => new(async () => _pageService.ChangePage(new LearnPage()));
 
-
+        public DelegateCommand endRead => new(() =>
+        {
+            bool z = _levelService.checkBool(theory.IdTheory);
+            if (z == true)
+                MessageBox.Show("da");
+            else
+                _levelService.LevelsStatisticAsync(theory.IdTheory, 0, 0, 0, 0, 0, 1);
+        });
+        
 
     }
 }
