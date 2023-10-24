@@ -64,7 +64,7 @@ namespace latuc.ViewModels
 
 
         public ObservableCollection<CommandVM> AllCommands { get; } = new ObservableCollection<CommandVM>();
-        public ObservableCollection<CommandVM> AllCommandsErrors { get; } = new ObservableCollection<CommandVM>();
+        public ObservableCollection<int> AllCommandsErrors { get; set; } = new ObservableCollection<int>();
 
         public ICommand Evaluate { get; }
         public ICommand GoUp { get; }
@@ -160,7 +160,6 @@ namespace latuc.ViewModels
                 catch (CompilationErrorException ex)
                 {
                     LastCommand = new CommandVM(cmd, false, string.Join(" // ", ex.Diagnostics));
-                    LastCommandCheck = new CommandVM(cmd, false, string.Join(" // ", ex.Diagnostics));
                 }
                 catch (Exception ex)
                 {
@@ -170,24 +169,32 @@ namespace latuc.ViewModels
                 if (output.ToString().Contains(answer) || output.ToString() == answer)
                 {
                     LastCommand = new CommandVM(cmd, true, output + "Ответ верный");
-                    
-                    if (AllCommandsErrors.Count == 0 && AllCommands.Count >= 2 || (practic.Idpractic == 0 && AllCommandsErrors.Count == 0))
+
+                    foreach (var item in AllCommands)
+                    {
+                        if (item.Result.Contains("error"))
+                        {
+                            AllCommandsErrors.Add(1);
+                        }
+                    }
+
+                    if (AllCommandsErrors.Count == 0 && AllCommands.Count + 1 >= 2 || (practic.Idpractic == 0 && AllCommandsErrors.Count == 0))
                     {
                         score = 5;
                     }
-                    else if (AllCommandsErrors.Count == 1 && AllCommands.Count >= 3 || (practic.Idpractic == 0 && AllCommandsErrors.Count == 1))
+                    else if (AllCommandsErrors.Count == 1 && AllCommands.Count + 1 >= 3 || (practic.Idpractic == 0 && AllCommandsErrors.Count == 1))
                     {
                         score = 4;
                     }
-                    else if (AllCommandsErrors.Count == 2 && AllCommands.Count >= 4 || (practic.Idpractic == 0 && AllCommandsErrors.Count == 2))
+                    else if (AllCommandsErrors.Count == 2 && AllCommands.Count + 1 >= 4 || (practic.Idpractic == 0 && AllCommandsErrors.Count == 2))
                     {
                         score = 3;
                     }
-                    else if (AllCommandsErrors.Count == 3 && AllCommands.Count >= 5 || (practic.Idpractic == 0 && AllCommandsErrors.Count == 3))
+                    else if (AllCommandsErrors.Count == 3 && AllCommands.Count + 1 >= 5 || (practic.Idpractic == 0 && AllCommandsErrors.Count == 3))
                     {
                         score = 2;
                     }
-                    else if (AllCommandsErrors.Count == 4 && AllCommands.Count >= 6 || (practic.Idpractic == 0 && AllCommandsErrors.Count == 4))
+                    else if (AllCommandsErrors.Count == 4 && AllCommands.Count + 1 >= 6 || (practic.Idpractic == 0 && AllCommandsErrors.Count == 4))
                     {
                         score = 1;
                     }
@@ -196,6 +203,7 @@ namespace latuc.ViewModels
                         score = 0;
                     }
 
+                    
                     MessageBox.Show(score.ToString());
 
                     bool z = _levelsService.checkBool(practic.Idpractic);
@@ -210,7 +218,6 @@ namespace latuc.ViewModels
                 }
                 else {
                     AllCommands.Add(LastCommand);
-                    AllCommandsErrors.Add(LastCommandCheck);
                     CurrentCommand = null;
                 }
 
