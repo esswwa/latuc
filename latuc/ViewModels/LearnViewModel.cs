@@ -47,7 +47,8 @@ namespace latuc.ViewModels
         public bool MiddleEnabled { get; set;}
         public bool SeniorEnabled { get; set; }
 
-        
+        public string HeaderMiddle { get; set; }
+        public string HeaderSenior { get; set; }
         public DelegateCommand<string> Theory { get; set; }
 
         public DelegateCommand<string> Test { get; set; }
@@ -63,17 +64,26 @@ namespace latuc.ViewModels
             bool checkMiddle = _levelsService.checkMiddle();
 
             bool checkSenior = _levelsService.checkSenior();
-
-
             MiddleEnabled = false;
             SeniorEnabled = false;
             Task.Delay(1000);
-            if (checkMiddle) {
+            if (checkMiddle)
+            {
                 MiddleEnabled = true;
+                HeaderMiddle = "Программирование среднего уровня на C#.";
+            }
+            else {
+
+                HeaderMiddle = "Программирование среднего уровня на C#.\nУровень заблокирован по причине отсутствия соответсвующего уровня программирования.";
             }
             if (checkSenior)
             {
                 SeniorEnabled = true;
+                HeaderSenior = "Программирование продвинутого уровня на C#.";
+            }
+            else {
+
+                HeaderSenior = "Программирование продвинутого уровня на C#.\nУровень заблокирован по причине отсутствия соответсвующего уровня программирования.";
             }
             List<LevelsStatistic> levels = _levelsService.getLevelRating();
 

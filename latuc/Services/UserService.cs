@@ -1,4 +1,6 @@
 ﻿using DevExpress.Mvvm.Native;
+using System;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Controls;
 using static System.Formats.Asn1.AsnWriter;
@@ -38,6 +40,11 @@ namespace latuc.Services
         public async Task<List<User>> getUsers()
         {
             return _latucContext.Users.ToList();
+        }
+
+        public int checkScore() {
+
+            return _latucContext.Statistics.First(i => i.Idstatistic == Settings.Default.idUser).Score;
         }
 
         public async Task RegistrationAsync(string email, string login, string password, int idStatistic, int idAchievemnts, int Role)
@@ -97,27 +104,42 @@ namespace latuc.Services
         }
 
 
-        public async Task editStatisticUser(int score)
+        public async Task editStatisticUser()
         {
             var statistic = _latucContext.Statistics.ToList();
-
+            var scoreUser = _latucContext.LevelsStatistics.Where(i => i.Iduser == Settings.Default.idUser).ToList();
             var item = statistic.First(i => i.Idstatistic == Settings.Default.idUser);
             var index = statistic.IndexOf(item);
+            int z = 0;
+            int z2 = 0;
+            foreach (var item1 in scoreUser) {
+                z = z + item1.ScoreTest + item1.ScoreTheory + item1.ScorePractic;
 
-            if (score != 0) {
-                item.Score = item.Score + score;
-                if (item.Score >= 20)
-                {
-                    item.LanguageLvl = 1;
-                }
-                if (item.Score >= 40)
-                {
-                    item.LanguageLvl = 2;
-                }
-                statistic.RemoveAt(index);
-                statistic.Insert(index, item);
-                await _latucContext.SaveChangesAsync();
             }
+
+            foreach (var item2 in scoreUser)
+            {
+                if (item2.ScorePractic > 0 && item2.ScoreTest > 0 && item2.ScoreTheory > 0)
+                {
+                    z2 += 1;
+                }
+            }
+
+            item.Score = z;
+            item.CountOfPassedLevel = z2;
+
+            if (item.Score >= 20)
+            {
+                item.LanguageLvl = 1;
+            }
+            if (item.Score >= 40)
+            {
+                item.LanguageLvl = 2;
+            }
+            statistic.RemoveAt(index);
+            statistic.Insert(index, item);
+            await _latucContext.SaveChangesAsync();
+            
            
            
 
