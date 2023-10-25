@@ -152,6 +152,8 @@
                     MinHeight="50"
                     FontFamily="{StaticResource font}"
                     Style="{StaticResource ButtonStyle3}"
+                    Command="{Binding ClickTest}"
+                    CommandParameter = "UpLeftQuestion"
                     Content="{Binding UpLeftQuestion}"
                     Margin="10 0 10 0"/>
 
@@ -160,6 +162,8 @@
                     Grid.Row="2"
                     FontFamily="{StaticResource font}"
                     Style="{StaticResource ButtonStyle3}"
+                     Command="{Binding ClickTest}"
+                    CommandParameter = "DownLeftQuestion"
                     Content="{Binding DownLeftQuestion}"
                     Margin="10 0 10 0"/>
 
@@ -169,6 +173,8 @@
                     Grid.Column="1"
                     FontFamily="{StaticResource font}"
                     Style="{StaticResource ButtonStyle3}"
+                    Command="{Binding ClickTest}"
+                    CommandParameter = "UpRightQuestion"
                     Content="{Binding UpRightQuestion}"
                     Margin="10 0 10 0"/>
 
@@ -177,6 +183,8 @@
                     Grid.Row="2"
                     Grid.Column="1"
                     FontFamily="{StaticResource font}"
+                    Command="{Binding ClickTest}"
+                    CommandParameter = "DownRightQuestion"
                     Style="{StaticResource ButtonStyle3}"
                     Content="{Binding DownRightQuestion}"
                     Margin="10 0 10 0"/>

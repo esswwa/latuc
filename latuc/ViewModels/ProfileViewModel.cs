@@ -22,6 +22,7 @@ namespace latuc.ViewModels
         public int CountTry { get; set; }
 
         public string ResultTest { get; set; }
+        public string Score { get; set; }
 
 
         public ProfileViewModel(UserService userService, PageService pageService)
@@ -61,6 +62,8 @@ namespace latuc.ViewModels
         {
             Statistic Statistics = _userService.userStatistic();
             Login = Settings.Default.userLogin;
+            Score =  _userService.checkScore().ToString();
+
             if (Statistics.LanguageLvl == 0)
                 LanguageLevel = "Junior";
             else if (Statistics.LanguageLvl == 1)

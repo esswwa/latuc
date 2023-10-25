@@ -123,7 +123,8 @@
                                     <TreeViewItem Header="Структура программы"
                                       Foreground="#424874"
                                       FontFamily="{StaticResource font}">
-                                        <Button Content="Теория"
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Теория"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
@@ -131,87 +132,146 @@
                                                 CommandParameter = "JuniorСтруктура"
 
                                                 FontFamily="{StaticResource font}"/>
-                                        <materialDesign:RatingBar
-                                        x:Name="BasicRatingBarTheory"
-                                        IsReadOnly="True"
-                                        Value="{Binding RatingTheory}" />
-                                        <Button Content="Тест"
+                                            <materialDesign:RatingBar
+                                                Margin="10 0 0 0"
+                                                x:Name="BasicRatingBarTheory" 
+                                                Max="1"
+                                                IsReadOnly="True"
+                                                Value="{Binding RatingTheoryStructure}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Тест"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Test}"
                                                 CommandParameter="JuniorСтруктура"
                                                 FontFamily="{StaticResource font}"/>
-                                        <materialDesign:RatingBar
-                                        x:Name="BasicRatingBarTest"
-                                        IsReadOnly="True"
-                                        Value="{Binding RatingTest}" />
-                                        <Button Content="Практика"
+                                            <materialDesign:RatingBar
+                                            x:Name="BasicRatingBarTest"
+                                            IsReadOnly="True"
+                                            Margin="10 0 0 0"
+                                            Max="3"
+                                            Value="{Binding RatingTestStructure}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Практика"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Practic}"
                                                 CommandParameter = "JuniorСтруктура"
                                                 FontFamily="{StaticResource font}"/>
-                                        <materialDesign:RatingBar
-                                        x:Name="BasicRatingBarPractic"
-                                        IsReadOnly="True"
-                                        Value="{Binding RatingPractic}" />
-                                    
+                                            <materialDesign:RatingBar
+                                            x:Name="BasicRatingBarPractic"
+                                            IsReadOnly="True"
+                                            Margin="10 0 0 0"
+                                            Value="{Binding RatingPracticStructure}" />
+                                        </StackPanel>
+
                                     </TreeViewItem>
                                 </TreeView>
                                 <TreeView Background="#D6E4F0">
                                     <TreeViewItem Header="Переменные и константы"
                                       Foreground="#424874"
                                       FontFamily="{StaticResource font}">
-                                        <Button Content="Теория"
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Теория"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Theory}"
                                                 CommandParameter = "JuniorПеременные"
+
                                                 FontFamily="{StaticResource font}"/>
-                                        <Button Content="Тест"
+                                            <materialDesign:RatingBar
+                                                Margin="10 0 0 0"
+                                                x:Name="BasicRatingBarTheory1" 
+                                                Max="1"
+                                                IsReadOnly="True"
+                                                Value="{Binding RatingTheoryPeremen}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Тест"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Test}"
-                                                CommandParameter = "JuniorПеременные"
+                                                CommandParameter="JuniorПеременные"
                                                 FontFamily="{StaticResource font}"/>
-                                        <Button Content="Практика"
+                                            <materialDesign:RatingBar
+                                            x:Name="BasicRatingBarTest1"
+                                            IsReadOnly="True"
+                                            Margin="10 0 0 0"
+                                            Max="3"
+                                            Value="{Binding RatingTestPeremen}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Практика"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Practic}"
                                                 CommandParameter = "JuniorПеременные"
                                                 FontFamily="{StaticResource font}"/>
+                                            <materialDesign:RatingBar
+                                            x:Name="BasicRatingBarPractic1"
+                                            IsReadOnly="True"
+                                            Margin="10 0 0 0"
+                                            Value="{Binding RatingPracticPeremen}" />
+                                        </StackPanel>
+                                      
                                     </TreeViewItem>
                                 </TreeView>
                                 <TreeView Background="#D6E4F0">
                                     <TreeViewItem Header="Типы данных"
                                       Foreground="#424874"
                                       FontFamily="{StaticResource font}">
-                                        <Button Content="Теория"
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Теория"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Theory}"
                                                 CommandParameter = "JuniorТипы"
+
                                                 FontFamily="{StaticResource font}"/>
-                                        <Button Content="Тест"
+                                            <materialDesign:RatingBar
+                                                Margin="10 0 0 0"
+                                                x:Name="BasicRatingBarTheory2" 
+                                                Max="1"
+                                                IsReadOnly="True"
+                                                Value="{Binding RatingTheoryType}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Тест"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Test}"
-                                                CommandParameter = "JuniorТипы"
+                                                CommandParameter="JuniorТипы"
                                                 FontFamily="{StaticResource font}"/>
-                                        <Button Content="Практика"
+                                            <materialDesign:RatingBar
+                                            x:Name="BasicRatingBarTest2"
+                                            IsReadOnly="True"
+                                            Margin="10 0 0 0"
+                                            Max="3"
+                                            Value="{Binding RatingTestType}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Практика"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Practic}"
                                                 CommandParameter = "JuniorТипы"
                                                 FontFamily="{StaticResource font}"/>
+                                            <materialDesign:RatingBar
+                                            x:Name="BasicRatingBarPractic2"
+                                            IsReadOnly="True"
+                                            Margin="10 0 0 0"
+                                            Value="{Binding RatingPracticType}" />
+                                        </StackPanel>
                                     </TreeViewItem>
                                 </TreeView>
                             </StackPanel>
@@ -225,7 +285,7 @@
                 <ScrollViewer>
                     <StackPanel HorizontalAlignment="Stretch"
                             VerticalAlignment="Top">
-                        <Expander HorizontalAlignment="Stretch" Header="Основы программирования на C#" Background="#D6E4F0" Foreground="#424874" FontFamily="{StaticResource font}">
+                        <Expander IsEnabled="{Binding MiddleEnabled}" HorizontalAlignment="Stretch" Header="{Binding HeaderMiddle}" Background="#D6E4F0" Foreground="#424874" FontFamily="{StaticResource font}">
                             <StackPanel Orientation="Vertical"
                                     HorizontalAlignment="Stretch">
 
@@ -233,82 +293,151 @@
                                     <TreeViewItem Header="Конструкция if..else и тернарная операция"
                                       Foreground="#424874"
                                       FontFamily="{StaticResource font}">
-                                        <Button Content="Теория"
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Теория"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Theory}"
                                                 CommandParameter = "MiddleКонструкция if"
+
                                                 FontFamily="{StaticResource font}"/>
-                                        <Button Content="Тест"
+                                            <materialDesign:RatingBar
+                                                Margin="10 0 0 0"
+                                                x:Name="BasicRatingBarTheory3" 
+                                                Max="1"
+                                                IsReadOnly="True"
+                                                Value="{Binding RatingTheoryConstruct}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Тест"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Test}"
-                                                CommandParameter = "MiddleКонструкция if"
+                                                CommandParameter="MiddleКонструкция if"
                                                 FontFamily="{StaticResource font}"/>
-                                        <Button Content="Практика"
+                                            <materialDesign:RatingBar
+                                            x:Name="BasicRatingBarTest3"
+                                            IsReadOnly="True"
+                                            Margin="10 0 0 0"
+                                            Max="3"
+                                            Value="{Binding RatingTestConstruct}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Практика"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Practic}"
                                                 CommandParameter = "MiddleКонструкция if"
                                                 FontFamily="{StaticResource font}"/>
-
+                                            <materialDesign:RatingBar
+                                            x:Name="BasicRatingBarPractic3"
+                                            IsReadOnly="True"
+                                            Margin="10 0 0 0"
+                                            Value="{Binding RatingPracticConstruct}" />
+                                        </StackPanel>
                                     </TreeViewItem>
                                 </TreeView>
                                 <TreeView Background="#D6E4F0">
                                     <TreeViewItem Header="Циклы"
                                       Foreground="#424874"
                                       FontFamily="{StaticResource font}">
-                                        <Button Content="Теория"
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Теория"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Theory}"
                                                 CommandParameter = "MiddleЦиклы"
                                                 FontFamily="{StaticResource font}"/>
-                                        <Button Content="Тест"
+                                            <materialDesign:RatingBar
+                                                Margin="10 0 0 0"
+                                                x:Name="BasicRatingBarTheory4" 
+                                                Max="1"
+                                                IsReadOnly="True"
+                                                Value="{Binding RatingTheoryCicle}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Тест"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Test}"
-                                                CommandParameter = "MiddleЦиклы"
+                                                CommandParameter="MiddleЦиклы"
                                                 FontFamily="{StaticResource font}"/>
-                                        <Button Content="Практика"
+                                            <materialDesign:RatingBar
+                                            x:Name="BasicRatingBarTest4"
+                                            IsReadOnly="True"
+                                            Margin="10 0 0 0"
+                                            Max="3"
+                                            Value="{Binding RatingTestCicle}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Практика"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Practic}"
                                                 CommandParameter = "MiddleЦиклы"
                                                 FontFamily="{StaticResource font}"/>
+                                            <materialDesign:RatingBar
+                                            x:Name="BasicRatingBarPractic4"
+                                            IsReadOnly="True"
+                                            Margin="10 0 0 0"
+                                            Value="{Binding RatingPracticCicle}" />
+                                        </StackPanel>
                                     </TreeViewItem>
                                 </TreeView>
                                 <TreeView Background="#D6E4F0">
                                     <TreeViewItem Header="Массивы"
                                       Foreground="#424874"
                                       FontFamily="{StaticResource font}">
-                                        <Button Content="Теория"
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Теория"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Theory}"
                                                 CommandParameter = "MiddleМассив"
                                                 FontFamily="{StaticResource font}"/>
-                                        <Button Content="Тест"
+                                            <materialDesign:RatingBar
+                                                Margin="10 0 0 0"
+                                                x:Name="BasicRatingBarTheory5" 
+                                                Max="1"
+                                                IsReadOnly="True"
+                                                Value="{Binding RatingTheoryMassive}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Тест"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Test}"
-                                                CommandParameter = "MiddleМассив"
+                                                CommandParameter="MiddleМассив"
                                                 FontFamily="{StaticResource font}"/>
-                                        <Button Content="Практика"
+                                            <materialDesign:RatingBar
+                                            x:Name="BasicRatingBarTest5"
+                                            IsReadOnly="True"
+                                            Margin="10 0 0 0"
+                                            Max="3"
+                                            Value="{Binding RatingTestMassive}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Практика"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Practic}"
                                                 CommandParameter = "MiddleМассив"
                                                 FontFamily="{StaticResource font}"/>
+                                            <materialDesign:RatingBar
+                                            x:Name="BasicRatingBarPractic5"
+                                            IsReadOnly="True"
+                                            Margin="10 0 0 0"
+                                            Value="{Binding RatingPracticMassive}" />
+                                        </StackPanel>
                                     </TreeViewItem>
                                 </TreeView>
                             </StackPanel>
@@ -321,7 +450,7 @@
                 <ScrollViewer>
                     <StackPanel HorizontalAlignment="Stretch"
                             VerticalAlignment="Top">
-                        <Expander HorizontalAlignment="Stretch" Header="Основы программирования на C#" Background="#D6E4F0" Foreground="#424874" FontFamily="{StaticResource font}">
+                        <Expander HorizontalAlignment="Stretch" IsEnabled="{Binding SeniorEnabled}" Header="{Binding HeaderSenior}" Background="#D6E4F0" Foreground="#424874" FontFamily="{StaticResource font}">
                             <StackPanel Orientation="Vertical"
                                     HorizontalAlignment="Stretch">
 
@@ -329,82 +458,152 @@
                                     <TreeViewItem Header="Возвращение значения и оператор return"
                                       Foreground="#424874"
                                       FontFamily="{StaticResource font}">
-                                        <Button Content="Теория"
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Теория"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Theory}"
                                                 CommandParameter = "SeniorВозвращение"
                                                 FontFamily="{StaticResource font}"/>
-                                        <Button Content="Тест"
+                                            <materialDesign:RatingBar
+                                                Margin="10 0 0 0"
+                                                x:Name="BasicRatingBarTheory6" 
+                                                Max="1"
+                                                IsReadOnly="True"
+                                                Value="{Binding RatingTheoryReturn}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Тест"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Test}"
-                                                CommandParameter = "MiddleВозвращение"
+                                                CommandParameter="SeniorВозвращение"
                                                 FontFamily="{StaticResource font}"/>
-                                        <Button Content="Практика"
+                                            <materialDesign:RatingBar
+                                            x:Name="BasicRatingBarTest6"
+                                            IsReadOnly="True"
+                                            Margin="10 0 0 0"
+                                            Max="3"
+                                            Value="{Binding RatingTestReturn}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Практика"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Practic}"
-                                                CommandParameter = "MiddleВозвращение"
+                                                CommandParameter = "SeniorВозвращение"
                                                 FontFamily="{StaticResource font}"/>
-
+                                            <materialDesign:RatingBar
+                                            x:Name="BasicRatingBarPractic6"
+                                            IsReadOnly="True"
+                                            Margin="10 0 0 0"
+                                            Value="{Binding RatingPracticReturn}" />
+                                        </StackPanel>
+                                       
                                     </TreeViewItem>
                                 </TreeView>
                                 <TreeView Background="#D6E4F0">
                                     <TreeViewItem Header="Конструкция switch"
                                       Foreground="#424874"
                                       FontFamily="{StaticResource font}">
-                                        <Button Content="Теория"
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Теория"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Theory}"
-                                                CommandParameter = "MiddleКонструкция switch"
+                                                CommandParameter = "SeniorКонструкция switch"
                                                 FontFamily="{StaticResource font}"/>
-                                        <Button Content="Тест"
+                                            <materialDesign:RatingBar
+                                                Margin="10 0 0 0"
+                                                x:Name="BasicRatingBarTheory7" 
+                                                Max="1"
+                                                IsReadOnly="True"
+                                                Value="{Binding RatingTheorySwitch}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Тест"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Test}"
-                                                CommandParameter = "MiddleКонструкция switch"
+                                                CommandParameter="SeniorКонструкция switch"
                                                 FontFamily="{StaticResource font}"/>
-                                        <Button Content="Практика"
+                                            <materialDesign:RatingBar
+                                            x:Name="BasicRatingBarTest7"
+                                            IsReadOnly="True"
+                                            Margin="10 0 0 0"
+                                            Max="3"
+                                            Value="{Binding RatingTestSwitch}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Практика"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Practic}"
-                                                CommandParameter = "MiddleКонструкция switch"
+                                                CommandParameter = "SeniorКонструкция switch"
                                                 FontFamily="{StaticResource font}"/>
+                                            <materialDesign:RatingBar
+                                            x:Name="BasicRatingBarPractic7"
+                                            IsReadOnly="True"
+                                            Margin="10 0 0 0"
+                                            Value="{Binding RatingPracticSwitch}" />
+                                        </StackPanel>
+                                      
                                     </TreeViewItem>
                                 </TreeView>
                                 <TreeView Background="#D6E4F0">
                                     <TreeViewItem Header="Рекурсивные функции"
                                       Foreground="#424874"
                                       FontFamily="{StaticResource font}">
-                                        <Button Content="Теория"
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Теория"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Theory}"
-                                                CommandParameter = "MiddleРекурсивные"
+                                                CommandParameter = "SeniorРекурсивные"
                                                 FontFamily="{StaticResource font}"/>
-                                        <Button Content="Тест"
+                                            <materialDesign:RatingBar
+                                                Margin="10 0 0 0"
+                                                x:Name="BasicRatingBarTheory8" 
+                                                Max="1"
+                                                IsReadOnly="True"
+                                                Value="{Binding RatingTheoryRecursive}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Тест"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Test}"
-                                                CommandParameter = "MiddleРекурсивные"
+                                                CommandParameter="SeniorРекурсивные"
                                                 FontFamily="{StaticResource font}"/>
-                                        <Button Content="Практика"
+                                            <materialDesign:RatingBar
+                                            x:Name="BasicRatingBarTest8"
+                                            IsReadOnly="True"
+                                            Margin="10 0 0 0"
+                                            Max="3"
+                                            Value="{Binding RatingTestRecursive}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Практика"
                                                 Style="{StaticResource ButtonStyle3}"
                                                 Height="35"
                                                 Width="85"
                                                 Command="{Binding Practic}"
-                                                CommandParameter = "MiddleРекурсивные"
+                                                CommandParameter = "SeniorРекурсивные"
                                                 FontFamily="{StaticResource font}"/>
+                                            <materialDesign:RatingBar
+                                            x:Name="BasicRatingBarPractic8"
+                                            IsReadOnly="True"
+                                            Margin="10 0 0 0"
+                                            Value="{Binding RatingPracticRecursive}" />
+                                        </StackPanel>
                                     </TreeViewItem>
                                 </TreeView>
                             </StackPanel>

@@ -197,7 +197,7 @@
                             Style="{StaticResource TextBlockStyle1}"/>
                         </WrapPanel>
 
-                        <WrapPanel Margin="0,0,0,5">
+                        <WrapPanel>
                             <TextBlock
                         Text="Результат теста:"
                         HorizontalAlignment="Left"
@@ -210,18 +210,22 @@
                             Style="{StaticResource TextBlockStyle1}"/>
                         </WrapPanel>
 
+                        <WrapPanel Margin="0,0,0,5">
+                            <TextBlock
+                            Text="Очков до следующего уровня:"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource TextBlockStyle1}"/>
+
+                            <TextBlock
+                            Margin="10,0,0,0"
+                            Text="{Binding Score}"
+                            Style="{StaticResource TextBlockStyle1}"/>
+                        </WrapPanel>
+
                         <materialDesign:Chip
                             Content="Достижения" 
                             Command="{Binding Achievements}">
-                            <materialDesign:Chip.Icon>
-                                <Image
-                            />
-                            </materialDesign:Chip.Icon>
-                        </materialDesign:Chip>
-
-                        <materialDesign:Chip
-                            Content="Пройти текст"
-                            Command="{Binding Test}">
                             <materialDesign:Chip.Icon>
                                 <Image
                             />

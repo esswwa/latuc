@@ -22,6 +22,7 @@ namespace latuc.ViewModels
             _levelService = levelService;
             theory = LevelsInfo.theory;
             TheoryMain = theory.Text;
+            TheoryMain = TheoryMain.Replace("/n", "\n");
         }
 
         public DelegateCommand Authorization => new(() =>
@@ -41,7 +42,19 @@ namespace latuc.ViewModels
         });
         public DelegateCommand goBack => new(async () => _pageService.ChangePage(new LearnPage()));
 
+        public DelegateCommand endRead => new(async () =>
+        {
+            bool z = _levelService.checkBool(theory.IdTheory);
+            if (z == true)
+                await _levelService.saveRedact(theory.IdTheory);
+            else
+                await _levelService.LevelsStatisticAsync(theory.IdTheory, 0, 0, 0, 0, 0, 1);
 
+            await _userService.editStatisticUser();
+
+            _pageService.ChangePage(new LearnPage());
+        });
+        
 
     }
 }

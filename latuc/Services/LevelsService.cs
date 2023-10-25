@@ -1,9 +1,11 @@
 ﻿using MaterialDesignThemes.Wpf;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Ink;
 
@@ -31,15 +33,38 @@ namespace latuc.Services
         {
             return _latucContext.Practics.Where(u => u.Idpractic == 2).First();
         }
+
+        public bool checkMiddle()
+        {
+            var b = _latucContext.Statistics.Where(u => u.Idstatistic == Settings.Default.idUser).First();
+            if (b.LanguageLvl >= 1) {
+                return true;
+            }
+            return false;
+
+            
+        }
+        public bool checkSenior()
+        {
+            var b = _latucContext.Statistics.Where(u => u.Idstatistic == Settings.Default.idUser).First();
+            if (b.LanguageLvl >= 2)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public async Task<List<Level>> getAllTest()
         {
             return await _latucContext.Levels.Where(u => u.Idlevels == 1).AsNoTracking().ToListAsync();
         }
-        public async Task LevelsStatisticAsync(int scoreTest, int countTryTest, int scorePractic, int levelComplete, int countTryPractic, int scoreTheory)
+        public async Task LevelsStatisticAsync(int id_level,int scoreTest, int countTryTest, int scorePractic, int levelComplete, int countTryPractic, int scoreTheory)
         {
             DateOnly dateOnly = DateOnly.FromDateTime(DateTime.Now);
+            var z = _latucContext.LevelsStatistics.Max(i => i.Idlevels);
             await _latucContext.LevelsStatistics.AddAsync(new LevelsStatistic
             {
+                Idlevels = z + 1, 
                 Iduser = Settings.Default.idUser,
                 ScoreTest = scoreTest,
                 Date = dateOnly,
@@ -47,9 +72,111 @@ namespace latuc.Services
                 ScorePractic = scorePractic,
                 LevelComplete = levelComplete,
                 CountTryPractic = countTryPractic,
-                ScoreTheory = scoreTheory
+                ScoreTheory = scoreTheory,
+                Id_level = id_level
             });
             await _latucContext.SaveChangesAsync();
+        }
+
+        public async Task LevelsStatisticPracticAsync(int id_level, int scoreTest, int countTryTest, int scorePractic, int levelComplete, int countTryPractic, int scoreTheory)
+        {
+            DateOnly dateOnly = DateOnly.FromDateTime(DateTime.Now);
+            var z = _latucContext.LevelsStatistics.Max(i => i.Idlevels);
+            await _latucContext.LevelsStatistics.AddAsync(new LevelsStatistic
+            {
+                Idlevels = z + 1,
+                Iduser = Settings.Default.idUser,
+                ScoreTest = scoreTest,
+                Date = dateOnly,
+                CountTryTest = countTryTest,
+                ScorePractic = scorePractic,
+                LevelComplete = levelComplete,
+                CountTryPractic = countTryPractic,
+                ScoreTheory = scoreTheory,
+                Id_level = id_level
+            });
+            await _latucContext.SaveChangesAsync();
+        }
+
+        public async Task LevelsStatisticAsyncTest(int id_level, int scoreTest, int countTryTest, int scorePractic, int levelComplete, int countTryPractic, int scoreTheory)
+        {
+            DateOnly dateOnly = DateOnly.FromDateTime(DateTime.Now);
+            var z = _latucContext.LevelsStatistics.Max(i => i.Idlevels);
+            await _latucContext.LevelsStatistics.AddAsync(new LevelsStatistic
+            {
+                Idlevels = z + 1,
+                Iduser = Settings.Default.idUser,
+                ScoreTest = scoreTest,
+                Date = dateOnly,
+                CountTryTest = 1,
+                ScorePractic = scorePractic,
+                LevelComplete = levelComplete,
+                CountTryPractic = countTryPractic,
+                ScoreTheory = scoreTheory,
+                Id_level = id_level
+            });
+            await _latucContext.SaveChangesAsync();
+        }
+
+        public async Task saveRedact(int idlevel)
+        {
+            var Levels = _latucContext.LevelsStatistics.ToList();
+
+            var item = Levels.First(i => i.Id_level == idlevel && i.Iduser == Settings.Default.idUser);
+            var index = Levels.IndexOf(item);
+            if (item.ScoreTheory != 1)
+            {
+                item.ScoreTheory = 1;
+                Levels.RemoveAt(index);
+                Levels.Insert(index, item);
+                await _latucContext.SaveChangesAsync();
+            }
+            
+           
+        }
+        public async Task saveRedactTest(int idlevel, int scoreTest)
+        {
+            var Levels = _latucContext.LevelsStatistics.ToList();
+
+            var item = Levels.First(i => i.Id_level == idlevel && i.Iduser == Settings.Default.idUser);
+            var index = Levels.IndexOf(item);
+            
+                item.ScoreTest = scoreTest;
+                item.CountTryTest = item.CountTryTest + 1;
+                Levels.RemoveAt(index);
+                Levels.Insert(index, item);
+                await _latucContext.SaveChangesAsync();
+        }
+
+        public async Task saveRedactPractic(int idlevel, int scorePractic)
+        {
+            var Levels = _latucContext.LevelsStatistics.ToList();
+
+            var item = Levels.First(i => i.Id_level == idlevel && i.Iduser == Settings.Default.idUser);
+            var index = Levels.IndexOf(item);
+
+            item.ScorePractic = scorePractic;
+            item.CountTryPractic = item.CountTryPractic + 1;
+            Levels.RemoveAt(index);
+            Levels.Insert(index, item);
+            await _latucContext.SaveChangesAsync();
+        }
+
+
+        public bool checkBool(int idTheory) {
+            try
+            {
+                if (_latucContext.LevelsStatistics.Where(i => i.Iduser == Settings.Default.idUser && i.Id_level == idTheory).First() != null)
+                    return true;
+                else
+                    return false; 
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+           
+
         }
 
         public Theory getTheoryFirst(string peremen)
@@ -64,6 +191,16 @@ namespace latuc.Services
             Level levls;
             levls = _latucContext.Levels.Where(u => u.Theme.Contains(peremen)).First(); 
             return _latucContext.Practics.Where(u => u.Idpractic == levls.Practic).First();
+        }
+
+        public List<LevelsStatistic> getLevelRating()
+        {
+            List<LevelsStatistic> levls;
+            levls = _latucContext.LevelsStatistics.Where(u => u.Iduser == Settings.Default.idUser).ToList();
+            if (levls != null)
+                return levls;
+            else
+                return null;
         }
 
         public List<Option> getAllOptions(string peremen)

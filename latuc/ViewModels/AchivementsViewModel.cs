@@ -1,4 +1,5 @@
-﻿using System;
+﻿using latuc.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,11 @@ namespace latuc.ViewModels
         {
             _pageService.ChangePage(new LearnTheoryPage());
         });
-
+        public DelegateCommand Levels => new(() =>
+        {
+            _pageService.ChangePage(new LearnPage());
+        });
+        
         public DelegateCommand Test => new(() =>
         {
             _pageService.ChangePage(new LearnTestPage());
