@@ -91,7 +91,7 @@ namespace latuc.ViewModels
             {
                 foreach (var item in levels)
                 {
-                    switch (item.Idlevels.ToString())
+                    switch (item.Id_level.ToString())
                     {
                         case ("0"):
                             {
