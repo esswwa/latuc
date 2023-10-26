@@ -170,6 +170,10 @@ namespace latuc.ViewModels
                 else
                      _levelsService.LevelsStatisticAsync(test[0].Idoption / 3, checkScoreTest, 0, 0, 0, 0, 0);
 
+
+                MessageBox.Show(checkScoreTest.ToString());
+
+
                 checkScoreTest = checkScoreTest - z1;
                 
                 if (checkScoreTest > 0)
